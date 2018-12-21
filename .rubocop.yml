@@ -1,0 +1,27 @@
+AllCops:
+  Exclude:
+    - 'script/**/*'
+    - 'lib/**/*'
+    - 'bin/**/*'
+    - 'spec/**/*'
+    - 'features/**/*'
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'db/schema.rb'
+    - 'db/seeds.rb'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'test/**/*'
+
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context']
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Layout/EmptyLines:
+  Exclude:
+    - 'lib/**/*'
