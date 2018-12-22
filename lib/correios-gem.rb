@@ -1,6 +1,8 @@
+require_relative 'sigep/query_zip_code'
+
 module Correios
-  def self.check_gem
-    puts 'YAY! Correios-gem is working!'
+  def self.test
+    'YAY! Correios-gem is working!'
   end
 
   module Precifier
@@ -10,6 +12,9 @@ module Correios
   end
 
   module Sigep
+    def self.query_zip_code(data = {})
+      QueryZipCode.new(data).request
+    end
   end
 
   module SRO
