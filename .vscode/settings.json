@@ -1,0 +1,12 @@
+{
+    "ruby.lint": {
+        "reek": true,
+        "rubocop": true,
+        "ruby": true,
+        "fasterer": true,
+        "debride": true,
+        "ruby-lint": true
+    },
+    "ruby.rubocop.executePath": "/home/arthursoares/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/rubocop-0.62.0/lib/",
+    "ruby.rubocop.configFilePath": "/home/arthursoares/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/rubocop-0.62.0/config/"
+}

@@ -1,8 +1,8 @@
-require_relative 'sigep/query_zip_code'
+require_relative 'sigep/requests/query_zip_code'
 
 module Correios
   def self.test
-    'YAY! Correios-gem is working!'
+    'YAY! Correios-gem is working! Have fun!'
   end
 
   module Precifier

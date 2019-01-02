@@ -1,5 +1,3 @@
-# coding: utf-8
-
 Gem::Specification.new do |s|
   s.authors       = ['Arthur Soares']
   s.email         = 'arthurvsp97@gmail.com'
@@ -12,13 +10,14 @@ Gem::Specification.new do |s|
   s.description   = 'Integration with Sigep Web, SRO, Reverse Logistics and Precifier'
   s.files         = [
     'lib/correios-gem.rb',
-    'lib/sigep/params/params.rb',
-    'lib/sigep/query_zip_code.rb'
+    'lib/sigep/client.rb',
+    'lib/sigep/environment.rb',
+    'lib/sigep/requests/query_zip_code.rb'
   ]
-  s.license       = 'MIT'
+  s.license = 'MIT'
 
-  s.add_dependency 'nokogiri', '~> 1.9'  , '>= 1.9.1'
-  s.add_dependency 'savon',    '~> 2.12' , '>= 2.12.0'
+  s.add_dependency 'nokogiri', '~> 1.9', '>= 1.9.1'
+  s.add_dependency 'savon',    '~> 2.12', '>= 2.12.0'
 
   # s.add_development_dependency 'bundler', '~> 1.11'
   # s.add_development_dependency 'rake', '~> 10.0'

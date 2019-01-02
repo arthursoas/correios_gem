@@ -1,7 +1,8 @@
 require 'savon'
 require 'nokogiri'
 
-require_relative 'params/params'
+require_relative '../client'
+require_relative '../environment'
 
 module Correios
   class CorreiosException < StandardError; end
@@ -13,16 +14,11 @@ module Correios
       end
 
       def request
-        client = Savon.client(
-          wsdl: Params.wsdl,
-          ssl_verify_mode: :none
-        )
+        client = Client.client
         begin
-          client.call(
-            :consulta_cep,
-            soap_action: '',
-            xml: xml
-          ).to_hash[:consulta_cep_response][:return]
+          format_response(client.call(:consulta_cep,
+                                      soap_action: '',
+                                      xml: xml).to_hash)
         rescue Savon::SOAPFault => error
           raise CorreiosException, error
         end
@@ -30,7 +26,7 @@ module Correios
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(Params.namespaces) do
+          xml['soap'].Envelope(Environment.namespaces) do
             xml['soap'].Body do
               xml['ns1'].consultaCEP do
                 parent_namespace = xml.parent.namespace
@@ -43,6 +39,18 @@ module Correios
             end
           end
         end.doc.root.to_xml
+      end
+
+      def format_response(response)
+        response = response[:consulta_cep_response][:return]
+        {
+          neighborhood: response[:bairro],
+          zip_code: response[:cep],
+          city: response[:cidade],
+          additional: response[:complemento2],
+          street: response[:end],
+          state: response[:uf]
+        }
       end
     end
   end

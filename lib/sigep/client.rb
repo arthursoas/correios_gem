@@ -1,15 +1,17 @@
+require 'savon'
+
 module Correios
   module Sigep
-    class Params
-      def self.namespaces
-        {
-          'xmlns:soap' => 'http://schemas.xmlsoap.org/soap/envelope/',
-          'xmlns:ns1' => 'http://cliente.bean.master.sigep.bsb.correios.com.br/'
-        }
+    class Client
+      def self.client
+        Savon.client(
+          wsdl: wsdl,
+          ssl_verify_mode: :none
+        )
       end
 
       def self.wsdl
-        if true
+        if test_env?
           'https://apphom.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl'
         else
           'https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl'
