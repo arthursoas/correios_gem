@@ -11,6 +11,6 @@
 
 <p>Esqueça requisições SOAP e códigos confusos criados pelos Correios. A correios-gem abstrai toda a comunicação com as APIs através de ojetos Ruby e nomenclatura legível para seres humanos.</p>
 
-<p style="color:red;"><strong>Atenção</strong>: A correios-gem é uma biblioteca independente que não possui vínculo com os Correios. Para problemas com os Correios, consulte o gerente de seu contrato.</p>
+<p style="color:red;">⚠️ <strong>Atenção</strong>: A correios-gem é uma biblioteca independente que não possui vínculo com os Correios. Para problemas com os Correios, consulte o gerente de seu contrato.</p>
 
 <hr/>
