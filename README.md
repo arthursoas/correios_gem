@@ -30,7 +30,7 @@ Cada link direciona para a página com a descrição do método, sua entrada e s
   * [Verificar Status do Cartão de Postagem](doc/sigep/CHECK_CARD_STATUS.md)
 * __Logística Reversa__
   * [Calcular Digito Verificar de Número de Entrega](doc/reverse_logistics/CALCULATE_SHIIPNG_NUMBER_CHECK_DIGIT.md)
-  * [Criar Entrega](doc/sireverse_logisticsgep/CREATE_SHIPPING.md)
+  * [Criar Entrega](doc/reverse_logisticsgep/CREATE_SHIPPING.md)
   * [Criar Entrega com Coleta](doc/reverse_logistics/CREATE_SHIPPING_WITH_COLLECTION.md)
   * [Cancelar Entrega](doc/reverse_logistics/CANCEL_SHIPPING.md)
   * [Rastrear Entrega](doc/reverse_logistics/TRACK_SHIPPING.md)
@@ -49,7 +49,7 @@ Cada link direciona para a página com a descrição do método, sua entrada e s
   * [Listar Serviços](doc/pricefier/LIST_SERVICES.md)
   * [Listar Serviços STAR](doc/pricefier/LIST_SERVICES_STAR.md)
 * __SRO__
-  * [Rastrear Entrega](doc/pricefier/TRACK_SHIPPING.md)
-  * [Rastrear Entregas](doc/pricefier/TRACK_SHIPPINGS.md)
+  * [Rastrear Entrega](doc/SRO/TRACK_SHIPPING.md)
+  * [Rastrear Entregas](doc/SRO/TRACK_SHIPPINGS.md)
   
    
