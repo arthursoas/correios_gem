@@ -28,3 +28,13 @@ Cada link direciona para a página com a descrição do método, sua entrada e s
   * [Solicitar XML de Entregas](doc/sigep/REQUEST_SHIPPING_LIST_XML.md)
   * [Verificar Disponibilidade de Serviço](doc/sigep/CHECK_SERVICE_AVAILABILITY.md)
   * [Verificar Status do Cartão de Postagem](doc/sigep/CHECK_CARD_STATUS.md)
+* __Logística Reversa__
+   * [Calcular Digito Verificar de Número de Entrega](doc/sigep/CALCULATE_SHIIPNG_NUMBER_CHECK_DIGIT.md)
+   * [Criar Entrega](doc/sigep/CREATE_SHIPPING.md)
+   * [Criar Entrega com Coleta](doc/sigep/CREATE_SHIPPING_WITH_COLLECTION.md)
+   * [Cancelar Entrega](doc/sigep/CANCEL_SHIPPING.md)
+   * [Rastrear Entrega](doc/sigep/TRACK_SHIPPING.md)
+   * [Rastrear Entregas por Data](doc/sigep/TRACK_SHIPPINGS_BY_DATE.md)
+   * [Solicitar Números de Entrega](doc/sigep/REQUEST_SHIPPING_NUMBERS.md)
+   
+   
