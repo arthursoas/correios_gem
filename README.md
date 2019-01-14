@@ -4,8 +4,8 @@
 <p>Através desta biblioteca, é realizada a integração com as quatro principais APIs dos Carreios, sendo elas:</p>
 <ul>
   <li><strong>Sigep</strong>: Utilizada para buscar CEPs e solicitar entregas através de seu contrato com os correios.</li>
-  <li><strong>Logística Reversa</strong>: Utilizada para devoluções de encomendas.</li>
-  <li><strong>Precificador</strong>: Utilizada para calcular preços e prazos de entregas através de seu contrato com os correios</li>
+  <li><strong>Logística Reversa</strong>: Utilizada para devoluções de encomendas através de seu contrato com os correios.</li>
+  <li><strong>Precificador</strong>: Utilizada para calcular preços e prazos de entregas através de seu contrato com os correios.</li>
   <li><strong>SRO</strong>: Utilizada para rastrear entregas.</li>
 </ul>
 
