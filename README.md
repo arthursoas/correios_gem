@@ -13,7 +13,7 @@ Esqueça requisições SOAP e códigos confusos criados pelos Correios. A correi
 
 ## Utilização
 
-Os sub-itens de lista a seguir estão em ordem alfabética. Cada um apresenta uma descrição de sua funcionalidade, entrada esperada e saída. 
+Cada link direciona para a página com a descrição do método, sua entrada e saída.
 
 * __Sigep__
   * [Buscar CEP](doc/sigep/SEARCH_ZIP_CODE.md)
