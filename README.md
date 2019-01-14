@@ -1,16 +1,15 @@
-<h1>Correios-gem</h1>
-<h3>A correios-gem permite você integrar a sua aplicação Ruby on Rails com as APIs dos Correios de maneira simples e rápida.</h3>
+# Correios-gem
+### A correios-gem permite você integrar a sua aplicação Ruby on Rails com as APIs dos Correios de maneira simples e rápida.
 
-<p>Através desta biblioteca, é realizada a integração com as quatro principais APIs dos Carreios, sendo elas:</p>
-<ul>
-  <li><strong>Sigep</strong>: Utilizada para buscar CEPs e solicitar entregas através de seu contrato com os correios.</li>
-  <li><strong>Logística Reversa</strong>: Utilizada para devoluções de encomendas através de seu contrato com os correios.</li>
-  <li><strong>Precificador</strong>: Utilizada para calcular preços e prazos de entregas através de seu contrato com os correios.</li>
-  <li><strong>SRO</strong>: Utilizada para rastrear entregas.</li>
-</ul>
+Através desta biblioteca, é realizada a integração com as quatro principais APIs dos Carreios, sendo elas:
+* __Sigep__: Utilizada para buscar CEPs e solicitar entregas através de seu contrato com os correios.
+* __Logística Reversa__: Utilizada para devoluções de encomendas através de seu contrato com os correios.
+* __Precificador__: Utilizada para calcular preços e prazos de entregas através de seu contrato com os correios.
+* __SRO__: Utilizada para rastrear entregas.
 
-<p>Esqueça requisições SOAP e códigos confusos criados pelos Correios. A correios-gem abstrai toda a comunicação com as APIs através de ojetos Ruby e nomenclatura legível para seres humanos.</p>
+Esqueça requisições SOAP e códigos confusos criados pelos Correios. A correios-gem abstrai toda a comunicação com as APIs através de ojetos Ruby e nomenclatura legível para seres humanos.
 
-<p style="color:red;">⚠️ <strong>Atenção</strong>: A correios-gem é uma biblioteca independente que não possui vínculo com os Correios. Para problemas com os Correios, consulte o gerente de seu contrato.</p>
+⚠️ __Atenção__: A correios-gem é uma biblioteca independente que não possui vínculo com os Correios. Para problemas com os Correios, consulte o gerente de seu contrato.
 
-<hr/>
+---
+
