@@ -11,5 +11,20 @@ Esqueça requisições SOAP e códigos confusos criados pelos Correios. A correi
 
 ⚠️ __Atenção__: A correios-gem é uma biblioteca independente que não possui vínculo com os Correios. Para problemas com os Correios, consulte o gerente de seu contrato.
 
----
+## Utilização
 
+Os sub-itens de lista a seguir estão em ordem alfabética. Cada um apresenta uma descrição de sua funcionalidade, entrada esperada e saída. 
+
+* __Sigep__
+  * [Buscar CEP](doc/sigep/SEARCH_ZIP_CODE.md)
+  * [Buscar Cliente](doc/sigep/SEARCH_CUSTOMER.md)
+  * [Buscar Serviços Adicionais Disponíveis](doc/sigep/SEARCH_AVAILABLE_ADDITIONAL_SERVICES.md)
+  * [Calcular Dígito Verificador de Número de Etiqueta](doc/sigep/CALCULATE_LABEL_NUMBER_CHECK_DIGIT.md)
+  * [Cancelar Entrega](doc/sigep/CANCEL_SHIPPING.md)
+  * [Criar Entregas](doc/sigep/CREATE_SHIPPING_LIST.md)
+  * [Rastrear Entrega](doc/sigep/TRACK_SHIPPING.md)
+  * [Solicitar Entregas](doc/sigep/REQUEST_SHIPPING_LIST.md)
+  * [Solicitar Números de Etiqueta](doc/sigep/REQUEST_LABEL_NUMBERS.md)
+  * [Solicitar XML de Entregas](doc/sigep/REQUEST_SHIPPING_LIST_XML.md)
+  * [Verificar Disponibilidade de Serviço](doc/sigep/CHECK_SERVICE_AVAILABILITY.md)
+  * [Verificar Status do Cartão de Postagem](doc/sigep/CHECK_CARD_STATUS.md)
