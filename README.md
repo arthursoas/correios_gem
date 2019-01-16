@@ -7,9 +7,9 @@ Através desta biblioteca, é realizada a integração com as quatro principais 
 * __Precificador__: Utilizada para calcular preços (frete) e prazos de entregas através de seu contrato com os correios.
 * __SRO__: Utilizada para rastrear entregas.
 
-Esqueça requisições SOAP e códigos confusos criados pelos Correios. A correios-gem abstrai toda a comunicação com as APIs através de ojetos Ruby e nomenclatura legível para seres humanos.
+Esqueça requisições SOAP e códigos confusos criados pelos Correios. A correios_gem abstrai toda a comunicação com as APIs dos Correios através de ojetos Ruby e nomenclatura legível para seres humanos.
 
-⚠️ __Atenção__: A correios-gem é uma biblioteca independente que não possui vínculo com os Correios. Para problemas com os Correios, consulte o gerente de seu contrato.
+⚠️ __Atenção__: A correios_gem é uma biblioteca independente que não possui vínculo com os Correios. Para problemas com os Correios, consulte o gerente de seu contrato.
 
 ## Utilização
 
