@@ -5,6 +5,10 @@ module Correios
     'YAY! Correios-gem is working! Have fun!'
   end
 
+  def self.credentials
+    
+  end
+
   module Pricefier
   end
 
