@@ -2,31 +2,35 @@ require 'savon'
 require 'nokogiri'
 
 require_relative '../client'
-require_relative '../environment'
+require_relative '../helper'
+require_relative '../../correios_exception.rb'
 
 module Correios
-  class CorreiosException < StandardError; end
   module Sigep
-    class QueryZipCode
+    class SearchZipCode
+      CORREIOS_EXCEPTION = CorreiosException.new
+      HELPER = Helper.new
+      CLIENT = Client.new
+
       def initialize(data = {})
         @zip_code = data[:zip_code]
         super()
       end
 
       def request
-        client = Client.client
+        client = CLIENT.client
         begin
           format_response(client.call(:consulta_cep,
                                       soap_action: '',
                                       xml: xml).to_hash)
         rescue Savon::SOAPFault => error
-          raise CorreiosException, error
+          CORREIOS_EXCEPTION.generate_exception(error)
         end
       end
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(Environment.namespaces) do
+          xml['soap'].Envelope(HELPER.namespaces) do
             xml['soap'].Body do
               xml['ns1'].consultaCEP do
                 parent_namespace = xml.parent.namespace
