@@ -7,7 +7,7 @@ __Observações__
 * Os estados vêm em formato de sigla (ex: AM, MG, RS).
 * O CEP pode ser enviado com ou sem a máscara (321450-000 ou 32145000).
 
-### Entrada esperada
+### Exemplo de entrada esperada
 
 ```ruby
 require 'correios_gem'
