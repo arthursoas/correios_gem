@@ -8,4 +8,4 @@ Dado um CEP válido, retorna um objeto com os dados a ele associado, o que pode 
 
 ### Saída
 
-[Voltar](../../README.md)
+[Voltar](../../README.md#Utilização)
