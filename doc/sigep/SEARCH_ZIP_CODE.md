@@ -1,11 +1,17 @@
 ## Buscar CEP
 
-Dado um CEP válido, retorna um objeto com os dados a ele associado, o que pode incluir: Estado, Cidade, Bairro, Logradouro e Complemento.
+Nome do método nos Correios: `Consulta CEP`
 
+Dado um CEP válido, retorna um objeto com os dados a ele associado, o que pode incluir: Estado, Cidade, Bairro, Logradouro e Complemento.
 
 __Observações__
 * Os estados vêm em formato de sigla (ex: AM, MG, RS).
 * O CEP pode ser enviado com ou sem a máscara (321450-000 ou 32145000).
+
+____
+
+### Autenticação
+Nenhuma credencial necessária.
 
 ### Exemplo de entrada
 
