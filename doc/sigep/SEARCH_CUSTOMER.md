@@ -5,7 +5,7 @@ Documentação dos Correios: `Serviços Disponíveis para o Cartão`
 Busca dados de seu contrato com os correios, o que inclui o status atual, vigência e serviços contratados.
 
 __Observações__
-* O campo `seal` é uma imagem em formato base64.
+* O campo `seal` é uma imagem PNG em formato base64.
 * Os campos `board` são a diretoria do seu contrato.
 * Os campos `contratcts`, `cards` e `services` sempre retornarão um Array.
 
