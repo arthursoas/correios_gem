@@ -15,9 +15,12 @@ Esqueça requisições SOAP e códigos confusos criados pelos Correios. A correi
 
 ### Autenticação
 
-Para se autenticar nas APIs dos Correios, o código abaixo deve ser inserido no(s) `environments` de sua aplicação com as credenciais de seu contrato com os Correios. As credenciais abaixo são os utilizadas nos ambientes de testes, disponibilizadas pelos Correios, e podem ser aproveitados durante o desenvolvimento e homologação de sua aplicação.
+Para se autenticar nas APIs dos Correios, o código abaixo deve ser inserido no(s) `environments` de sua aplicação com as credenciais de seu contrato com os Correios.
 
 ```ruby
+# Credenciais de ambiente de testes dos Correios.
+# Substitua pelas suas credenciais para utilizar no ambiente de produção.
+
 Correios.authenticate do |auth|
   auth.sigep_user =                 'sigep'
   auth.sigep_password =             'n5f9t8'
