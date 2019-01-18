@@ -64,10 +64,7 @@ Correios::Sigep.search_customer
         }
       ]
     }
-  ],
-  :additional => nil,
-  :street => 'Avenida das Américas'
-  :state => 'MG'
+  ]
 }
 ```
 
