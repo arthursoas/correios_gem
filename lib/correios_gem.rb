@@ -1,4 +1,5 @@
 require_relative 'sigep/requests/search_zip_code'
+require_relative 'sigep/requests/search_customer'
 require_relative 'credentials'
 
 module Correios
@@ -23,6 +24,10 @@ module Correios
   module Sigep
     def self.search_zip_code(data = {})
       SearchZipCode.new(data).request
+    end
+
+    def self.search_customer
+      SearchCustomer.new.request
     end
   end
 

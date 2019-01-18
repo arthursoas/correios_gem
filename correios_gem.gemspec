@@ -14,11 +14,12 @@ Gem::Specification.new do |s|
     'lib/credentials.rb',
     'lib/sigep/client.rb',
     'lib/sigep/helper.rb',
-    'lib/sigep/requests/search_zip_code.rb'
+    'lib/sigep/requests/search_zip_code.rb',
+    'lib/sigep/requests/search_customer.rb'
   ]
   s.license = 'MIT'
 
-  s.add_dependency 'nokogiri', '~> 1.9', '>= 1.9.1'
+  s.add_dependency 'nokogiri', '~> 1.9',  '>= 1.9.1'
   s.add_dependency 'savon',    '~> 2.12', '>= 2.12.0'
 
   # s.add_development_dependency 'bundler', '~> 1.11'

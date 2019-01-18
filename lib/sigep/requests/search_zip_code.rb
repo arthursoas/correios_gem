@@ -12,18 +12,15 @@ module Correios
       CLIENT = Client.new
 
       def initialize(data = {})
-        puts Correios.credentials.to_json
-
         @zip_code = data[:zip_code]
         super()
       end
 
       def request
-        client = CLIENT.client
         begin
-          format_response(client.call(:consulta_cep,
-                                      soap_action: '',
-                                      xml: xml).to_hash)
+          format_response(CLIENT.client.call(:consulta_cep,
+                                             soap_action: '',
+                                             xml: xml).to_hash)
         rescue Savon::SOAPFault => error
           generate_exception(error)
         end

@@ -11,7 +11,7 @@ module Correios
       end
 
       def wsdl
-        if test_env?
+        if true
           'https://apphom.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl'
         else
           'https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl'
