@@ -12,7 +12,7 @@ module Correios
       CLIENT = Client.new
 
       def initialize(data = {})
-        p Correios.credentials.to_json
+        puts Correios.credentials.to_json
 
         @zip_code = data[:zip_code]
         super()

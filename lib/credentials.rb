@@ -1,5 +1,5 @@
 module Correios
-  class Authentication
+  class Credentials
     attr_accessor :sigep_user,
                   :sigep_password,
                   :administrative_code,

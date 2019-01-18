@@ -1,13 +1,17 @@
 require_relative 'sigep/requests/search_zip_code'
-require_relative './authentication'
+require_relative 'credentials'
 
 module Correios
   def self.test
     'YAY! Correios-gem is working! Have fun!'
   end
 
+  def self.authenticate
+    yield(credentials)
+  end
+
   def self.credentials
-    @credentials ||= Authentication.new
+    @credentials ||= Credentials.new
   end
 
   module Pricefier
