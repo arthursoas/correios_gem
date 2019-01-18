@@ -6,6 +6,7 @@ Busca dados de seu contrato com os correios, o que inclui o status atual, vigên
 
 __Observações__
 * O campo `seal` é uma imagem em formato base64.
+* Os campos `board` são a diretoria do seu contrato.
 * Os campos `contratcts`, `cards` e `services` sempre retornarão um Array.
 
 ____
