@@ -5,8 +5,8 @@ Documentação dos Correios: `Consulta Endereço via CEP`
 Dado um CEP válido, retorna um objeto com os dados a ele associado, o que pode incluir: Estado, Cidade, Bairro, Logradouro e Complemento.
 
 __Observações__
-* Os estados são retornados em formato de sigla (ex: AM, MG, RS).
-* O CEP pode ser enviado com ou sem a máscara (321450-000 ou 32145000).
+* O campo `state` é retornado em formato de sigla (ex: AM, MG, RS).
+* O campo `zip_code` pode ser enviado com ou sem a máscara (321450-000 ou 32145000).
 
 ____
 
