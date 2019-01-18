@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.files         = [
     'lib/correios_gem.rb',
     'lib/correios_exception.rb',
+    'lib/authentication.rb',
     'lib/sigep/client.rb',
     'lib/sigep/helper.rb',
     'lib/sigep/requests/search_zip_code.rb'

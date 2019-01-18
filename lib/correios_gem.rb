@@ -1,4 +1,5 @@
 require_relative 'sigep/requests/search_zip_code'
+require_relative './authentication'
 
 module Correios
   def self.test
@@ -6,7 +7,7 @@ module Correios
   end
 
   def self.credentials
-    
+    @credentials ||= Authentication.new
   end
 
   module Pricefier

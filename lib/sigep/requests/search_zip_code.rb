@@ -7,12 +7,13 @@ require_relative '../../correios_exception.rb'
 
 module Correios
   module Sigep
-    class SearchZipCode
-      CORREIOS_EXCEPTION = CorreiosException.new
+    class SearchZipCode < CorreiosException
       HELPER = Helper.new
       CLIENT = Client.new
 
       def initialize(data = {})
+        p Correios.credentials.to_json
+
         @zip_code = data[:zip_code]
         super()
       end
@@ -24,7 +25,7 @@ module Correios
                                       soap_action: '',
                                       xml: xml).to_hash)
         rescue Savon::SOAPFault => error
-          CORREIOS_EXCEPTION.generate_exception(error)
+          generate_exception(error)
         end
       end
 
