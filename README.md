@@ -19,7 +19,7 @@ Para se autenticar nas APIs dos Correios, o código abaixo deve ser inserido no(
 
 ```ruby
 # Credenciais de ambiente de testes dos Correios.
-# Substitua pelas suas credenciais para utilizar no ambiente de produção.
+# Substitua pelas suas credenciais para utilizar o ambiente de produção.
 
 Correios.authenticate do |auth|
   auth.sigep_user =                 'sigep'
