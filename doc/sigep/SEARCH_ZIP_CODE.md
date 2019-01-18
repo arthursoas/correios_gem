@@ -1,6 +1,6 @@
 ## Buscar CEP
 
-Nome do método nos Correios: `Consulta CEP`
+Documentação dos Correios: `Consulta Endereço via CEP`
 
 Dado um CEP válido, retorna um objeto com os dados a ele associado, o que pode incluir: Estado, Cidade, Bairro, Logradouro e Complemento.
 
