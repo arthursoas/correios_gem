@@ -2,7 +2,7 @@
 
 Documentação dos Correios: `Serviços Disponíveis para o Cartão`
 
-Busca dados de seu contrato com os correios, o que inclui o atual status, vigência e serviços contratados.
+Busca dados de seu contrato com os correios, o que inclui o status atual, vigência e serviços contratados.
 
 __Observações__
 * O campo `seal` é uma imagem em formato base64.
