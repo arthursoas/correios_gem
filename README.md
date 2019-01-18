@@ -13,7 +13,31 @@ Esqueça requisições SOAP e códigos confusos criados pelos Correios. A correi
 
 ## Utilização
 
-Cada link direciona para a página com a descrição da função, sua entrada e saída.
+### Autenticação
+
+Para se autenticar nas APIs dos Correios, o código abaixo deve ser inserido no(s) `environments` de sua aplicação com as credenciais de seu contrato com os Correios. As credenciais abaixo são os utilizadas nos ambientes de testes, disponibilizadas pelos Correios, e podem ser aproveitados durante o desenvolvimento e homologação de sua aplicação.
+
+```ruby
+Correios.authenticate do |auth|
+  auth.sigep_user =                 'sigep'
+  auth.sigep_password =             'n5f9t8'
+  auth.administrative_code =        '17000190'
+  auth.contract =                   '9992157880'
+  auth.card =                       '67599079'
+  auth.cnpj =                       '34028316000103'
+
+  auth.reverse_logistics_user =     'empresacws'
+  auth.reverse_logistics_password = '123456'
+  
+  auth.sro_user =                   'ECT'
+  auth.sro_password =               'SRO'
+end
+```
+⚠️ __Atenção__: Não é obrigatório passar todas as credenciais para utilizar a correios_gem. Os métodos que você fará uso podem solicitar apenas parte das credenciais ou nenhuma delas. Verifique na documentação abaixo.
+
+### Métodos
+
+Cada link direciona para a página com a descrição do método, credenciais necessárias para utilização, entrada e saída.
 
 * __Sigep__
   * [Buscar CEP](doc/sigep/SEARCH_ZIP_CODE.md)
