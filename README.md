@@ -36,7 +36,7 @@ Correios.authenticate do |auth|
   auth.sro_password =               'SRO'
 end
 ```
-⚠️ __Atenção__: Não é obrigatório passar todas as credenciais para utilizar a correios_gem. Os métodos que você fará uso podem solicitar apenas parte das credenciais ou nenhuma delas. Verifique na documentação abaixo.
+⚠️ __Atenção__: Não é obrigatório informar todas as credenciais para utilizar a correios_gem. Os métodos que você fará uso podem solicitar apenas parte das credenciais ou nenhuma delas. Verifique na documentação abaixo.
 
 ### Métodos
 
