@@ -4,10 +4,6 @@ Documentação dos Correios: `Consulta Endereço via CEP`
 
 Dado um CEP válido, retorna um objeto com os dados a ele associado, o que pode incluir: Estado, Cidade, Bairro, Logradouro e Complemento.
 
-__Observações__
-* O campo `state` é retornado em formato de sigla (ex: AM, MG, RS).
-* O campo `zip_code` pode ser enviado com ou sem a máscara (321450-000 ou 32145000).
-
 ____
 
 ### Autenticação
@@ -22,6 +18,7 @@ Correios::Sigep.search_zip_code({
   zip_code: '32145000'
 })
 ```
+* O campo `zip_code` pode ser enviado com ou sem a máscara (321450-000 ou 32145000).
 
 ### Saída
 
@@ -35,5 +32,6 @@ Correios::Sigep.search_zip_code({
   :state => 'MG'
 }
 ```
+* O campo `state` é retornado em formato de sigla (ex: AM, MG, RS).
 
 [Voltar](../../README.md#Utilização)
