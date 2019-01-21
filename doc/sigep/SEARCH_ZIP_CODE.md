@@ -33,3 +33,7 @@ Correios::Sigep.search_zip_code({
 }
 ```
 * O campo `state` é retornado em formato de sigla (ex: AM, MG, RS).
+
+---
+
+[Consultar documentação dos Correios](CORREIOS_DOCUMENT.pdf)
