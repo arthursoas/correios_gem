@@ -1,4 +1,4 @@
-## Buscar CEP
+# Buscar CEP
 
 Documentação dos Correios: `Consulta Endereço via CEP`
 
@@ -6,10 +6,10 @@ Dado um CEP válido, retorna um objeto com os dados a ele associado, o que pode 
 
 ____
 
-### Autenticação
+## Autenticação
 Nenhuma credencial necessária.
 
-### Exemplo de entrada
+## Exemplo de entrada
 
 ```ruby
 require 'correios_gem'
@@ -20,7 +20,7 @@ Correios::Sigep.search_zip_code({
 ```
 * O campo `zip_code` pode ser enviado com ou sem a máscara (321450-000 ou 32145000).
 
-### Saída
+## Saída
 
 ```ruby
 {
