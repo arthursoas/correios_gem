@@ -54,7 +54,7 @@ Correios::Sigep.create_shippings({
       receiver: {
         name: 'José Maria Trindade',
         phone: '1138833883',                  #opcional
-        cellphone: '11997799779,
+        cellphone: '11997799779',
         email: 'jose.maria@gmail.com',
         address: {
           zip_code: '69350000',
