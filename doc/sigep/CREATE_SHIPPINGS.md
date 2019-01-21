@@ -118,10 +118,10 @@ Opções de formas de pagamento:
 
 __Anexo 2__
 Opções de tipos de objetos:
-* :letter_envelope
-* :box
-* :prism
-* :cilinder
+* `:letter_envelope`
+* `:box`
+* `:prism`
+* :cilinder`
 
 ---
 
