@@ -26,6 +26,8 @@ module Correios
         end
       end
 
+      private
+
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
           xml['soap'].Envelope(HELPER.namespaces) do

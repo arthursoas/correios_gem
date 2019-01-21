@@ -26,6 +26,8 @@ module Correios
         end
       end
 
+      private
+
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
           xml['soap'].Envelope(HELPER.namespaces) do
@@ -110,14 +112,14 @@ module Correios
           conditions: {
             dimensions_required: sigep_service[:exige_dimensoes],
             addtional_price_required: sigep_service[:exige_valor_cobrar],
-            payment_on_delivery: convert_string_to_bool(sigep_service[:pagamento_entrega]),
-            grouped_shipment: convert_string_to_bool(sigep_service[:remessa_agrupada])
+            payment_on_delivery: HELPER.convert_string_to_bool(
+              sigep_service[:pagamento_entrega]
+            ),
+            grouped_shipment: HELPER.convert_string_to_bool(
+              sigep_service[:remessa_agrupada]
+            )
           }
         }
-      end
-
-      def convert_string_to_bool(string)
-        string.strip == 'S'
       end
     end
   end

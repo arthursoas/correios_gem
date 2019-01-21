@@ -15,7 +15,8 @@ Gem::Specification.new do |s|
     'lib/sigep/client.rb',
     'lib/sigep/helper.rb',
     'lib/sigep/requests/search_zip_code.rb',
-    'lib/sigep/requests/search_customer.rb'
+    'lib/sigep/requests/search_customer.rb',
+    'lib/sigep/requests/create_shippings.rb'
   ]
   s.license = 'MIT'
 
