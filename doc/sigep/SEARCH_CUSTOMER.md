@@ -66,3 +66,7 @@ Correios::Sigep.search_customer
 * O campo `seal` é uma imagem PNG em formato base64.
 * Os campos `board` são a diretoria do seu contrato.
 * Os campos `contratcts`, `cards` e `services` sempre retornarão um Array.
+
+---
+
+[Consultar documentação dos Correios](CORREIOS_DOCUMENT.pdf)
