@@ -71,7 +71,7 @@ Correios::Sigep.create_shippings({
         serie: '1',
         kind: 'venda'
       },
-      additional_services [                   #opcional
+      additional_services: [                   #opcional
         '001',
         '049'
       ],
