@@ -30,7 +30,7 @@ Correios::Sigep.create_shippings({
   sender: {
     board_id: '10',
     name: 'Empresa XPTO',
-    phone: '3125522552,
+    phone: '3125522552',
     fax: '3125522552',                        #opcional
     email: 'contato@xpto.com.br',
     address: {
@@ -53,14 +53,14 @@ Correios::Sigep.create_shippings({
       ],
       receiver: {
         name: 'José Maria Trindade',
-        phone: '1138833883,                   #opcional
+        phone: '1138833883',                  #opcional
         cellphone: '11997799779,
         email: 'jose.maria@gmail.com',
         address: {
           zip_code: '69350000',
           state: 'RR',
           city: 'Alto Alegre',
-          neighborhood: 'Santo Antônio',
+          neighborhood: 'Santo Antonio',
           street: 'Rua Machado',
           number: 200,
           additional: 'B'                     #opcional
@@ -108,7 +108,7 @@ __Anexo 1__
 Opções de formas de pagamento:
 
 | Código  | Descrição          |
-| ------- | ------------------ |
+| :------ | :----------------- |
 | 1       | Vale Postal        |
 | 2       | Reembolso Postal   |
 | 3       | Contrato de Câmbio |
@@ -119,7 +119,7 @@ Opções de formas de pagamento:
 __Anexo 2__
 Opções de tipos de objetos:
 | Código           | Descrição |
-| ---------------- | --------- |
+| :--------------- | :-------- |
 | :letter_envelope | Envelope  |
 | :box             | Caixa     |
 | :prism           | Prisma    |
