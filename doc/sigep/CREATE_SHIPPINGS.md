@@ -121,7 +121,7 @@ Opções de tipos de objetos:
 * `:letter_envelope`
 * `:box`
 * `:prism`
-* :cilinder`
+* `:cilinder`
 
 ---
 
