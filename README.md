@@ -48,7 +48,7 @@ Cada link direciona para a página com a descrição do método, credenciais nec
   * [Buscar Serviços Adicionais Disponíveis](doc/sigep/SEARCH_AVAILABLE_ADDITIONAL_SERVICES.md)
   * [Calcular Dígito Verificador de Número de Etiqueta](doc/sigep/CALCULATE_LABEL_NUMBER_CHECK_DIGIT.md)
   * [Cancelar Entrega](doc/sigep/CANCEL_SHIPPING.md)
-  * [Criar Entregas](doc/sigep/CREATE_SHIPPING_LIST.md)
+  * [Criar Entregas](doc/sigep/CREATE_SHIPPINGS.md)
   * [Rastrear Entrega](doc/sigep/TRACK_SHIPPING.md)
   * [Solicitar Entregas](doc/sigep/REQUEST_SHIPPING_LIST.md)
   * [Solicitar Números de Etiqueta](doc/sigep/REQUEST_LABEL_NUMBERS.md)
