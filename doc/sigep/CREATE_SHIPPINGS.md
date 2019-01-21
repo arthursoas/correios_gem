@@ -21,7 +21,7 @@ Necessário informar:
 require 'correios_gem'
 ...
 Correios::Sigep.create_shippings({
-  request_number: 000001,
+  request_number: 000001,                     #opcional
   payment_method: 5,                          #opcional
   cost_center: 'Comercial',                   #opcional
   description: 'Peças automotivas',
@@ -86,13 +86,14 @@ Correios::Sigep.create_shippings({
   ]
 })
 ```
+* O campo `request_number` deve ser único e definido por você (quando preenchido).
 * O campo `payment_method` deve ser preenchido conforme Anexo 1.
 * O campo `board_id` é o código da diretoria do seu contrato (ver [Buscar Cliente](SEARCH_CUSTOMER.md)). 
 * O campo `label_number` deve ser enviado com o dígito verificador.
 * O campo `notes` é um Array que pode receber até duas strings de texto livre.
 * O Campo `additional_services` deve ser preenchido com o código dos serviços (ver [Buscar Serviços Adicionais Disponíveis](SEARCH_AVAILABLE_ADDITIONAL_SERVICES.md)).
 * O campo `object.type` deve ser preenchido conforme Anexo 2.
-* Telefones devem ser enviados com DDD e sem formatação.
+* Telefones e CEPs devem ser enviados sem formatação.
 
 ### Saída
 
@@ -122,6 +123,8 @@ Opções de tipos de objetos:
 * `:box`
 * `:prism`
 * `:cilinder`
+
+⚠️ __Atenção__: Os Correios fazem pouquíssimas validações ao criar uma entrega, o que inclui erros de digitação nos CEPs, endereços e telefones. Verifique a formatação dos dados antes de solicitar a criação das entregas.
 
 ---
 
