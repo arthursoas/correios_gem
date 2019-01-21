@@ -26,7 +26,7 @@ Correios.authenticate do |auth|
   auth.sigep_password =             'n5f9t8'
   auth.administrative_code =        '17000190'
   auth.contract =                   '9992157880'
-  auth.card =                       '67599079'
+  auth.card =                       '0067599079'
   auth.cnpj =                       '34028316000103'
 
   auth.reverse_logistics_user =     'empresacws'
