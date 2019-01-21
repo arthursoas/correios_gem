@@ -87,10 +87,10 @@ Correios::Sigep.create_shippings({
 })
 ```
 * O campo `payment_method` deve ser preenchido conforme Anexo 1.
-* O campo `board_id` é o código da diretoria do seu contrato (ver Buscar Cliente). 
+* O campo `board_id` é o código da diretoria do seu contrato (ver [Buscar Cliente](SEARCH_CUSTOMER.md)). 
 * O campo `label_number` deve ser enviado com o dígito verificador.
 * O campo `notes` é um Array que pode receber até duas strings de texto livre.
-* O Campo `additional_services` deve ser preenchido com o código dos serviços (ver Buscar Serviços Adicionais Disponíveis).
+* O Campo `additional_services` deve ser preenchido com o código dos serviços (ver [Buscar Serviços Adicionais Disponíveis](SEARCH_AVAILABLE_ADDITIONAL_SERVICES.md)).
 * O campo `object.type` deve ser preenchido conforme Anexo 2.
 * Telefones devem ser enviados com DDD e sem formatação.
 
@@ -122,3 +122,7 @@ Opções de tipos de objetos:
 * :box
 * :prism
 * :cilinder
+
+---
+
+[Consultar documentação dos Correios](CORREIOS_DOCUMENT.pdf)
