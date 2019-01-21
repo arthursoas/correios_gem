@@ -4,8 +4,6 @@ Documentação dos Correios: `Consulta Endereço via CEP`
 
 Dado um CEP válido, retorna um objeto com os dados a ele associado, o que pode incluir: Estado, Cidade, Bairro, Logradouro e Complemento.
 
-____
-
 ## Autenticação
 Nenhuma credencial necessária.
 
