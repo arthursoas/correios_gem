@@ -118,9 +118,7 @@ Opções de formas de pagamento:
 
 __Anexo 2__
 Opções de tipos de objetos:
-| Código           | Descrição |
-| :--------------- | :-------- |
-| :letter_envelope | Envelope  |
-| :box             | Caixa     |
-| :prism           | Prisma    |
-| :cilinder        | Cilindro  |
+* letter_envelope
+* :box
+* :prism
+*:cilinder
