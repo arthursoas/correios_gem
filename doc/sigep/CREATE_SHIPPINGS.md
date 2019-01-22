@@ -90,7 +90,7 @@ Correios::Sigep.create_shippings({
 * O campo `payment_method` deve ser preenchido conforme Anexo 1.
 * O campo `sender.board_id` é o código da diretoria do seu contrato (ver [Buscar Cliente](SEARCH_CUSTOMER.md)). 
 * O campo `shippings[i].label_number` deve ser enviado com o dígito verificador.
-* O campo `shippings[i].otes` é um Array que pode receber até duas strings de texto livre.
+* O campo `shippings[i].notes` é um Array que pode receber até duas strings de texto livre.
 * O Campo `shippings[i].additional_services` deve ser preenchido com os códigos dos serviços (ver [Buscar Serviços Adicionais Disponíveis](SEARCH_AVAILABLE_ADDITIONAL_SERVICES.md)).
 * O campo `shippings[i].object.type` deve ser preenchido conforme Anexo 2.
 * Telefones e CEPs devem ser enviados sem formatação.
@@ -106,7 +106,7 @@ Correios::Sigep.create_shippings({
 
 ### Anexos
 
-__Anexo 1__
+__Anexo 1:__
 Opções de formas de pagamento:
 * `:postal_vouncher`
 * `:postal_refound`
@@ -115,7 +115,7 @@ Opções de formas de pagamento:
 * `:other`
 * Deixar em branco para pagamentos 'A faturar'
 
-__Anexo 2__
+__Anexo 2:__
 Opções de tipos de objetos:
 * `:letter_envelope`
 * `:box`
