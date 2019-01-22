@@ -21,17 +21,17 @@ Necessário informar:
 require 'correios_gem'
 ...
 Correios::Sigep.create_shippings({
-  request_number: 000001,                     #opcional
-  payment_method: 5,                          #opcional
-  cost_center: 'Comercial',                   #opcional
+  request_number: 000001,                                   #opcional
+  payment_method: 5,                                        #opcional
+  cost_center: 'Comercial',                                 #opcional
   description: 'Peças automotivas',
-  declared_value: 352.50,                     #opcional
-  additional_value: 10.0,                     #opcional
+  declared_value: 352.50,                                   #opcional
+  additional_value: 10.0,                                   #opcional
   sender: {
     board_id: '10',
     name: 'Empresa XPTO',
     phone: '3125522552',
-    fax: '3125522552',                        #opcional
+    fax: '3125522552',                                      #opcional
     email: 'contato@xpto.com.br',
     address: {
       zip_code: '35690000',
@@ -40,20 +40,20 @@ Correios::Sigep.create_shippings({
       neighborhood: 'Jabuticabeiras',
       street: 'Rua General Souza de Melo',
       number: 123,
-      additional: '3o Andar'                  #opcional
+      additional: '3o Andar'                                #opcional
     }
   },
   shippings: [
     {
       label_number: 'SZ460209415BR',
       service_code: '04162',
-      notes: [                                #opcional
+      notes: [                                              #opcional
         'Frágil',
         'Conteúdo cortante'
       ],
       receiver: {
         name: 'José Maria Trindade',
-        phone: '1138833883',                  #opcional
+        phone: '1138833883',                                #opcional
         cellphone: '11997799779',
         email: 'jose.maria@gmail.com',
         address: {
@@ -63,15 +63,15 @@ Correios::Sigep.create_shippings({
           neighborhood: 'Santo Antonio',
           street: 'Rua Machado',
           number: 200,
-          additional: 'B'                     #opcional
+          additional: 'B'                                   #opcional
         }
       },
-      invoice: {                              #opcional
+      invoice: {                                            #opcional
         number: '000120',
         serie: '1',
         kind: 'venda'
       },
-      additional_services: [                   #opcional
+      additional_services: [                                #opcional
         '001',
         '049'
       ],
@@ -88,12 +88,13 @@ Correios::Sigep.create_shippings({
 ```
 * O campo `request_number` deve ser único e definido por você (quando preenchido).
 * O campo `payment_method` deve ser preenchido conforme Anexo 1.
-* O campo `board_id` é o código da diretoria do seu contrato (ver [Buscar Cliente](SEARCH_CUSTOMER.md)). 
-* O campo `label_number` deve ser enviado com o dígito verificador.
-* O campo `notes` é um Array que pode receber até duas strings de texto livre.
-* O Campo `additional_services` deve ser preenchido com o código dos serviços (ver [Buscar Serviços Adicionais Disponíveis](SEARCH_AVAILABLE_ADDITIONAL_SERVICES.md)).
-* O campo `object.type` deve ser preenchido conforme Anexo 2.
+* O campo `sender.board_id` é o código da diretoria do seu contrato (ver [Buscar Cliente](SEARCH_CUSTOMER.md)). 
+* O campo `shippings[i].label_number` deve ser enviado com o dígito verificador.
+* O campo `shippings[i].otes` é um Array que pode receber até duas strings de texto livre.
+* O Campo `shippings[i].additional_services` deve ser preenchido com os códigos dos serviços (ver [Buscar Serviços Adicionais Disponíveis](SEARCH_AVAILABLE_ADDITIONAL_SERVICES.md)).
+* O campo `shippings[i].object.type` deve ser preenchido conforme Anexo 2.
 * Telefones e CEPs devem ser enviados sem formatação.
+* Podem ser enviados vários objetos em `shippings` de uma só vez.
 
 ### Saída
 
@@ -107,15 +108,12 @@ Correios::Sigep.create_shippings({
 
 __Anexo 1__
 Opções de formas de pagamento:
-
-| Código  | Descrição          |
-| :------ | :----------------- |
-| 1       | Vale Postal        |
-| 2       | Reembolso Postal   |
-| 3       | Contrato de Câmbio |
-| 4       | Cartão de Crédito  |
-| 5       | Outros             |
-| vazio   | A faturar          |
+* `:postal_vouncher`
+* `:postal_refound`
+* `:exchange_contract`
+* `:credit_card`
+* `:other`
+* Deixar em branco para pagamentos 'A faturar'
 
 __Anexo 2__
 Opções de tipos de objetos:
@@ -124,7 +122,7 @@ Opções de tipos de objetos:
 * `:prism`
 * `:cilinder`
 
-⚠️ __Atenção__: Os Correios fazem pouquíssimas validações ao criar uma entrega, o que inclui erros de digitação nos CEPs, endereços e telefones. Verifique a formatação dos dados antes de solicitar a criação das entregas.
+⚠️ __Atenção__: Os Correios fazem poucas validações ao criar uma entrega, o que inclui erros de digitação nos CEPs, endereços e telefones. Verifique os dados antes de solicitar a criação de uma entrega.
 
 ---
 
