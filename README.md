@@ -1,4 +1,4 @@
-# Correios_gem
+# correios_gem
 ### A correios_gem permite você integrar a sua aplicação Ruby on Rails com as APIs dos Correios de maneira simples e rápida.
 
 Através desta biblioteca, é realizada a integração com as quatro principais APIs dos Carreios, sendo elas:
@@ -7,7 +7,7 @@ Através desta biblioteca, é realizada a integração com as quatro principais 
 * __Precificador__: Utilizada para calcular preços (frete) e prazos de entregas através de seu contrato com os correios.
 * __SRO__: Utilizada para rastrear entregas.
 
-Esqueça requisições SOAP e códigos confusos criados pelos Correios. A correios_gem abstrai toda a comunicação com as APIs dos Correios através de ojetos Ruby e nomenclatura legível para seres humanos.
+Esqueça requisições SOAP e códigos confusos criados pelos Correios. A correios_gem simplifica toda a comunicação com as APIs dos Correios através de ojetos Ruby e nomenclatura legível para seres humanos.
 
 ⚠️ __Atenção__: A correios_gem é uma biblioteca independente que não possui vínculo com os Correios. Para problemas com os Correios, consulte o gerente de seu contrato.
 
@@ -19,7 +19,7 @@ Para se autenticar nas APIs dos Correios, o código abaixo deve ser inserido no(
 
 ```ruby
 # Credenciais de ambiente de testes dos Correios.
-# Substitua pelas suas credenciais para utilizar o ambiente de produção.
+# Substitua pelas suas credenciais para utilizar o ambiente de produção dos Correios.
 
 Correios.authenticate do |auth|
   auth.sigep_user =                 'sigep'
@@ -55,7 +55,7 @@ Cada link direciona para a página com a descrição do método, credenciais nec
   * [Solicitar XML de Entregas](doc/sigep/REQUEST_SHIPPING_LIST_XML.md)
   * [Verificar Disponibilidade de Serviço](doc/sigep/CHECK_SERVICE_AVAILABILITY.md)
   * [Verificar Status do Cartão de Postagem](doc/sigep/CHECK_CARD_STATUS.md)
-* __Logística Reversa__
+* __Logística Reversa__ (Em desenvolvimento)
   * [Calcular Digito Verificar de Número de Entrega](doc/reverse_logistics/CALCULATE_SHIIPNG_NUMBER_CHECK_DIGIT.md)
   * [Criar Entrega](doc/reverse_logisticsgep/CREATE_SHIPPING.md)
   * [Criar Entrega com Coleta](doc/reverse_logistics/CREATE_SHIPPING_WITH_COLLECTION.md)
@@ -63,7 +63,7 @@ Cada link direciona para a página com a descrição do método, credenciais nec
   * [Rastrear Entrega](doc/reverse_logistics/TRACK_SHIPPING.md)
   * [Rastrear Entregas por Data](doc/reverse_logistics/TRACK_SHIPPINGS_BY_DATE.md)
   * [Solicitar Números de Entrega](doc/reverse_logistics/REQUEST_SHIPPING_NUMBERS.md)
-* __Precificador__
+* __Precificador__ (Em desenvolvimento)
   * [Calcular Prazo de Entrega](doc/pricefier/CALCULATE_DEADLINE.md)
   * [Calcular Prazo de Entrega com Data](doc/pricefier/CALCULATE_DEADLINE_WITH_DATE.md)
   * [Calcular Prazo de Entrega com Restrições](doc/pricefier/CALCULATE_DEADLINE_WITH_RESTRICTIONS.md)
@@ -75,7 +75,7 @@ Cada link direciona para a página com a descrição do método, credenciais nec
   * [Calcular Preço (frete) e Prazo de Entrega com Restrições](doc/pricefier/CALCULATE_PRICE_DEADLINE_WITH_RESTRICTIONS.md)
   * [Listar Serviços](doc/pricefier/LIST_SERVICES.md)
   * [Listar Serviços STAR](doc/pricefier/LIST_SERVICES_STAR.md)
-* __SRO__
+* __SRO__ (Em desenvolvimento)
   * [Rastrear Entrega](doc/SRO/TRACK_SHIPPING.md)
   * [Rastrear Entregas](doc/SRO/TRACK_SHIPPINGS.md)
   
