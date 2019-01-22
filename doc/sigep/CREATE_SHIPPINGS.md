@@ -77,6 +77,7 @@ Correios::Sigep.create_shippings({
       ],
       object: {
         type: :box,
+        weight: 350.5,
         height: 11.2,
         width: 23,
         length: 12.1,
