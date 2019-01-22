@@ -93,6 +93,9 @@ Correios::Sigep.create_shippings({
 * O campo `shippings[i].notes` é um Array que pode receber até duas strings de texto livre.
 * O Campo `shippings[i].additional_services` deve ser preenchido com os códigos dos serviços (ver [Buscar Serviços Adicionais Disponíveis](SEARCH_AVAILABLE_ADDITIONAL_SERVICES.md)).
 * O campo `shippings[i].object.type` deve ser preenchido conforme Anexo 2.
+
+‌‌ 
+* Medidas devem ser calculadas em cm e gramas.
 * Telefones e CEPs devem ser enviados sem formatação.
 * Podem ser enviados vários objetos em `shippings` de uma só vez.
 
