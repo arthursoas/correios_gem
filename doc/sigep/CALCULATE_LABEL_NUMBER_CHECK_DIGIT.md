@@ -24,7 +24,7 @@ Correios::Sigep.calculate_label_number_check_digit({
   ]
 })
 ```
-* Os campos `label_number[i]` devem ser preenchidos no formato retornado pelo método [Solicitar Números de Etiqueta](REQUEST_LABEL_NUMBERS.pdf).
+* Os campos `label_number[i]` devem ser preenchidos no formato retornado pelo método [Solicitar Números de Etiqueta](REQUEST_LABEL_NUMBERS.md).
 
 ### Saída
 
