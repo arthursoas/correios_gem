@@ -30,9 +30,9 @@ Correios::Sigep.check_service_availability({
 ```ruby
 {
   :status => :available,
-  :message => "O CEP de destino está sujeito a condições especiais de entrega  pela
+  :message => 'O CEP de destino está sujeito a condições especiais de entrega  pela
                ECT e será realizada com o acréscimo de até 7 (sete) dias úteis ao
-               prazo regular."
+               prazo regular.
 }
 ```
 * Os valores possíveis do campo `status` estão no Anexo 1.
