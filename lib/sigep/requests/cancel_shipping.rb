@@ -20,8 +20,6 @@ module Correios
       end
 
       def request
-        puts xml
-
         begin
           format_response(CLIENT.client.call(:bloquear_objeto,
                                              soap_action: '',

@@ -7,6 +7,7 @@ require_relative 'sigep/requests/request_label_numbers'
 require_relative 'sigep/requests/search_available_additional_services'
 require_relative 'sigep/requests/search_customer'
 require_relative 'sigep/requests/search_zip_code'
+require_relative 'sigep/requests/track_shippings'
 require_relative 'credentials'
 
 module Correios
@@ -63,6 +64,10 @@ module Correios
 
     def self.search_zip_code(data = {})
       SearchZipCode.new(data).request
+    end
+
+    def self.track_shippings(data = {})
+      TrackShippings.new(data).request
     end
   end
 

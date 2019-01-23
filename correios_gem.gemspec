@@ -22,12 +22,14 @@ Gem::Specification.new do |s|
     'lib/sigep/requests/request_label_numbers.rb',
     'lib/sigep/requests/search_available_additional_services.rb',
     'lib/sigep/requests/search_customer.rb',
-    'lib/sigep/requests/search_zip_code.rb'
+    'lib/sigep/requests/search_zip_code.rb',
+    'lib/sigep/requests/track_shippings.rb'
   ]
   s.license = 'MIT'
 
-  s.add_dependency 'nokogiri', '~> 1.9',  '>= 1.9.1'
-  s.add_dependency 'savon',    '~> 2.12', '>= 2.12.0'
+  s.add_dependency 'activesupport', '~> 4.2',  '>= 4.2.6'
+  s.add_dependency 'nokogiri',      '~> 1.9',  '>= 1.9.1'
+  s.add_dependency 'savon',         '~> 2.12', '>= 2.12.0'
 
   # s.add_development_dependency 'bundler', '~> 1.11'
   # s.add_development_dependency 'rake', '~> 10.0'

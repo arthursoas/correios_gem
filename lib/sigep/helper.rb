@@ -1,3 +1,5 @@
+require 'date'
+
 module Correios
   module Sigep
     class Helper
@@ -112,6 +114,10 @@ module Correios
 
       def convert_string_to_bool(string)
         string.strip == 'S'
+      end
+
+      def convert_string_to_date(date, time)
+        DateTime.strptime("#{date} #{time}", '%d/%m/%Y %H:%M')
       end
 
       private
