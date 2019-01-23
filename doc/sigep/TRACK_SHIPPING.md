@@ -39,7 +39,7 @@ Correios::Sigep.track_shippings({
         :number => 'PS746686536BR',
         :initials => 'PS',
         :name => 'ETIQUETA LÓGICA PAC',
-        :category => 'ENCOMENDA PAC''
+        :category => 'ENCOMENDA PAC'
       },
       :events => [
         {
