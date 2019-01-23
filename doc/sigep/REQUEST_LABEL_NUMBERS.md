@@ -22,7 +22,7 @@ Correios::Sigep.request_label_numbers({
   service_id: '124849'
 })
 ```
-* O campo `service_id` não é o `code` do serviço, mas sim o `id` (ver [buscar Cliente](SEARCH_CUSTOMER.md).
+* O campo `service_id` não é o `code` do serviço, mas sim o `id` (ver [buscar Cliente](SEARCH_CUSTOMER.md)).
 
 ### Saída
 
