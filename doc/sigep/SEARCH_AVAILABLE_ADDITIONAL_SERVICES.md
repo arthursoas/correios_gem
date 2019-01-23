@@ -27,6 +27,7 @@ Correios::Sigep.search_available_additional_services
       :description => "VALOR DECLARADO NACIONAL",
       :initials=> "VD"
     }
+    ...
   ]
 }
 ```
