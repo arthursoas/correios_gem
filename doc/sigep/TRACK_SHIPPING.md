@@ -85,7 +85,6 @@ Correios::Sigep.track_shippings({
   ]
 }
 ```
-* Os valores possíveis do campo `status` estão no Anexo 1.
 
 ### Anexos
 
