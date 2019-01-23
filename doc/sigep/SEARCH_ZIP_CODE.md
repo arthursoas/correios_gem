@@ -18,7 +18,7 @@ Correios::Sigep.search_zip_code({
   zip_code: '32145000'
 })
 ```
-* O campo `zip_code` pode ser enviado com ou sem a máscara (321450-000 ou 32145000).
+* O campo `zip_code` pode ser enviado com ou sem a máscara (32145-000 ou 32145000).
 
 ### Saída
 
