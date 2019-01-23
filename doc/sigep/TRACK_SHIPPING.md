@@ -89,12 +89,12 @@ Correios::Sigep.track_shippings({
 ### Anexos
 
 __Anexo 1:__
-Opções de status de tipo de solicitação:
+Opções de tipo de solicitação:
 * `:list`
 * `:range`
 
 __Anexo 2:__
-Opções de status de tipo de resultado:
+Opções de tipo de resultado:
 * `:last_event`
 * `:all_events`
 ---
