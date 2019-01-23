@@ -45,25 +45,29 @@ Correios::Sigep.track_shippings({
         {
           :type => 'OEC',
           :status => '01',
-          :time => Mon, 03 Dec 2018 10:24:00 +0000,
+          :time => <DateTime: 2018-12-03T10:24:00-03:00>,
           :description => 'Objeto saiu para entrega ao destinatário',
           :detail => nil,
           :city => 'Contagem',
           :state => 'MG',
-          :destination => nil,
           :site => {
             :description => 'CDD NOVO PROGRESSO',
             :code => '32110970'
-          }
+          },
+          :destination => nil
         },
         {
           :type => 'DO',
           :status => '01',
-          :time => Sat, 01 Dec 2018 21:59:00 +0000,
+          :time => <DateTime: 2018-12-01T21:59:00-03:00>,
           :description => 'Objeto encaminhado',
           :detail => nil,
           :city => 'BELO HORIZONTE',
           :state => 'MG',
+          :site => {
+            :description => 'CTCE BELO HORIZONTE',
+            :code => '31255973'
+          },
           :destination => {
             :city => 'Contagem',
             :neighborhood => 'Ressaca',
@@ -72,10 +76,6 @@ Correios::Sigep.track_shippings({
               :description => 'CDD NOVO PROGRESSO',
               :code => '32110970'
             }
-          },
-          :site => {
-            :description => 'CTCE BELO HORIZONTE',
-            :code => '31255973'
           }
         }
         ...
