@@ -10,6 +10,8 @@ module Correios
         )
       end
 
+      private
+
       def wsdl
         if true
           'https://apphom.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl'

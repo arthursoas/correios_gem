@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
     'lib/credentials.rb',
     'lib/sigep/client.rb',
     'lib/sigep/helper.rb',
+    'lib/sigep/requests/cancel_shipping.rb',
     'lib/sigep/requests/calculate_label_number_check_digit.rb',
     'lib/sigep/requests/check_card_status.rb',
     'lib/sigep/requests/check_service_availability.rb',
