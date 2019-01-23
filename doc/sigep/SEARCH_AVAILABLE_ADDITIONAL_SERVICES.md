@@ -25,7 +25,7 @@ Correios::Sigep.search_available_additional_services
     {
       :code => "019",
       :description => "VALOR DECLARADO NACIONAL",
-      :initials=> "VD"
+      :initials => "VD"
     }
     ...
   ]
