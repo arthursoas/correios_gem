@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
     'lib/sigep/helper.rb',
     'lib/sigep/requests/calculate_label_number_check_digit.rb',
     'lib/sigep/requests/create_shippings.rb',
+    'lib/sigep/requests/request_label_numbers.rb',
     'lib/sigep/requests/search_available_additional_services.rb',
     'lib/sigep/requests/search_customer.rb',
     'lib/sigep/requests/search_zip_code.rb'
