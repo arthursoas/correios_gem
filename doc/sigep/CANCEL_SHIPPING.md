@@ -18,11 +18,11 @@ Necessário informar:
 require 'correios_gem'
 ...
 Correios::Sigep.cancel_shipping({
-  label_number: '04162',
+  label_number: 'DL746686536BR',
   request_id: '1001000'
 })
 ```
-* O campo `request_id` é o valor retornado ao criar uma entrega (ver [Criar Entregas](CREATE_SHIPPINGS.pdf)).
+* O campo `request_id` é o valor retornado ao criar uma entrega (ver [Criar Entregas](CREATE_SHIPPINGS.md)).
 
 ### Saída
 
