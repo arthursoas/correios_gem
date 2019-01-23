@@ -18,7 +18,10 @@ Necessário informar:
 require 'correios_gem'
 ...
 Correios::Sigep.track_shippings({
-  label_numbers: ['PS746686536BR', 'PS760237272BR'],
+  label_numbers: [
+    'PS746686536BR',
+    'PS760237272BR'
+  ],
   query_type: :list,
   result_type: :all_events
 })
