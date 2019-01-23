@@ -2,7 +2,7 @@
 
 Documentação dos Correios: `ANEXO 06 - Código do Serviço Adicional`
 
-Busca todos os serviços adicionais disponíveis, assim como os respectivos códigos para utilização na criação das entregas.
+Busca todos os serviços adicionais disponíveis, assim como os respectivos códigos para utilização durante a criação das entregas.
 
 ---
 
