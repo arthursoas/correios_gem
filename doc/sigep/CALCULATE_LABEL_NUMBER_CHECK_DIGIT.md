@@ -33,7 +33,7 @@ Correios::Sigep.calculate_label_number_check_digit({
   :digits_checkers => [5, 9, 2]
 }
 ```
-* O campo `digits_checkers` vem ordenado conforme entrada. `digits_checkers[i]` é referente a `label_numbers[i]`
+* O campo `digits_checkers` é ordenado conforme a entrada. `digits_checkers[i]` é referente a `label_numbers[i]`.
 ---
 
 [Consultar documentação dos Correios](CORREIOS_DOCUMENT.pdf)
