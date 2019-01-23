@@ -1,4 +1,5 @@
 require_relative 'sigep/requests/calculate_label_number_check_digit'
+require_relative 'sigep/requests/check_card_status'
 require_relative 'sigep/requests/check_service_availability'
 require_relative 'sigep/requests/create_shippings'
 require_relative 'sigep/requests/request_label_numbers'
@@ -29,6 +30,10 @@ module Correios
   module Sigep
     def self.calculate_label_number_check_digit(data = {})
       CalculateLabelNumberCheckDigit.new(data).request
+    end
+
+    def self.check_card_status
+      CheckCardStatus.new.request
     end
 
     def self.check_service_availability(data = {})
