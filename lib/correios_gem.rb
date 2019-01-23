@@ -1,3 +1,4 @@
+require_relative 'sigep/requests/calculate_label_number_check_digit'
 require_relative 'sigep/requests/create_shippings'
 require_relative 'sigep/requests/search_available_additional_services'
 require_relative 'sigep/requests/search_customer'
@@ -24,6 +25,10 @@ module Correios
   end
 
   module Sigep
+    def self.calculate_label_number_check_digit(data = {})
+      CalculateLabelNumberCheckDigit.new(data).request
+    end
+
     def self.create_shippings(data = {})
       CreateShippings.new(data).request
     end
