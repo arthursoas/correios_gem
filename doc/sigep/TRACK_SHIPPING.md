@@ -1,6 +1,6 @@
 ## Rastrear Entregas
 
-Rastreia movimentações ponta a ponta da encomenda.
+Rastreia movimentações ponta a ponta das encomendas especificiadas.
 
 ____
 
