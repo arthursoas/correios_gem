@@ -9,14 +9,15 @@ Gem::Specification.new do |s|
   s.summary       = 'correios-gem integrates your app with Brazil post office APIs'
   s.description   = 'Integration with Sigep Web, SRO, Reverse Logistics and Pricefier'
   s.files         = [
-    'lib/correios_gem.rb',
     'lib/correios_exception.rb',
+    'lib/correios_gem.rb',
     'lib/credentials.rb',
     'lib/sigep/client.rb',
     'lib/sigep/helper.rb',
-    'lib/sigep/requests/search_zip_code.rb',
+    'lib/sigep/requests/create_shippings.rb',
+    'lib/sigep/requests/search_available_additional_services.rb',
     'lib/sigep/requests/search_customer.rb',
-    'lib/sigep/requests/create_shippings.rb'
+    'lib/sigep/requests/search_zip_code.rb'
   ]
   s.license = 'MIT'
 
