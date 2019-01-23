@@ -29,9 +29,9 @@ Correios::Sigep.request_label_numbers({
 ```ruby
 {
   :label_numbers => [
-    "SZ46091722 BR",
-    "SZ46091723 BR",
-    "SZ46091724 BR"
+    'SZ46091722 BR',
+    'SZ46091723 BR',
+    'SZ46091724 BR'
   ]
 }
 ```
