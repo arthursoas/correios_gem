@@ -112,19 +112,19 @@ Correios::Sigep.create_shippings({
 
 __Anexo 1:__
 Opções de formas de pagamento:
-* `:postal_vouncher`
-* `:postal_refound`
-* `:exchange_contract`
-* `:credit_card`
-* `:other`
-* Deixar em branco para pagamentos 'A faturar'
+* `:postal_vouncher` (Vale Postal)
+* `:postal_refound` (Reembolso Postal)
+* `:exchange_contract` (Contrato de Câmbio)
+* `:credit_card` (Cartão de Crédito)
+* `:other` (Outros)
+* `to_bill` (A faturar)
 
 __Anexo 2:__
 Opções de tipos de objetos:
-* `:letter_envelope`
-* `:box`
-* `:prism`
-* `:cilinder`
+* `:letter_envelope` (Envelope)
+* `:box` (Caixa)
+* `:prism` (Prisma)
+* `:cilinder` (Cilindro)
 
 ⚠️ __Atenção__: Os Correios fazem poucas validações ao criar uma entrega, o que inclui erros de digitação nos CEPs, endereços e telefones. Verifique os dados antes de solicitar a criação de uma entrega.
 
