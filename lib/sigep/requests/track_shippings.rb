@@ -14,6 +14,7 @@ module Correios
       def initialize(data = {})
         @credentials = Correios.credentials
 
+        @show_request = data[:show_request]
         @label_numbers = data[:label_numbers]
         @query_type = data[:query_type]
         @result_type = data[:result_type]
@@ -21,6 +22,7 @@ module Correios
       end
 
       def request
+        puts xml if @show_request == true
         begin
           format_response(CLIENT.client.call(:consulta_sro,
                                              soap_action: '',

@@ -14,6 +14,7 @@ module Correios
       def initialize(data = {})
         @credentials = Correios.credentials
 
+        @show_request = data[:show_request]
         @service_code = data[:service_code]
         @source_zip_code = data[:source_zip_code]
         @target_zip_code = data[:target_zip_code]
@@ -21,6 +22,7 @@ module Correios
       end
 
       def request
+        puts xml if @show_request == true
         begin
           format_response(CLIENT.client.call(:verifica_disponibilidade_servico,
                                              soap_action: '',

@@ -13,10 +13,13 @@ module Correios
 
       def initialize
         @credentials = Correios.credentials
+
+        @show_request = data[:show_request]
         super()
       end
 
       def request
+        puts xml if @show_request == true
         begin
           format_response(CLIENT.client.call(:get_status_cartao_postagem,
                                              soap_action: '',

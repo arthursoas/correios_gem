@@ -12,11 +12,13 @@ module Correios
       CLIENT = Client.new
 
       def initialize(data = {})
+        @show_request = data[:show_request]
         @zip_code = data[:zip_code]
         super()
       end
 
       def request
+        puts xml if @show_request == true
         begin
           format_response(CLIENT.client.call(:consulta_cep,
                                              soap_action: '',

@@ -14,11 +14,13 @@ module Correios
       def initialize(data = {})
         @credentials = Correios.credentials
 
+        @show_request = data[:show_request]
         @label_numbers = data[:label_numbers]
         super()
       end
 
       def request
+        puts xml if @show_request == true
         begin
           format_response(CLIENT.client.call(:gera_digito_verificador_etiquetas,
                                              soap_action: '',

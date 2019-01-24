@@ -12,10 +12,12 @@ module Correios
       CLIENT = Client.new
 
       def initialize
+        @show_request = data[:show_request]
         super()
       end
 
       def request
+        puts xml if @show_request == true
         begin
           format_response(CLIENT.client.call(:busca_servicos_adicionais_ativos,
                                              soap_action: '',

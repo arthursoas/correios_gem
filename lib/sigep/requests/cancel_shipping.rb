@@ -14,12 +14,14 @@ module Correios
       def initialize(data = {})
         @credentials = Correios.credentials
 
+        @show_request = data[:show_request]
         @label_number = data[:label_number]
         @request_id = data[:request_id]
         super()
       end
 
       def request
+        puts xml if @show_request == true
         begin
           format_response(CLIENT.client.call(:bloquear_objeto,
                                              soap_action: '',

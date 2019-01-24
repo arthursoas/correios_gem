@@ -13,10 +13,13 @@ module Correios
 
       def initialize
         @credentials = Correios.credentials
+
+        @show_request = data[:show_request]
         super()
       end
 
       def request
+        puts xml if @show_request == true
         begin
           format_response(CLIENT.client.call(:busca_cliente,
                                              soap_action: '',
