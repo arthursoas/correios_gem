@@ -43,7 +43,7 @@ module Correios
               xml.fax_remetente sender[:fax]
               xml.email_remetente sender[:email]
             end
-            xml.forma_pagamento data[:payment_method]
+            xml.forma_pagamento payment_method(data[:payment_method])
             shippings.each do |shipping|
               receiver = shipping[:receiver]
               receiver_address = receiver[:address]
@@ -138,6 +138,23 @@ module Correios
           '002'
         when :cylinder
           '003'
+        end
+      end
+
+      def payment_method(method)
+        case method
+        when :postal_vouncher
+          1
+        when :postal_refound
+          2
+        when :exchange_contract
+          3
+        when :credit_card
+          4
+        when :other
+          5
+        when :to_bill
+          nil
         end
       end
     end
