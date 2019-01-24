@@ -11,7 +11,7 @@ module Correios
       HELPER = Helper.new
       CLIENT = Client.new
 
-      def initialize
+      def initialize(data = {})
         @show_request = data[:show_request]
         super()
       end

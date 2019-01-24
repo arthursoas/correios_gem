@@ -11,7 +11,7 @@ module Correios
       HELPER = Helper.new
       CLIENT = Client.new
 
-      def initialize
+      def initialize(data = {})
         @credentials = Correios.credentials
 
         @show_request = data[:show_request]

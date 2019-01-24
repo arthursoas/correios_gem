@@ -38,8 +38,8 @@ module Correios
       CancelShipping.new(data).request
     end
 
-    def self.check_card_status
-      CheckCardStatus.new.request
+    def self.check_card_status(data = {})
+      CheckCardStatus.new(data).request
     end
 
     def self.check_service_availability(data = {})
@@ -54,12 +54,12 @@ module Correios
       RequestLabelNumbers.new(data).request
     end
 
-    def self.search_available_additional_services
-      SearchAvailableAdditionalServices.new.request
+    def self.search_available_additional_services(data = {})
+      SearchAvailableAdditionalServices.new(data).request
     end
 
-    def self.search_customer
-      SearchCustomer.new.request
+    def self.search_customer(data = {})
+      SearchCustomer.new(data).request
     end
 
     def self.search_zip_code(data = {})
