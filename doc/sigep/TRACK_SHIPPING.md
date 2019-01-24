@@ -90,13 +90,13 @@ Correios::Sigep.track_shippings({
 
 __Anexo 1:__
 Opções de tipo de solicitação:
-* `:list`
-* `:range`
+* `:list` (Lista)
+* `:range` (Intervalo)
 
 __Anexo 2:__
 Opções de tipo de resultado:
-* `:last_event`
-* `:all_events`
+* `:last_event` (Último Evento)
+* `:all_events` (Todos os Eventos)
 ---
 
 [Consultar documentação dos Correios](CORREIOS_DOCUMENT.pdf)
