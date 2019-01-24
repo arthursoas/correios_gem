@@ -22,7 +22,7 @@ require 'correios_gem'
 ...
 Correios::Sigep.create_shippings({
   request_number: 000001,                                   #opcional
-  payment_method: 5,                                        #opcional
+  payment_method: :to_bill,                                 #opcional
   cost_center: 'Comercial',                                 #opcional
   description: 'Peças automotivas',
   declared_value: 352.50,                                   #opcional
