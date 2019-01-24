@@ -42,6 +42,16 @@ end
 
 Cada link direciona para a página com a descrição do método, credenciais necessárias para utilização, entrada e saída.
 
+__Debug__: Todos os métodos aceitam o parâmetro `:show_request`, que exibirá no console da aplicação o corpo da requisição (em XML) enviada aos Correios caso seu valor seja `true`. Utilize caso acredite que algum parâmetro não está sendo passado aos Correios. __Ex:__
+
+```ruby
+Correios::Sigep.cancel_shipping({
+  show_request: true,
+  label_number: 'DL746686536BR',
+  request_id: '101001'
+})
+```
+
 * __Sigep__
   * [Buscar CEP](doc/sigep/SEARCH_ZIP_CODE.md)
   * [Buscar Cliente](doc/sigep/SEARCH_CUSTOMER.md)
