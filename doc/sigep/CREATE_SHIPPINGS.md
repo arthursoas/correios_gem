@@ -24,7 +24,7 @@ Correios::Sigep.create_shippings({
   request_number: 000001,                                   #opcional
   payment_method: :to_bill,                                 #opcional  
   sender: {
-    board_id: '10',
+    board_id: '10',                                         #opcional
     name: 'Empresa XPTO',
     phone: '3125522552',
     fax: '3125522552',                                      #opcional
@@ -42,6 +42,7 @@ Correios::Sigep.create_shippings({
   shippings: [
     {
       label_number: 'SZ460209415BR',
+      code: 000001,                                         #opcional
       cost_center: 'Comercial',                             #opcional
       description: 'Peças automotivas',                     #opcional
       declared_value: 352.50,                               #opcional
@@ -55,7 +56,7 @@ Correios::Sigep.create_shippings({
         name: 'José Maria Trindade',
         phone: '1138833883',                                #opcional
         cellphone: '11997799779',
-        email: 'jose.maria@gmail.com',
+        email: 'jose.maria@gmail.com',                      #opcional
         address: {
           zip_code: '69350000',
           state: 'RR',
@@ -69,7 +70,8 @@ Correios::Sigep.create_shippings({
       invoice: {                                            #opcional
         number: '000120',
         serie: '1',
-        kind: 'venda'
+        kind: 'venda',
+        value: 352.50
       },
       additional_services: [                                #opcional
         '001',
