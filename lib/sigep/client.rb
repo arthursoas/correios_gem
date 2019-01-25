@@ -13,7 +13,7 @@ module Correios
       private
 
       def wsdl
-        if true
+        if false
           'https://apphom.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl'
         else
           'https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl'

@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.name          = 'correios_gem'
   s.version       = '0.0.1'
   s.date          = '2018-12-21'
-  s.homepage      = 'https://github.com/arthursoas/correios-gem'
+  s.homepage      = 'https://github.com/arthursoas/correios_gem'
   s.summary       = 'correios-gem integrates your app with Brazil post office APIs'
   s.description   = 'Integration with Sigep Web, SRO, Reverse Logistics and Pricefier'
   s.files         = [
@@ -20,12 +20,13 @@ Gem::Specification.new do |s|
     'lib/sigep/requests/check_service_availability.rb',
     'lib/sigep/requests/create_shippings.rb',
     'lib/sigep/requests/request_label_numbers.rb',
+    'lib/sigep/requests/request_shippings_xml.rb',
     'lib/sigep/requests/search_available_additional_services.rb',
     'lib/sigep/requests/search_customer.rb',
     'lib/sigep/requests/search_zip_code.rb',
     'lib/sigep/requests/track_shippings.rb'
   ]
-  s.license = 'MIT'
+  s.license = 'GPL-3.0'
 
   s.add_dependency 'activesupport', '~> 4.2',  '>= 4.2.6'
   s.add_dependency 'nokogiri',      '~> 1.9',  '>= 1.9.1'

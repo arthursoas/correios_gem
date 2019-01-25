@@ -120,6 +120,12 @@ module Correios
         DateTime.strptime("#{date} #{time}", '%d/%m/%Y %H:%M')
       end
 
+      def convert_string_to_decimal(string)
+        return nil if string.nil?
+
+        string.tr(',', '.').to_f
+      end
+
       private
 
       def convert_decimal_to_string(decimal)

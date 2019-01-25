@@ -4,6 +4,7 @@ require_relative 'sigep/requests/check_card_status'
 require_relative 'sigep/requests/check_service_availability'
 require_relative 'sigep/requests/create_shippings'
 require_relative 'sigep/requests/request_label_numbers'
+require_relative 'sigep/requests/request_shippings_xml'
 require_relative 'sigep/requests/search_available_additional_services'
 require_relative 'sigep/requests/search_customer'
 require_relative 'sigep/requests/search_zip_code'
@@ -52,6 +53,10 @@ module Correios
 
     def self.request_label_numbers(data = {})
       RequestLabelNumbers.new(data).request
+    end
+
+    def self.request_shippings_xml(data = {})
+      RequestShippingsXML.new(data).request
     end
 
     def self.search_available_additional_services(data = {})
