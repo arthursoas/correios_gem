@@ -54,9 +54,9 @@ module Correios
 
               xml.objeto_postal do
                 xml.numero_etiqueta shipping[:label_number]
-                xml.codigo_objeto_cliente
+                xml.codigo_objeto_cliente shipping[:code]
                 xml.codigo_servico_postagem shipping[:service_code]
-                xml.cubagem '0,00'
+                xml.cubagem 0
                 xml.peso object[:weight]
                 xml.rt1 notes[0]
                 xml.rt2 notes[1]
@@ -78,11 +78,10 @@ module Correios
                   xml.centro_custo_cliente shipping[:cost_center]
                   xml.numero_nota_fiscal invoice[:number]
                   xml.serie_nota_fiscal invoice[:serie]
+                  xml.valor_nota_fiscal invoice[:value]
                   xml.natureza_nota_fiscal invoice[:kind]
                   xml.descricao_objeto shipping[:description]
-                  xml.valor_a_cobrar convert_decimal_to_string(
-                    shipping[:additional_value]
-                  )
+                  xml.valor_a_cobrar shipping[:additional_value]
                 end
                 xml.servico_adicional do
                   additional_services.each do |additional_service|
