@@ -67,10 +67,12 @@ module Correios
         end
 
         {
-          id: request['id_plp'],
+          request_id: request['id_plp'],
           card: request['cartao_postagem'],
           global_value: request['valor_global'].to_f,
-          payment_method: payment_method(request['forma_pagamento']),
+          payment_method: payment_method(
+            response['correioslog']['forma_pagamento']
+          ),
           shipping_site: {
             name: request['nome_unidade_postagem'],
             code: request['mcu_unidade_postagem']
