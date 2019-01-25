@@ -22,11 +22,7 @@ require 'correios_gem'
 ...
 Correios::Sigep.create_shippings({
   request_number: 000001,                                   #opcional
-  payment_method: :to_bill,                                 #opcional
-  cost_center: 'Comercial',                                 #opcional
-  description: 'Peças automotivas',
-  declared_value: 352.50,                                   #opcional
-  additional_value: 10.0,                                   #opcional
+  payment_method: :to_bill,                                 #opcional  
   sender: {
     board_id: '10',
     name: 'Empresa XPTO',
@@ -46,6 +42,10 @@ Correios::Sigep.create_shippings({
   shippings: [
     {
       label_number: 'SZ460209415BR',
+      cost_center: 'Comercial',                             #opcional
+      description: 'Peças automotivas',                     #opcional
+      declared_value: 352.50,                               #opcional
+      additional_value: 10.0,                               #opcional
       service_code: '04162',
       notes: [                                              #opcional
         'Frágil',
