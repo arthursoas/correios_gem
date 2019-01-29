@@ -2,7 +2,7 @@
 
 Documentação dos Correios: `solicitação de XML da PLP`
 
-Retorna o XML das entregas criadas que já foram postadas nas agências dos Correios, com todos os dados já
+Retorna dados de entregas criadas que já foram postadas nas agências dos Correios, com todos os dados já
 validados e corrigidos pelos Correios.
 
 ____
@@ -102,25 +102,13 @@ Correios::Sigep.request_shippings_xml({
   ]
 }
 ```
-* O campo `request_number` deve ser único e definido por você (quando preenchido).
-* O campo `payment_method` deve ser preenchido conforme Anexo 1.
-* O campo `sender.board_id` é o código da diretoria do seu contrato (ver [Buscar Cliente](SEARCH_CUSTOMER.md)). 
-* O campo `shippings[i].label_number` deve ser enviado com o dígito verificador.
-* O campo `shippings[i].notes` é um Array que pode receber até duas strings de texto livre.
-* O Campo `shippings[i].additional_services` deve ser preenchido com os códigos dos serviços (ver [Buscar Serviços Adicionais Disponíveis](SEARCH_AVAILABLE_ADDITIONAL_SERVICES.md)).
-* O campo `shippings[i].object.type` deve ser preenchido conforme Anexo 2.
+* O campo `payment_method` será retornado conforme Anexo 1.
+* O campo `shipping_site` é a agência onde os objetos da entrega foram postados.
+* O campo `shippings[i].proof_number` é o número de comprovante da postagem. 
+* O campo `shippings[i].object.type` será retornado conforme Anexo 2.
 
 ‌‌ 
-* Medidas devem ser calculadas em cm e gramas.
-* Telefones e CEPs devem ser enviados sem formatação.
-* Podem ser enviados vários objetos em `shippings` de uma só vez.
-
-
-```ruby
-{
-  :request_id => '101001'
-}
-```
+* Medidas são retornadas em cm e gramas.
 
 ### Anexos
 
@@ -136,11 +124,8 @@ Opções de formas de pagamento:
 __Anexo 2:__
 Opções de tipos de objetos:
 * `:letter_envelope` (Envelope)
-* `:box` (Caixa)
-* `:prism` (Prisma)
+* `:box_prism` (Caixa ou Prisma)
 * `:cilinder` (Cilindro)
-
-⚠️ __Atenção__: Os Correios fazem poucas validações ao criar uma entrega, o que inclui erros de digitação nos CEPs, endereços e telefones. Verifique os dados antes de solicitar a criação de uma entrega.
 
 ---
 
