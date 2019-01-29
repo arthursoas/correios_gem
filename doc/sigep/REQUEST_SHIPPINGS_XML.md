@@ -106,7 +106,6 @@ Correios::Sigep.request_shippings_xml({
 * O campo `shipping_site` é a agência onde os objetos da entrega foram postados.
 * O campo `shippings[i].proof_number` é o número de comprovante da postagem. 
 * O campo `shippings[i].object.type` será retornado conforme Anexo 2.
-
 ‌‌ 
 * Medidas são retornadas em cm e gramas.
 
