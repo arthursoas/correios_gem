@@ -7,13 +7,13 @@ require_relative '../../correios_exception.rb'
 
 module Correios
   module ReverseLogistics
-    class CalculateShippingNumberCheckDigit < CorreiosException
+    class CalculateTicketNumberCheckDigit < CorreiosException
       HELPER = Helper.new
       CLIENT = Client.new
 
       def initialize(data = {})
         @show_request = data[:show_request]
-        @shipping_number = data[:shipping_number]
+        @ticket_number = data[:ticket_number]
         super()
       end
 
@@ -38,7 +38,7 @@ module Correios
                 parent_namespace = xml.parent.namespace
                 xml.parent.namespace = nil
 
-                xml.numero @shipping_number
+                xml.numero @ticket_number
 
                 xml.parent.namespace = parent_namespace
               end
@@ -53,7 +53,7 @@ module Correios
 
         {
           digit_checker: response[:digito],
-          shipping_number: response[:numero]
+          ticket_number: response[:numero]
         }
       end
     end
