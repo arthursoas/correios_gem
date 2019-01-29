@@ -48,7 +48,7 @@ module Correios
                 xml.parent.namespace = nil
 
                 xml.codAdministrativo @credentials.administrative_code
-                xml.tipo ticket_type(@ticket_type)
+                xml.tipo HELPER.ticket_type(@ticket_type)
                 xml.servico service(@service)
                 xml.quantidade @amount
 
@@ -83,15 +83,6 @@ module Correios
           'LS'
         when :e_sedex
           'LV'
-        end
-      end
-
-      def ticket_type(type)
-        case type
-        when :authorization
-          'AP'
-        when :pickup
-          'LR'
         end
       end
     end
