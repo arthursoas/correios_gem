@@ -1,4 +1,5 @@
 require_relative 'reverse_logistics/requests/calculate_ticket_number_check_digit'
+require_relative 'reverse_logistics/requests/request_ticket_numbers'
 require_relative 'sigep/requests/cancel_shipping'
 require_relative 'sigep/requests/calculate_label_number_check_digit'
 require_relative 'sigep/requests/check_card_status'
@@ -31,6 +32,10 @@ module Correios
   module ReverseLogistics
     def self.calculate_ticket_number_check_digit(data = {})
       CalculateTicketNumberCheckDigit.new(data).request
+    end
+
+    def self.request_ticket_numbers(data = {})
+      RequestTicketNumbers.new(data).request
     end
   end
 

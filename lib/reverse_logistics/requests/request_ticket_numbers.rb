@@ -7,20 +7,24 @@ require_relative '../../correios_exception.rb'
 
 module Correios
   module ReverseLogistics
-    class CalculateTicketNumberCheckDigit < CorreiosException
+    class RequestTicketNumbers < CorreiosException
       HELPER = Helper.new
       CLIENT = Client.new
 
       def initialize(data = {})
+        @credentials = Correios.credentials
+
         @show_request = data[:show_request]
-        @ticket_number = data[:ticket_number]
+        @ticket_type = data[:ticket_type]
+        @service = data[:service]
+        @amount = data[:amount]
         super()
       end
 
       def request
         puts xml if @show_request == true
         begin
-          format_response(CLIENT.client.call(:calcular_digito_verificador,
+          format_response(CLIENT.client.call(:solicitar_range,
                                              soap_action: '',
                                              xml: xml).to_hash)
         rescue Savon::SOAPFault => error
@@ -39,11 +43,14 @@ module Correios
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
           xml['soap'].Envelope(HELPER.namespaces) do
             xml['soap'].Body do
-              xml['ns1'].calcularDigitoVerificador do
+              xml['ns1'].solicitarRange do
                 parent_namespace = xml.parent.namespace
                 xml.parent.namespace = nil
 
-                xml.numero @ticket_number
+                xml.codAdministrativo @credentials.administrative_code
+                xml.tipo ticket_type(@ticket_type)
+                xml.servico service(@service)
+                xml.quantidade @amount
 
                 xml.parent.namespace = parent_namespace
               end
@@ -53,13 +60,39 @@ module Correios
       end
 
       def format_response(response)
-        response = response[:calcular_digito_verificador_response][:calcular_digito_verificador]
+        response = response[:solicitar_range_response][:solicitar_range]
         generate_exception(response[:msg_erro]) if response[:cod_erro] != '0'
 
-        {
-          digit_checker: response[:digito],
-          ticket_number: response[:numero]
-        }
+        initial_number = response[:faixa_inicial].to_i
+        final_number = response[:faixa_final].to_i
+
+        ticket_numbers = []
+        while initial_number <= final_number do
+          ticket_numbers << initial_number.to_s
+          initial_number += 1
+        end
+
+        { ticket_numbers: ticket_numbers }
+      end
+
+      def service(service)
+        case service
+        when :pac
+          'LR'
+        when :sedex
+          'LS'
+        when :e_sedex
+          'LV'
+        end
+      end
+
+      def ticket_type(type)
+        case type
+        when :authorization
+          'AP'
+        when :pickup
+          'LR'
+        end
       end
     end
   end
