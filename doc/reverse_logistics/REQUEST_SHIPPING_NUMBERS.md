@@ -1,6 +1,6 @@
 ## Solicitar Tickets de Entrega
 
-Documentação dos Correios: `Reserva de Faixa de Numeração de e-Ticket (range)`
+Documentação dos Correios: `Reserva de Faixa de Numeração de e-Ticket (Range)`
 
 Fornece números de ticket de logística reversa sem o dígito verificador.
 
