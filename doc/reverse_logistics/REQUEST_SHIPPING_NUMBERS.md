@@ -23,8 +23,8 @@ Correios::ReverseLogistics.request_ticket_numbers({
   amount: 4
 })
 ```
-O campo `ticket_type` deve ser preenchido conforme Anexo 1.
-O campo `service` pode ser preenchido conforme Anexo 2.
+* O campo `ticket_type` deve ser preenchido conforme Anexo 1.
+* O campo `service` pode ser preenchido conforme Anexo 2.
 
 ### Saída
 
