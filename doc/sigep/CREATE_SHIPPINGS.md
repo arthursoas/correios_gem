@@ -24,11 +24,11 @@ Correios::Sigep.create_shippings({
   request_number: 000001,                                   #opcional
   payment_method: :to_bill,                                 #opcional  
   sender: {
-    board_id: '10',                                         #opcional
+    board_id: '10',
     name: 'Empresa XPTO',
-    phone: '3125522552',
+    phone: '3125522552',                                    #opcional
     fax: '3125522552',                                      #opcional
-    email: 'contato@xpto.com.br',
+    email: 'contato@xpto.com.br',                           #opcional
     address: {
       zip_code: '35690000',
       state: 'MG',
@@ -55,7 +55,7 @@ Correios::Sigep.create_shippings({
       receiver: {
         name: 'José Maria Trindade',
         phone: '1138833883',                                #opcional
-        cellphone: '11997799779',
+        cellphone: '11997799779',                           #opcional
         email: 'jose.maria@gmail.com',                      #opcional
         address: {
           zip_code: '69350000',
@@ -100,7 +100,7 @@ Correios::Sigep.create_shippings({
 ‌‌ 
 * Medidas devem ser calculadas em cm e gramas.
 * Telefones e CEPs devem ser enviados sem formatação.
-* Podem ser enviados vários objetos em `shippings` de uma só vez.
+* Podem ser enviados até 1000 objetos em `shippings` de uma só vez.
 
 ### Saída
 
