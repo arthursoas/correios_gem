@@ -94,6 +94,7 @@ module Correios
 
       def format_event(event)
         {
+          movement: HELPER.tracking_event_status(event),
           type: event['tipo'],
           status: event['status'],
           time: HELPER.convert_string_to_date(event['data'], event['hora']),

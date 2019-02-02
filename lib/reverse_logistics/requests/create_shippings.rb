@@ -53,7 +53,7 @@ module Correios
                   receiver_address = @receiver[:address]
                   xml.nome @receiver[:name]
                   xml.ddd @receiver[:phone][0, 1]
-                  xml.telefone @receiver[:phone][2, @receiver[:phone].lenght - 1]
+                  xml.telefone @receiver[:phone][2, @receiver[:phone].length - 1]
                   xml.email @receiver[:email]
                   xml.logradouro receiver_address[:street]
                   xml.numero receiver_address[:number]
@@ -69,9 +69,16 @@ module Correios
                   objects = shipping[:objects] || []
                   xml.coletas_solicitadas do
                     xml.tipo HELPER.shipping_type(shipping[:type])
+                    xml.numero shipping[:ticket_number]
                     xml.id_cliente shipping[:code]
+                    xml.ag HELPER.deadline(shipping[:deadline], shipping[:type])
+                    xml.cartao @credentials.card
                     xml.valor_declarado shipping[:declared_value]
+                    xml.servico_adicional HELPER.additional_services(
+                      shipping[:additional_services]
+                    )
                     xml.descricao shipping[:description]
+                    xml.ar HELPER.bool_to_int(shipping[:receipt_notification])
                     xml.cklist shipping[:check_list]
                     xml.documento shipping[:document]
                     xml.remetente do
@@ -79,9 +86,9 @@ module Correios
                       sender_address = shipping[:sender][:address]
                       xml.nome sender[:name]
                       xml.ddd sender[:phone][0, 1]
-                      xml.telefone sender[:phone][2, sender[:phone].lenght - 1]
+                      xml.telefone sender[:phone][2, sender[:phone].length - 1]
                       xml.ddd_celular sender[:cellphone][0, 1]
-                      xml.celular sender[:cellphone][2, sender[:phone].lenght - 1]
+                      xml.celular sender[:cellphone][2, sender[:phone].length - 1]
                       xml.email sender[:email]
                       xml.sms HELPER.bool_to_string(sender[:send_sms])
                       xml.identificacao sender[:document]
@@ -101,18 +108,12 @@ module Correios
                         xml.qtd good[:amount]
                       end
                     end
-                    xml.numero shipping[:ticket_number]
-                    xml.ag HELPER.deadline(shipping[:deadline], shipping[:type])
-                    xml.cartao @credentials.card
-                    xml.servico_adicional HELPER.additional_services(
-                      shipping[:additional_services]
-                    )
                     objects.each do |object|
                       xml.obj_col do
                         xml.item 1
+                        xml.id object[:id]
                         xml.desc object[:description]
                         xml.entrega object[:number]
-                        xml.id object[:id]
                         xml.num
                       end
                     end
@@ -127,19 +128,10 @@ module Correios
       end
 
       def format_response(response)
-        response = response[:solicitar_range_response][:solicitar_range]
-        generate_exception(response[:msg_erro]) if response[:cod_erro] != '0'
+        response = response[:solicitar_postagem_reversa_response][:solicitar_postagem_reversa]
+        generate_exception(response[:msg_erro]) if response[:cod_erro].to_i != 0
 
-        initial_number = response[:faixa_inicial].to_i
-        final_number = response[:faixa_final].to_i
-
-        ticket_numbers = []
-        while initial_number <= final_number do
-          ticket_numbers << initial_number.to_s
-          initial_number += 1
-        end
-
-        { ticket_numbers: ticket_numbers }
+        puts response
       end
     end
   end

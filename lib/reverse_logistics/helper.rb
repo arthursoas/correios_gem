@@ -15,6 +15,11 @@ module Correios
         'N'
       end
 
+      def bool_to_int(bool)
+        1 if bool
+        0
+      end
+
       def deadline(value, type)
         if type == :authorization
           value if value.is_a?(Numeric)
