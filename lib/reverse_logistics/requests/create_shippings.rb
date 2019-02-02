@@ -131,7 +131,34 @@ module Correios
         response = response[:solicitar_postagem_reversa_response][:solicitar_postagem_reversa]
         generate_exception(response[:msg_erro]) if response[:cod_erro].to_i != 0
 
-        puts response
+        shippings = response[:resultado_solicitacao]
+        shippings = [shippings] if shippings.is_a?(Hash)
+
+        formatted_shippings = []
+        shippings.each do |shipping|
+          formatted_shippings << format_shipping(shipping)
+        end
+
+        { shippings: formatted_shippings }
+      end
+
+      def format_shipping(shipping)
+        if shipping[:codigo_erro].to_i.zero?
+          {
+            type: HELPER.shipping_type_inverse(shipping[:tipo]),
+            code: shipping[:id_cliente],
+            ticket_number: shipping[:numero_coleta],
+            label_number: shipping[:numero_etiqueta],
+            object_id: shipping[:id_obj],
+            deadline: HELPER.convert_string_to_date(shipping[:prazo])
+          }
+        else
+          {
+            type: HELPER.shipping_type_inverse(shipping[:tipo]),
+            code: shipping[:id_cliente],
+            error: shipping[:descricao_erro]
+          }
+        end
       end
     end
   end

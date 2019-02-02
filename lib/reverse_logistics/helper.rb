@@ -39,6 +39,15 @@ module Correios
         end
       end
 
+      def shipping_type_inverse(type)
+        case type
+        when 'A'
+          :authorization
+        when 'C'
+          :pickup
+        end
+      end
+
       def ticket_type(type)
         case type
         when :authorization
@@ -56,6 +65,10 @@ module Correios
           services_string += "#{service},"
         end
         services_string
+      end
+
+      def convert_string_to_date(date)
+        Date.strptime(date, '%d/%m/%Y')
       end
     end
   end
