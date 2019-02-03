@@ -93,7 +93,8 @@ requisição.
 * O campo `shippings[i].ticket_number` deve ser enviado com o dígito verificador (quando preenchido)
 * O Campo `shippings[i].deadline` deve ser preenchido com a data de limite de postagem / coleta <Date>, ou quantidade 
   de dias contados a partir da data da criação da entrega.
-* O campo `shippings[i].goods` deve ser preenchido conforme seção 5.2 na documentação dos Correios.
+* O campo `shippings[i].goods` deve ser preenchido conforme seção 5.2 na [documentação dos Correios](CORREIOS_DOCUMENT.pdf)
+.
 
 ‌‌ 
 * Telefones e CEPs devem ser enviados sem formatação.
@@ -141,6 +142,8 @@ __Anexo 1:__
 Opções de tipos de entregas:
 * `:authorization` (Autorização de Postagem)
 * `:pickup` (Coleta Residencial)
+
+📌 __Dica__: Os serviços disponíveis
 ---
 
 [Consultar documentação dos Correios](CORREIOS_DOCUMENT.pdf)
