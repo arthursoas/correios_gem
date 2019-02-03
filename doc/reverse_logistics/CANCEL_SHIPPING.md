@@ -18,7 +18,7 @@ Necessário informar:
 ```ruby
 require 'correios_gem'
 ...
-Correios::ReverseLogistics.cancle_shipping({
+Correios::ReverseLogistics.cancel_shipping({
   ticket_number: '19484776',
   ticket_type: :authorization
 })
