@@ -128,7 +128,8 @@ Correios::ReverseLogistics.create_shippings({
 {
   :type => :authorization,
   :code => '120001',
-  :error=> ' A solicitação do remetente JOSÉ MARIA TRINDADE já foi processado no dia 03/02/2019 às 01:40:11. Número do pedido 1040921609'
+  :error=> 'A solicitação do remetente JOSÉ MARIA TRINDADE já foi processado no dia 03/02/2019
+            às 01:40:11. Número do pedido 1040921609'
 }
 ```
 
