@@ -1,6 +1,8 @@
-## ~~Rastrear Entregas~~ (Método Desativado Pelos Correios)
+## ~~Rastrear Entregas~~
 
-Rastreia movimentações ponta a ponta das encomendas especificiadas.
+#### ⚠️ Este método foi desativado pelos correios. Utilize os métodos da seção SRO.
+
+~~Rastreia movimentações ponta a ponta das encomendas especificiadas.~~
 
 ____
 
