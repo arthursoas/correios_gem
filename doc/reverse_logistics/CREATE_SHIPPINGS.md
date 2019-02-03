@@ -143,7 +143,18 @@ Opções de tipos de entregas:
 * `:authorization` (Autorização de Postagem)
 * `:pickup` (Coleta Residencial)
 
-📌 __Dica__: Os serviços disponíveis
+📌 __Dica__: Os serviços disponíveis para solicitação de loǵistica reversa sâo:
+```ruby
+{
+  name: 'NOVO PAC REVERSO',
+  code: '04677'
+},
+{
+  name: 'NOVO SEDEX REVERSO',
+  code: '04170'
+}
+```
+
 ---
 
 [Consultar documentação dos Correios](CORREIOS_DOCUMENT.pdf)
