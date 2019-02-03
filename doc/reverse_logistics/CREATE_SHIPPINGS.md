@@ -71,16 +71,16 @@ Correios::ReverseLogistics.create_shippings({
           amount: 2
         }
       ],
-      objects: [
+      objects: [                                              #opcional
         {
           id: '1200011',
           description: 'Radiador Bosh',
-          number: nil                                         #opcional
+          number: nil
         },
         {
           id: '1200012',
           description: 'Amortecedor Cofap',
-          number: nil                                         #opcional
+          number: nil
         }
       ]
     }
