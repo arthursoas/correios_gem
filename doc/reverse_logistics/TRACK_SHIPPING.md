@@ -19,7 +19,7 @@ Necessário informar:
 require 'correios_gem'
 ...
 Correios::ReverseLogistics.track_shipping(
-  ticket_number: '1102314440',
+  ticket_number: '1040919188',
   type: :authorization,
   result_type: :all_events
 )
