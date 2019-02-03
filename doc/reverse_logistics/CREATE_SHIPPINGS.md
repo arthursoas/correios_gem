@@ -75,12 +75,12 @@ Correios::ReverseLogistics.create_shippings({
         {
           id: '1200011',
           description: 'Radiador Bosh',
-          number: nil
+          number: nil                                         #opcional
         },
         {
           id: '1200012',
           description: 'Amortecedor Cofap',
-          number: nil
+          number: nil                                         #opcional
         }
       ]
     }
