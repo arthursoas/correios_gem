@@ -1,4 +1,4 @@
-## Rastrear Entregas
+## ~~Rastrear Entregas~~ (Método Desativado Pelos Correios)
 
 Rastreia movimentações ponta a ponta das encomendas especificiadas.
 
