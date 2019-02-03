@@ -71,7 +71,7 @@ Correios::ReverseLogistics.create_shippings({
           amount: 2
         }
       ],
-      objects: [                                              #opcional
+      objects: [
         {
           id: '1200011',
           description: 'Radiador Bosh',
