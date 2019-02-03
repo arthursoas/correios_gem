@@ -59,7 +59,7 @@ Correios::Sigep.cancel_shipping({
   * [Calcular Dígito Verificador de Número de Etiqueta](doc/sigep/CALCULATE_LABEL_NUMBER_CHECK_DIGIT.md)
   * [Cancelar Entrega](doc/sigep/CANCEL_SHIPPING.md)
   * [Criar Entregas](doc/sigep/CREATE_SHIPPINGS.md)
-  * [Rastrear Entregas](doc/sigep/TRACK_SHIPPING.md)
+  * ~~[Rastrear Entregas](doc/sigep/TRACK_SHIPPING.md)~~
   * [Solicitar Números de Etiqueta](doc/sigep/REQUEST_LABEL_NUMBERS.md)
   * [Solicitar XML de Entregas](doc/sigep/REQUEST_SHIPPINGS_XML.md)
   * [Verificar Disponibilidade de Serviço](doc/sigep/CHECK_SERVICE_AVAILABILITY.md)
