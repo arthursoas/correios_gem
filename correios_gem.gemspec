@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
     'lib/reverse_logistics/requests/cancel_shipping.rb',
     'lib/reverse_logistics/requests/create_shippings.rb',
     'lib/reverse_logistics/requests/request_ticket_numbers.rb',
+    'lib/reverse_logistics/requests/track_shipping.rb',
     'lib/sigep/client.rb',
     'lib/sigep/helper.rb',
     'lib/sigep/requests/cancel_shipping.rb',

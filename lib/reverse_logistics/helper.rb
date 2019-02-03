@@ -72,6 +72,20 @@ module Correios
       def convert_string_to_date(date)
         Date.strptime(date, '%d/%m/%Y')
       end
+
+      def tracking_result_type(result_type)
+        case result_type
+        when :last_event
+          'U'
+        when :all_events
+          'H'
+        end
+      end
+
+      def convert_string_to_date_time(date, time)
+        time = time.strftime('%H:%M:%S')
+        DateTime.strptime("#{date} #{time}", '%d-%m-%Y %H:%M:%S')
+      end
     end
   end
 end

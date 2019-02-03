@@ -15,7 +15,7 @@ module Correios
         @credentials = Correios.credentials
 
         @ticket_number = data[:ticket_number]
-        @ticket_type = data[:ticket_type]
+        @type = data[:type]
         super()
       end
 
@@ -47,7 +47,7 @@ module Correios
 
                 xml.codAdministrativo @credentials.administrative_code
                 xml.numeroPedido @ticket_number
-                xml.tipo HELPER.shipping_type(@ticket_type)
+                xml.tipo HELPER.shipping_type(@type)
 
                 xml.parent.namespace = parent_namespace
               end
