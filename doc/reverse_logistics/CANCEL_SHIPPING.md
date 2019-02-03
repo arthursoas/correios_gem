@@ -23,7 +23,7 @@ Correios::ReverseLogistics.cancel_shipping({
   ticket_type: :authorization
 })
 ```
-* O campo `ticket_number` já é preenchido com o dígito verificador.
+* O campo `ticket_number` deve ser preenchido com o dígito verificador.
 * O campo `ticket_type` deve ser preenchido conforme Anexo 1.
 
 ### Saída
