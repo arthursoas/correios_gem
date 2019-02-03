@@ -22,10 +22,12 @@ module Correios
 
       def deadline(value, type)
         if type == :authorization
-          value if value.is_a?(Numeric)
+          return value if value.is_a?(Numeric)
+
           Date.today - value
         else
-          (Date.today + value).strftime('%d/%m/%Y') if value.is_a?(Numeric)
+          return (Date.today + value).strftime('%d/%m/%Y') if value.is_a?(Numeric)
+
           value.strftime('%d/%m/%Y')
         end
       end

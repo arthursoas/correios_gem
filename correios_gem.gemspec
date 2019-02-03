@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
     'lib/reverse_logistics/client.rb',
     'lib/reverse_logistics/helper.rb',
     'lib/reverse_logistics/requests/calculate_ticket_number_check_digit.rb',
+    'lib/reverse_logistics/requests/cancel_shipping.rb',
     'lib/reverse_logistics/requests/create_shippings.rb',
     'lib/reverse_logistics/requests/request_ticket_numbers.rb',
     'lib/sigep/client.rb',

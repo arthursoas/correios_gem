@@ -14,6 +14,7 @@ module Correios
       def initialize(data = {})
         @credentials = Correios.credentials
 
+        @show_request = data[:show_request]
         @receiver = data[:receiver]
         @service_code = data[:service_code]
         @shippings = data[:shippings]
@@ -52,7 +53,7 @@ module Correios
                 xml.destinatario do
                   receiver_address = @receiver[:address]
                   xml.nome @receiver[:name]
-                  xml.ddd @receiver[:phone][0, 1]
+                  xml.ddd @receiver[:phone][0, 2]
                   xml.telefone @receiver[:phone][2, @receiver[:phone].length - 1]
                   xml.email @receiver[:email]
                   xml.logradouro receiver_address[:street]
@@ -66,7 +67,7 @@ module Correios
                 end
                 @shippings.each do |shipping|
                   goods = shipping[:goods] || []
-                  objects = shipping[:objects] || []
+                  objects = shipping[:objects] || [{}]
                   xml.coletas_solicitadas do
                     xml.tipo HELPER.shipping_type(shipping[:type])
                     xml.numero shipping[:ticket_number]
@@ -85,9 +86,9 @@ module Correios
                       sender = shipping[:sender]
                       sender_address = shipping[:sender][:address]
                       xml.nome sender[:name]
-                      xml.ddd sender[:phone][0, 1]
+                      xml.ddd sender[:phone][0, 2]
                       xml.telefone sender[:phone][2, sender[:phone].length - 1]
-                      xml.ddd_celular sender[:cellphone][0, 1]
+                      xml.ddd_celular sender[:cellphone][0, 2]
                       xml.celular sender[:cellphone][2, sender[:phone].length - 1]
                       xml.email sender[:email]
                       xml.sms HELPER.bool_to_string(sender[:send_sms])
