@@ -121,8 +121,16 @@ Correios::ReverseLogistics.create_shippings({
   ]
 }
 ```
-* Cada `object` na entrada gera um objeto na saída.
-* Caso ocorra um erro em uma das entregas da lista `shippings` será retornado o erro dentro do objeto da saída.
+* Cada item da lista `objects` na entrada gera um item na saída.
+* Caso ocorra um erro em uma das entregas da lista `shippings` será retornado o erro dentro do objeto da saída. __Ex:__
+
+```ruby
+{
+  :type => :authorization,
+  :code => '120001',
+  :error=> ' A solicitação do remetente JOSÉ MARIA TRINDADE já foi processado no dia 03/02/2019 às 01:40:11. Número do pedido 1040921609'
+}
+```
 
 ### Anexos
 
