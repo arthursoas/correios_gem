@@ -24,7 +24,7 @@ Correios::ReverseLogistics.track_shippings_by_date(
   date: Date.new(2019, 2, 1)
 )
 ```
-* O campo `ticket` deve ser preenchido conforme Anexo 1.
+* O campo `type` deve ser preenchido conforme Anexo 1.
 * O campo `date` deve ser preenchido com um objeto do tipo `Date`.
 
 ### Saída
