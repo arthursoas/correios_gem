@@ -149,16 +149,6 @@ Serviço            | Código
 :----------------- | :-----
 NOVO PAC REVERSO   | 04677
 NOVO SEDEX REVERSO | 04170
-```ruby
-{
-  name: 'NOVO PAC REVERSO',
-  code: '04677'
-},
-{
-  name: 'NOVO SEDEX REVERSO',
-  code: '04170'
-}
-```
 
 ---
 
