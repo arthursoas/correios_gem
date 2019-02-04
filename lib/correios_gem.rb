@@ -1,8 +1,12 @@
+# Reverse Logistics
 require_relative 'reverse_logistics/requests/calculate_ticket_number_check_digit'
 require_relative 'reverse_logistics/requests/cancel_shipping'
 require_relative 'reverse_logistics/requests/create_shippings'
 require_relative 'reverse_logistics/requests/request_ticket_numbers'
 require_relative 'reverse_logistics/requests/track_shipping'
+require_relative 'reverse_logistics/requests/track_shippings_by_date'
+
+# Sigep
 require_relative 'sigep/requests/cancel_shipping'
 require_relative 'sigep/requests/calculate_label_number_check_digit'
 require_relative 'sigep/requests/check_card_status'
@@ -14,11 +18,12 @@ require_relative 'sigep/requests/search_available_additional_services'
 require_relative 'sigep/requests/search_customer'
 require_relative 'sigep/requests/search_zip_code'
 require_relative 'sigep/requests/track_shippings'
+
 require_relative 'credentials'
 
 module Correios
   def self.test
-    'YAY! Correios-gem is working! Have fun!'
+    'YAY! Correios_gem is working! Have fun!'
   end
 
   def self.authenticate
@@ -51,6 +56,10 @@ module Correios
 
     def self.track_shipping(data = {})
       TrackShipping.new(data).request
+    end
+
+    def self.track_shippings_by_date(data = {})
+      TrackShippingsByDate.new(data).request
     end
   end
 

@@ -18,7 +18,7 @@ module Correios
       private
 
       def wsdl
-        if test_env?
+        if true
           'https://apphom.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl'
         else
           'https://cws.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl'

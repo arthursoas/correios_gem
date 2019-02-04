@@ -84,7 +84,11 @@ module Correios
 
       def convert_string_to_date_time(date, time)
         time = time.strftime('%H:%M:%S')
-        DateTime.strptime("#{date} #{time}", '%d-%m-%Y %H:%M:%S')
+        Time.strptime("#{date} #{time}", '%d-%m-%Y %H:%M:%S')
+      end
+
+      def convert_date_to_string(date)
+        date.strftime('%d/%m/%Y')
       end
     end
   end
