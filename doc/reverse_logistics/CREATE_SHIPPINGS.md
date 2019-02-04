@@ -88,11 +88,12 @@ Correios::ReverseLogistics.create_shippings({
 })
 ```
 * O campo `shippings[i].type` deve ser preenchido conforme Anexo 1.
-* O campo `shippings[i].code` é opicional, mas é recomendado preenchê-lo pois será o identificador caso ocorra um erro na
+* O campo `shippings[i].code` deve ser único e definido por você (quando preenchido).
+* É recomendado preencher o campo `shippings[i].code` pois será o identificador da entrega caso ocorra um erro na
 requisição.
-* O campo `shippings[i].ticket_number` deve ser enviado com o dígito verificador (quando preenchido)
-* O Campo `shippings[i].deadline` deve ser preenchido com a data de limite de postagem / coleta <Date>, ou quantidade 
-  de dias contados a partir da data da criação da entrega.
+* O campo `shippings[i].ticket_number` deve ser enviado com o dígito verificador (quando preenchido).
+* O Campo `shippings[i].deadline` deve ser preenchido com a data de limite de postagem ou data da coleta <Date>, ou quantidade 
+  de dias para a data limite de postagem ou data da coleta contados a partir da data do sistema.
 * O campo `shippings[i].goods` deve ser preenchido conforme seção 5.2 na [documentação dos Correios](CORREIOS_DOCUMENT.pdf)
 .
 
@@ -134,7 +135,7 @@ ou
 }
 ```
 
-* Cada item da lista `objects` na entrada gera um item na saída.
+* Cada item da lista `objects` na entrada gera um item na saída (caso não gere um erro).
 
 ### Anexos
 
