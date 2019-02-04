@@ -124,9 +124,7 @@ requisição.
   ]
 }
 ```
-* Cada item da lista `objects` na entrada gera um item na saída.
-* Caso ocorra um erro em uma das entregas da lista `shippings` será retornado o erro dentro do item da saída. __Ex:__
-
+ou
 ```ruby
 {
   :type => :authorization,
@@ -135,6 +133,8 @@ requisição.
             às 01:40:11. Número do pedido 1040921609'
 }
 ```
+
+* Cada item da lista `objects` na entrada gera um item na saída.
 
 ### Anexos
 
