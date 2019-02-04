@@ -61,7 +61,7 @@ Correios::Sigep.track_shippings({
         {
           :type => 'DO',
           :status => '01',
-          :time => Mon, Sat, 01 Dec 2018 21:59:00 +0000,
+          :time => Sat, 01 Dec 2018 21:59:00 +0000,
           :description => 'Objeto encaminhado',
           :detail => nil,
           :city => 'BELO HORIZONTE',
