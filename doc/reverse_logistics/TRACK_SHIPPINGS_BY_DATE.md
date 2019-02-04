@@ -19,7 +19,7 @@ Necessário informar:
 ```ruby
 require 'correios_gem'
 ...
-Correios::ReverseLogistics.track_shipping(
+Correios::ReverseLogistics.track_shippings_by_date(
   type: :authorization,
   date: Date.new(2019, 2, 1)
 )
