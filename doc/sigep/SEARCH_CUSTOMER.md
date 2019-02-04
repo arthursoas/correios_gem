@@ -31,12 +31,12 @@ Correios::Sigep.search_customer
     {
       :board_id => '10',
       :board_description => 'SE - BRASÍLIA',
-      :validity_begin => <DateTime: 2017-04-26T00:00:00-03:00>,
-      :validity_end => <DateTime: 2040-12-31T00:00:00-02:00>,
+      :validity_begin => Wed, 26 Apr 2017 00:00:00 +0000,
+      :validity_end => Mon, 31 Dec 2040 00:00:00 +0000,
       :cards => [
         {
-          :validity_begin => <DateTime: 2018-04-16T00:00:00-03:00>,
-          :validity_end => <DateTime: 2023-09-09T00:00:00-03:00>,
+          :validity_begin => Mon, 16 Apr 2018 00:00:00 +0000,
+          :validity_end => Sat, 09 Sep 2023 00:00:00 +0000,
           :services => [
             {
               :category => 'SERVICO_COM_RESTRICAO',
