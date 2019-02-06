@@ -2,6 +2,7 @@
 require_relative 'reverse_logistics/requests/calculate_ticket_number_check_digit'
 require_relative 'reverse_logistics/requests/cancel_shipping'
 require_relative 'reverse_logistics/requests/create_shippings'
+require_relative 'reverse_logistics/requests/create_shippings_with_collection'
 require_relative 'reverse_logistics/requests/request_ticket_numbers'
 require_relative 'reverse_logistics/requests/track_shipping'
 require_relative 'reverse_logistics/requests/track_shippings_by_date'
@@ -48,6 +49,10 @@ module Correios
 
     def self.create_shippings(data = {})
       CreateShippings.new(data).request
+    end
+
+    def self.create_shippings_with_collection(data = {})
+      CreateShippingsWithCollection.new(data).request
     end
 
     def self.request_ticket_numbers(data = {})
