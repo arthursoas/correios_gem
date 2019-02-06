@@ -67,7 +67,7 @@ Correios::Sigep.cancel_shipping({
 * __Logística Reversa__ (Em desenvolvimento)
   * [Calcular Dígito Verificador de Ticket](doc/reverse_logistics/CALCULATE_SHIPPING_NUMBER_CHECK_DIGIT.md)
   * [Criar Entregas](doc/reverse_logistics/CREATE_SHIPPINGS.md)
-  * [Criar Entrega com Coleta](doc/reverse_logistics/CREATE_SHIPPING_WITH_COLLECTION.md)
+  * [Criar Entrega com Coleta](doc/reverse_logistics/CREATE_SHIPPINGS_WITH_COLLECTION.md)
   * [Cancelar Entrega](doc/reverse_logistics/CANCEL_SHIPPING.md)
   * [Rastrear Entrega](doc/reverse_logistics/TRACK_SHIPPING.md)
   * [Rastrear Entregas por Data](doc/reverse_logistics/TRACK_SHIPPINGS_BY_DATE.md)
