@@ -79,7 +79,7 @@ Correios::ReverseLogistics.create_shippings_with_collection({
 * O campo `shippings[i].code` deve ser único e definido por você (quando preenchido).
 * É recomendado preencher o campo `shippings[i].code` pois será o identificador da entrega caso ocorra um erro na
 requisição.
-* O campo `shippings[i].label_number` deve ser preenchido com um número de etiqueta de uma entrega criada no Sigep (ver [Criar Entregas](../sigep/CREATE_SHIPPINGS.md).
+* O campo `shippings[i].label_number` deve ser preenchido com um número de etiqueta da entrega criada no Sigep (ver [Criar Entregas](../sigep/CREATE_SHIPPINGS.md)).
 * O campo `shippings[i].label_number` deve ser enviado com o dígito verificador.
 * O Campo `shippings[i].deadline` deve ser preenchido com a data de limite de postagem ou data da coleta <Date>, ou quantidade 
   de dias para a data limite de postagem ou data da coleta contados a partir da data do sistema.
