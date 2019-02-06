@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
     'lib/pricefier/helper.rb',
     'lib/pricefier/requests/calculate_deadline.rb',
     'lib/pricefier/requests/calculate_deadline_with_date.rb',
+    'lib/pricefier/requests/calculate_deadline_with_restrictions.rb',
 
     # Reverse Logistics
     'lib/reverse_logistics/client.rb',
