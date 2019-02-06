@@ -1,6 +1,6 @@
 ## Criar Entregas com Coleta Simultânea
 
-Documentação dos Correios: `Solicitação de Logística Reversa com Coleta`
+Documentação dos Correios: `Solicitação de Logística Reversa Simultânea com Coleta`
 
 Cria uma lista de autorizações de postagem ou coletas reversas que serão realizadas apenas mediante a substituição do
 objeto por outro objeto enviado por você através do Sigep. As entregas só são consolidadas ao despachar os objetos em uma agência 
