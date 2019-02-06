@@ -20,7 +20,7 @@ Necessário informar:
 ```ruby
 require 'correios_gem'
 ...
-Correios::ReverseLogistics.create_shippings({
+Correios::ReverseLogistics.create_shippings_with_collection({
   service_code: '04677',
   receiver: {
     name: 'Empresa XPTO',
