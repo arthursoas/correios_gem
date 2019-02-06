@@ -64,7 +64,7 @@ Correios::Sigep.cancel_shipping({
   * [Solicitar XML de Entregas](doc/sigep/REQUEST_SHIPPINGS_XML.md)
   * [Verificar Disponibilidade de Serviço](doc/sigep/CHECK_SERVICE_AVAILABILITY.md)
   * [Verificar Status do Cartão de Postagem](doc/sigep/CHECK_CARD_STATUS.md)
-* __Logística Reversa__ (Em desenvolvimento)
+* __Logística Reversa__
   * [Calcular Dígito Verificador de Ticket](doc/reverse_logistics/CALCULATE_SHIPPING_NUMBER_CHECK_DIGIT.md)
   * [Criar Entregas](doc/reverse_logistics/CREATE_SHIPPINGS.md)
   * [Criar Entregas com Coleta Simultânea](doc/reverse_logistics/CREATE_SHIPPINGS_WITH_COLLECTION.md)
