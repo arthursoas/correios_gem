@@ -14,6 +14,10 @@ module Correios
         Date.strptime(date, '%d/%m/%Y')
       end
 
+      def convert_date_to_string(date)
+        date.strftime('%d/%m/%Y')
+      end
+
       def convert_string_to_bool(string)
         string == 'S'
       end

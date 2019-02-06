@@ -7,7 +7,7 @@ require_relative '../../correios_exception.rb'
 
 module Correios
   module Pricefier
-    class CalculateDeadline < CorreiosException
+    class CalculateDeadlineWithDate < CorreiosException
       HELPER = Helper.new
       CLIENT = Client.new
 
@@ -16,14 +16,15 @@ module Correios
         @service_codes = data[:service_codes]
         @source_zip_code = data[:source_zip_code]
         @target_zip_code = data[:target_zip_code]
+        @reference_date = data[:reference_date]
         super()
       end
 
       def request
         puts xml if @show_request == true
         begin
-          format_response(CLIENT.client.call(:calc_prazo,
-                                             soap_action: 'http://tempuri.org/CalcPrazo',
+          format_response(CLIENT.client.call(:calc_prazo_data,
+                                             soap_action: 'http://tempuri.org/CalcPrazoData',
                                              xml: xml).to_hash)
         rescue Savon::SOAPFault => error
           generate_exception(error)
@@ -41,10 +42,11 @@ module Correios
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
           xml['soap'].Envelope(HELPER.namespaces) do
             xml['soap'].Body do
-              xml['ns1'].CalcPrazo do
+              xml['ns1'].CalcPrazoData do
                 xml.nCdServico HELPER.format_service_codes(@service_codes)
                 xml.sCepOrigem @source_zip_code
                 xml.sCepDestino @target_zip_code
+                xml.sDtCalculo HELPER.convert_date_to_string(@reference_date)
               end
             end
           end
@@ -52,7 +54,7 @@ module Correios
       end
 
       def format_response(response)
-        response = response[:calc_prazo_response][:calc_prazo_result]
+        response = response[:calc_prazo_data_response][:calc_prazo_data_result]
 
         services = response[:servicos][:c_servico]
         services = [services] if services.is_a?(Hash)
