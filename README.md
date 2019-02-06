@@ -1,8 +1,8 @@
 # correios_gem
-### A correios_gem permite você integrar a sua aplicação Ruby on Rails com as APIs dos Correios de maneira simples e rápida.
+### A correios_gem permite você integrar a sua aplicação Ruby on Rails com as todas APIs dos Correios de maneira simples e rápida.
 
-Através desta biblioteca, é realizada a integração com as quatro principais APIs dos Carreios, sendo elas:
-* __Sigep__: Utilizada para buscar CEPs e solicitar entregas através de seu contrato com os correios.
+Através desta biblioteca, é realizada a integração com as quatro APIs dos Carreios, sendo elas:
+* __Sigep__: Utilizada para buscar CEPs, solicitar entregas e verificar seu contrato com os correios.
 * __Logística Reversa__: Utilizada para devoluções de encomendas através de seu contrato com os correios.
 * __Precificador__: Utilizada para calcular preços (frete) e prazos de entregas através de seu contrato com os correios.
 * __SRO__: Utilizada para rastrear entregas.
@@ -42,16 +42,6 @@ end
 
 Cada link direciona para a página com a descrição do método, credenciais necessárias para utilização, entrada e saída.
 
-__Debug__: Todos os métodos aceitam o parâmetro `:show_request`, que, caso seu valor seja `true`, exibirá no console da aplicação o corpo da requisição (em XML) enviada aos Correios. Utilize caso acredite que algum parâmetro não está sendo passado aos Correios. __Ex:__
-
-```ruby
-Correios::Sigep.cancel_shipping({
-  show_request: true,
-  label_number: 'DL746686536BR',
-  request_id: '101001'
-})
-```
-
 * __Sigep__
   * [Buscar CEP](docs/sigep/SEARCH_ZIP_CODE.md)
   * [Buscar Cliente](docs/sigep/SEARCH_CUSTOMER.md)
@@ -88,4 +78,16 @@ Correios::Sigep.cancel_shipping({
   * [Rastrear Entrega](docs/SRO/TRACK_SHIPPING.md)
   * [Rastrear Entregas](docs/SRO/TRACK_SHIPPINGS.md)
   
-   
+  
+### Debug
+
+Todos os métodos aceitam o parâmetro `:show_request`, que, caso seu valor seja `true`, exibirá no console da aplicação o corpo da requisição (em XML) enviada aos Correios. Utilize caso acredite que algum parâmetro não está sendo passado aos Correios. __Ex:__
+
+```ruby
+Correios::Sigep.cancel_shipping({
+  show_request: true,
+  label_number: 'DL746686536BR',
+  request_id: '101001'
+})
+```
+
