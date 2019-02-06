@@ -13,6 +13,11 @@ Gem::Specification.new do |s|
     'lib/correios_gem.rb',
     'lib/credentials.rb',
 
+    # Pricefier
+    'lib/pricefier/client.rb',
+    'lib/pricefier/helper.rb',
+    'lib/pricefier/requests/calculate_deadline.rb',
+
     # Reverse Logistics
     'lib/reverse_logistics/client.rb',
     'lib/reverse_logistics/helper.rb',

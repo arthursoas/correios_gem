@@ -1,3 +1,6 @@
+# Pricefier
+require_relative 'pricefier/requests/calculate_deadline'
+
 # Reverse Logistics
 require_relative 'reverse_logistics/requests/calculate_ticket_number_check_digit'
 require_relative 'reverse_logistics/requests/cancel_shipping'
@@ -36,6 +39,9 @@ module Correios
   end
 
   module Pricefier
+    def self.calculate_deadline(data = {})
+      CalculateDeadline.new(data).request
+    end
   end
 
   module ReverseLogistics
