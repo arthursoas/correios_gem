@@ -116,7 +116,7 @@ ou
 ```
 
 * Cada item da lista `objects` na entrada gera um item na saída (caso não gere um erro).
-* O campo `shippings[i].label_number` é o código de rastreio do objeto devolvido, não o enviado para substituição.
+* O campo `shippings[i].label_number` é o código de rastreio do objeto a ser devolvido.
 
 ### Anexos
 
