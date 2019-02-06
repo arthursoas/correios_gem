@@ -1,5 +1,5 @@
 # correios_gem
-### A correios_gem permite você integrar a sua aplicação Ruby on Rails com as APIs dos Correios de maneira simples e rápida.
+### A correios_gem permite você integrar a sua aplicação Ruby on Rails com as todas APIs dos Correios de maneira simples e rápida.
 
 Através desta biblioteca, é realizada a integração com as quatro principais APIs dos Carreios, sendo elas:
 * __Sigep__: Utilizada para buscar CEPs e solicitar entregas através de seu contrato com os correios.
