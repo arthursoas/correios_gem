@@ -36,7 +36,7 @@ Correios::Pricefier.calculate_deadline({
                 e será realizada com o acréscimo de até 7 (sete) dias úteis ao prazo regular.',
       :deadline => {
         :days => 8,
-        :date => Mon, 18 Feb 2019
+        :date => Mon, 18 Feb 2019 # Campo Date 
       }
     },
     {
