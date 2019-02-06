@@ -98,7 +98,7 @@ requisição.
 .
 
 ‌‌ 
-* Telefones e CEPs devem ser enviados sem formatação.
+* Telefones, CEPs e documentos devem ser enviados sem formatação.
 * Podem ser enviados até 50 objetos em `shippings` de uma só vez.
 
 ### Saída
