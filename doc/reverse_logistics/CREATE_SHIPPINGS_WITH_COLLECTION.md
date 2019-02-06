@@ -81,13 +81,13 @@ Correios::ReverseLogistics.create_shippings_with_collection({
 requisição.
 * O campo `shippings[i].label_number` deve ser preenchido com um número de etiqueta da entrega criada no Sigep (ver [Criar Entregas](../sigep/CREATE_SHIPPINGS.md)).
 * O campo `shippings[i].label_number` deve ser enviado com o dígito verificador.
-* O Campo `shippings[i].deadline` deve ser preenchido com a data de limite de postagem ou data da coleta <Date>, ou quantidade 
-  de dias para a data limite de postagem ou data da coleta contados a partir da data do sistema.
+* O Campo `shippings[i].deadline` deve ser preenchido com a data de limite de postagem ou data da coleta <Date>, ou quantidade de dias para a data limite de postagem ou data da coleta contados a partir da data do sistema.
+* O campo `shippings[i].sender.document` é o CPF ou CNPJ do remetente.
 * O campo `shippings[i].goods` deve ser preenchido conforme seção 5.2 da [documentação dos Correios](CORREIOS_DOCUMENT.pdf)
 .
 
 ‌‌ 
-* Telefones e CEPs devem ser enviados sem formatação.
+* Telefones, CEPs e documentos devem ser enviados sem formatação.
 * Podem ser enviados até 50 objetos em `shippings` de uma só vez.
 
 ### Saída
