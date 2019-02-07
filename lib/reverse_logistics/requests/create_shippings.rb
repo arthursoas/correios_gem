@@ -74,7 +74,7 @@ module Correios
                     xml.id_cliente shipping[:code]
                     xml.ag HELPER.deadline(shipping[:deadline], shipping[:type])
                     xml.cartao @credentials.card
-                    xml.valor_declarado shipping[:declared_value]
+                    xml.valor_declarado shipping[:_value]
                     xml.servico_adicional HELPER.additional_services(
                       shipping[:additional_services]
                     )

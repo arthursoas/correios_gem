@@ -22,6 +22,29 @@ module Correios
         string == 'S'
       end
 
+      def convert_bool_to_string(bool)
+        return 'S' if bool
+        'N'
+      end
+
+      def convert_string_to_float(string)
+        string = string.tr(',', '.')
+        string.to_f
+      end
+
+      def object_type(type)
+        case type
+        when :letter_envelope
+          3
+        when :box
+          1
+        when :prism
+          1
+        when :cylinder
+          2
+        end
+      end
+
       def format_service_codes(services)
         services_string = ''
         services.each do |service|

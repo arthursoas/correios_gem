@@ -68,7 +68,7 @@ Cada link direciona para a página com a descrição do método, credenciais nec
   * [Calcular Prazo de Entrega com Restrições](docs/pricefier/CALCULATE_DEADLINE_WITH_RESTRICTIONS.md)
   * [Calcular Preço (frete)](docs/pricefier/CALCULATE_PRICE.md)
   * [Calcular Preço (frete) com Data](docs/pricefier/CALCULATE_PRICE_WITH_DATE.md)
-  * [Calcular Preço (frete) TAC](docs/pricefier/CALCULATE_PRICE_TAC.md)
+  * [Calcular Preço (frete) FAC](docs/pricefier/CALCULATE_PRICE_FAC.md)
   * [Calcular Preço (frete) e Prazo de Entrega](docs/pricefier/CALCULATE_PRICE_DEADLINE.md)
   * [Calcular Preço (frete) e Prazo de Entrega com Data](docs/pricefier/CALCULATE_PRICE_DEADLINE_WITH_DATE.md)
   * [Calcular Preço (frete) e Prazo de Entrega com Restrições](docs/pricefier/CALCULATE_PRICE_DEADLINE_WITH_RESTRICTIONS.md)
