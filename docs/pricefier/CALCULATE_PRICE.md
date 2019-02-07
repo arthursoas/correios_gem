@@ -3,7 +3,7 @@
 Documentação dos Correios: `CalcPreco`
 
 Calcula o custo de entrega (frete) de uma encomenda entre dois CEPs considerando o serviço utilizado, seriviços adicionais
-ecolhidos, dimensões do objeto e descontos de seu contrato com os correios.
+escolhidos, dimensões do objeto e descontos de seu contrato com os correios.
 
 ____
 
