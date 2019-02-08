@@ -2,8 +2,7 @@
 
 Documentação dos Correios: `CalcPrecoData`
 
-Calcula o custo de entrega (frete) de uma encomenda entre dois CEPs considerando o serviço utilizado, serviços adicionais
-escolhidos, dimensões do objeto, uma data de referência e descontos de seu contrato com os correios.
+Calcula o custo de entrega (frete) de uma encomenda entre dois CEPs considerando o serviço utilizado, uma data de referência, serviços adicionais escolhidos, dimensões do objeto e descontos de seu contrato com os correios.
 
 ____
 
