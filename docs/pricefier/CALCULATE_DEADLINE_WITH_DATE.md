@@ -2,7 +2,7 @@
 
 Documentação dos Correios: `CalcPrazoData`
 
-Calcula a data máxima de entrega de uma encomenda entre dois CEPs considerando os seriviços utilizados e uma data de
+Calcula a data máxima de entrega de uma encomenda entre dois CEPs considerando os serviços utilizados e uma data de
 referência para a postagem.
 
 ____
