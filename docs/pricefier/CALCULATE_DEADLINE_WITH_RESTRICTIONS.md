@@ -2,7 +2,7 @@
 
 Documentação dos Correios: `CalcPrazoRestricao`
 
-Calcula a data máxima de entrega de uma encomenda entre dois CEPs considerando os seriviços utilizados, uma data de
+Calcula a data máxima de entrega de uma encomenda entre dois CEPs considerando os serviços utilizados, uma data de
 referência para a postagem e restrições de entrega.
 
 ____
