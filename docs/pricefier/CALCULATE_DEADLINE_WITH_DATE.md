@@ -23,7 +23,7 @@ Correios::Pricefier.calculate_deadline_with_date({
 })
 
 ```
-* O campo `service_codes[i]` deve ser preenchido com os códigos dos serviços conforme método [Buscar Cliente](../sigep/SEARCH_CUSTOMER.md) ou [Listar Serviços](LIST_SERVICES.md).
+* O campo `service_codes[i]` deve ser preenchido com os códigos dos serviços conforme método [Buscar Cliente](../sigep/SEARCH_CUSTOMER.md), [Listar Serviços](LIST_SERVICES.md) ou [Listar Serviços STAR](LIST_SERVICES_STAR.md).
 
 ### Saída
 
