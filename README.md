@@ -90,3 +90,21 @@ Correios::Sigep.cancel_shipping({
   request_id: '101001'
 })
 ```
+
+Console:
+
+```
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://cliente.bean.master.sigep.bsb.correios.com.br/">
+  <soap:Body>
+    <ns1:bloquearObjeto>
+      <numeroEtiqueta>DL746686536BR</numeroEtiqueta>
+      <idPlp>101001</idPlp>
+      <tipoBloqueio>FRAUDE_BLOQUEIO</tipoBloqueio>
+      <acao>DEVOLVIDO_AO_REMETENTE</acao>
+      <usuario>sigep</usuario>
+      <senha>n5f9t8</senha>
+    </ns1:bloquearObjeto>
+  </soap:Body>
+</soap:Envelope>
+
+```
