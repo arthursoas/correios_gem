@@ -8,6 +8,7 @@ require_relative 'pricefier/requests/calculate_price_deadline_with_date'
 require_relative 'pricefier/requests/calculate_price_deadline_with_restrictions'
 require_relative 'pricefier/requests/calculate_price_fac'
 require_relative 'pricefier/requests/calculate_price_with_date'
+require_relative 'pricefier/requests/list_services'
 
 # Reverse Logistics
 require_relative 'reverse_logistics/requests/calculate_ticket_number_check_digit'
@@ -81,6 +82,10 @@ module Correios
 
     def self.calculate_price_with_date(data = {})
       CalculatePriceWithDate.new(data).request
+    end
+
+    def self.list_services(data = {})
+      ListServices.new(data).request
     end
   end
 
