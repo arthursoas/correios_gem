@@ -34,7 +34,8 @@ Correios::Pricefier.list_services_star
       :code => '04405',
       :description => 'SEDEX 12 SCADA A VISTA',
       :calculate_price => true,
-      :calculate_deadline => false},
+      :calculate_deadline => false
+    },
     ...
   ]
 }
