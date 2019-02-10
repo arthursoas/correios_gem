@@ -75,7 +75,7 @@ Correios::SRO.track_shippings({
             :state => 'MG',
             :site => {
               :description => 'CDD NOVO PROGRESSO',
-              :code => '32110970'
+              :zip_code => '32110970'
             }
           }
         }
