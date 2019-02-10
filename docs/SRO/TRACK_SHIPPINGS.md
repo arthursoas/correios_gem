@@ -111,6 +111,7 @@ Opções de movimento de evento:
 * `:awaiting_pick_up` (Aguardando retirada)
 * `:damaged` (Danificado)
 * `:delivered` (Entregue)
+* `:delivering` (Entregando)
 * `:in_transit` (Em trânsito)
 * `:not_delivered` (Não entregue)
 * `:posted` (Postado na agência)
