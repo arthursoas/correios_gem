@@ -78,7 +78,7 @@ Correios::Sigep.cancel_shipping({
   * [Calcular Prazo de Entrega com Restrições](doc/pricefier/CALCULATE_DEADLINE_WITH_RESTRICTIONS.md)
   * [Calcular Preço (frete)](doc/pricefier/CALCULATE_PRICE.md)
   * [Calcular Preço (frete) com Data](doc/pricefier/CALCULATE_PRICE_WITH_DATE.md)
-  * [Calcular Preço (frete) TAC](doc/pricefier/CALCULATE_PRICE_TAC.md)
+  * [Calcular Preço (frete) FAC](doc/pricefier/CALCULATE_PRICE_FAC.md)
   * [Calcular Preço (frete) e Prazo de Entrega](doc/pricefier/CALCULATE_PRICE_DEADLINE.md)
   * [Calcular Preço (frete) e Prazo de Entrega com Data](doc/pricefier/CALCULATE_PRICE_DEADLINE_WITH_DATE.md)
   * [Calcular Preço (frete) e Prazo de Entrega com Restrições](doc/pricefier/CALCULATE_PRICE_DEADLINE_WITH_RESTRICTIONS.md)
