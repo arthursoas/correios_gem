@@ -26,7 +26,7 @@ module Correios
           when 9, 50, 51, 52
             return :stolen_lost
           when 3, 12, 24
-            return :awaiting_pick_up
+            return :awaiting_pickup
           when 20, 34, 35
             return :not_delivered
           when 23
@@ -60,7 +60,7 @@ module Correios
         when 'LDI'
           case status
           when 0, 1, 2, 3, 14
-            return :awaiting_pick_up
+            return :awaiting_pickup
           end
         when 'OEC', 'LDE'
           case status
