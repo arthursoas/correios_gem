@@ -57,7 +57,8 @@ Gem::Specification.new do |s|
     # SRO
     'lib/SRO/client.rb',
     'lib/SRO/helper.rb',
-    'lib/SRO/requests/track_shippings.rb'
+    'lib/SRO/requests/track_shippings.rb',
+    'lib/SRO/requests/track_shippings_list.rb'
   ]
   s.license = 'GPL-3.0'
 
