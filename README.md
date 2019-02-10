@@ -74,7 +74,7 @@ Cada link direciona para a página com a descrição do método, credenciais nec
   * [Calcular Preço (frete) e Prazo de Entrega com Restrições](docs/pricefier/CALCULATE_PRICE_DEADLINE_WITH_RESTRICTIONS.md)
   * [Listar Serviços](docs/pricefier/LIST_SERVICES.md)
   * [Listar Serviços STAR](docs/pricefier/LIST_SERVICES_STAR.md)
-* __SRO__ (Em desenvolvimento)
+* __SRO__
   * [Rastrear Entregas](docs/SRO/TRACK_SHIPPINGS.md)
   * [Rastrear Entregas Lista](docs/SRO/TRACK_SHIPPINGS_LIST.md)
   
