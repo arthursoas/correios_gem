@@ -60,7 +60,7 @@ Correios::SRO.track_shippings({
           :movement: :in_transit,
           :type => 'DO',
           :status => '01',
-          :time => Sat, 01 Dec 2018 21:59:00 +0000,
+          :time => 2018-12-01 21:59:00 -0300,,
           :description => 'Objeto encaminhado',
           :detail => nil,
           :city => 'BELO HORIZONTE',
