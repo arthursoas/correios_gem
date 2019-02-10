@@ -52,6 +52,7 @@ Correios::Sigep.create_shippings({
         'Frágil',
         'Conteúdo cortante'
       ],
+      additional_services: ['001', '049'],                  #opcional
       receiver: {
         name: 'José Maria Trindade',
         phone: '1138833883',                                #opcional
@@ -73,10 +74,6 @@ Correios::Sigep.create_shippings({
         kind: 'venda',
         value: 352.50
       },
-      additional_services: [                                #opcional
-        '001',
-        '049'
-      ],
       object: {
         type: :box,
         weight: 350.5,

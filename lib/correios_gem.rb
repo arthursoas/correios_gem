@@ -1,3 +1,16 @@
+# Pricefier
+require_relative 'pricefier/requests/calculate_deadline'
+require_relative 'pricefier/requests/calculate_deadline_with_date'
+require_relative 'pricefier/requests/calculate_deadline_with_restrictions'
+require_relative 'pricefier/requests/calculate_price'
+require_relative 'pricefier/requests/calculate_price_deadline'
+require_relative 'pricefier/requests/calculate_price_deadline_with_date'
+require_relative 'pricefier/requests/calculate_price_deadline_with_restrictions'
+require_relative 'pricefier/requests/calculate_price_fac'
+require_relative 'pricefier/requests/calculate_price_with_date'
+require_relative 'pricefier/requests/list_services'
+require_relative 'pricefier/requests/list_services_star'
+
 # Reverse Logistics
 require_relative 'reverse_logistics/requests/calculate_ticket_number_check_digit'
 require_relative 'reverse_logistics/requests/cancel_shipping'
@@ -36,6 +49,49 @@ module Correios
   end
 
   module Pricefier
+    def self.calculate_deadline(data = {})
+      CalculateDeadline.new(data).request
+    end
+
+    def self.calculate_deadline_with_date(data = {})
+      CalculateDeadlineWithDate.new(data).request
+    end
+
+    def self.calculate_deadline_with_restrictions(data = {})
+      CalculateDeadlineWithRestrictions.new(data).request
+    end
+
+    def self.calculate_price(data = {})
+      CalculatePrice.new(data).request
+    end
+
+    def self.calculate_price_deadline(data = {})
+      CalculatePriceDeadline.new(data).request
+    end
+
+    def self.calculate_price_deadline_with_date(data = {})
+      CalculatePriceDeadlineWithDate.new(data).request
+    end
+
+    def self.calculate_price_deadline_with_restrictions(data = {})
+      CalculatePriceDeadlineWithRestrictions.new(data).request
+    end
+
+    def self.calculate_price_fac(data = {})
+      CalculatePriceFAC.new(data).request
+    end
+
+    def self.calculate_price_with_date(data = {})
+      CalculatePriceWithDate.new(data).request
+    end
+
+    def self.list_services(data = {})
+      ListServices.new(data).request
+    end
+
+    def self.list_services_star(data = {})
+      ListServicesSTAR.new(data).request
+    end
   end
 
   module ReverseLogistics

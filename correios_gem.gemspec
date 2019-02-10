@@ -13,6 +13,21 @@ Gem::Specification.new do |s|
     'lib/correios_gem.rb',
     'lib/credentials.rb',
 
+    # Pricefier
+    'lib/pricefier/client.rb',
+    'lib/pricefier/helper.rb',
+    'lib/pricefier/requests/calculate_deadline.rb',
+    'lib/pricefier/requests/calculate_deadline_with_date.rb',
+    'lib/pricefier/requests/calculate_deadline_with_restrictions.rb',
+    'lib/pricefier/requests/calculate_price.rb',
+    'lib/pricefier/requests/calculate_price_deadline.rb',
+    'lib/pricefier/requests/calculate_price_deadline_with_date.rb',
+    'lib/pricefier/requests/calculate_price_deadline_with_restrictions.rb',
+    'lib/pricefier/requests/calculate_price_fac.rb',
+    'lib/pricefier/requests/calculate_price_with_date.rb',
+    'lib/pricefier/requests/list_services.rb',
+    'lib/pricefier/requests/list_services_star.rb',
+
     # Reverse Logistics
     'lib/reverse_logistics/client.rb',
     'lib/reverse_logistics/helper.rb',
