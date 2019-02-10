@@ -108,7 +108,7 @@ Opções de tipo de resultado:
 __Anexo 4:__
 Opções de movimento de evento:
 * `:arrested` (Apreendido)
-* `:awaiting_pick_up` (Aguardando retirada)
+* `:awaiting_pickup` (Aguardando retirada)
 * `:damaged` (Danificado)
 * `:delivered` (Entregue)
 * `:delivering` (Entregando)
