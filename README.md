@@ -62,7 +62,7 @@ Cada link direciona para a página com a descrição do método, credenciais nec
   * [Rastrear Entrega](docs/reverse_logistics/TRACK_SHIPPING.md)
   * [Rastrear Entregas por Data](docs/reverse_logistics/TRACK_SHIPPINGS_BY_DATE.md)
   * [Solicitar Tickets de Entrega](docs/reverse_logistics/REQUEST_SHIPPING_NUMBERS.md)
-* __Precificador__ (Em desenvolvimento)
+* __Precificador__
   * [Calcular Prazo de Entrega](docs/pricefier/CALCULATE_DEADLINE.md)
   * [Calcular Prazo de Entrega com Data](docs/pricefier/CALCULATE_DEADLINE_WITH_DATE.md)
   * [Calcular Prazo de Entrega com Restrições](docs/pricefier/CALCULATE_DEADLINE_WITH_RESTRICTIONS.md)
