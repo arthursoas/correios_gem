@@ -75,8 +75,8 @@ Cada link direciona para a página com a descrição do método, credenciais nec
   * [Listar Serviços](docs/pricefier/LIST_SERVICES.md)
   * [Listar Serviços STAR](docs/pricefier/LIST_SERVICES_STAR.md)
 * __SRO__ (Em desenvolvimento)
-  * [Rastrear Entrega](docs/SRO/TRACK_SHIPPING.md)
   * [Rastrear Entregas](docs/SRO/TRACK_SHIPPINGS.md)
+  * [Rastrear Entregas Lista](docs/SRO/TRACK_SHIPPINGS_LIST.md)
   
   
 ### Debug

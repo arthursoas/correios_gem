@@ -33,6 +33,9 @@ require_relative 'sigep/requests/search_customer'
 require_relative 'sigep/requests/search_zip_code'
 require_relative 'sigep/requests/track_shippings'
 
+# SRO
+require_relative 'SRO/requests/track_shippings'
+
 require_relative 'credentials'
 
 module Correios
@@ -171,5 +174,8 @@ module Correios
   end
 
   module SRO
+    def self.track_shippings(data = {})
+      TrackShippings.new(data).request
+    end
   end
 end

@@ -52,7 +52,12 @@ Gem::Specification.new do |s|
     'lib/sigep/requests/search_available_additional_services.rb',
     'lib/sigep/requests/search_customer.rb',
     'lib/sigep/requests/search_zip_code.rb',
-    'lib/sigep/requests/track_shippings.rb'
+    'lib/sigep/requests/track_shippings.rb',
+
+    # SRO
+    'lib/SRO/client.rb',
+    'lib/SRO/helper.rb',
+    'lib/SRO/requests/track_shippings.rb'
   ]
   s.license = 'GPL-3.0'
 
