@@ -10,6 +10,21 @@ module Correios
         }
       end
 
+      def calculate_deadline_date(days, saturday, date = Date.today)
+        if saturday
+          days.to_i.times do
+            date += 1.days
+            date += 1.days if date.sunday?
+          end
+        else
+          days.to_i.times do
+            date += 1.days
+            date += 1.days if deadline.sunday? || deadline.saturday?
+          end
+        end
+        date
+      end
+
       def convert_string_to_date(date)
         Date.strptime(date, '%d/%m/%Y')
       end

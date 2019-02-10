@@ -3,6 +3,7 @@ require_relative 'pricefier/requests/calculate_deadline'
 require_relative 'pricefier/requests/calculate_deadline_with_date'
 require_relative 'pricefier/requests/calculate_deadline_with_restrictions'
 require_relative 'pricefier/requests/calculate_price'
+require_relative 'pricefier/requests/calculate_price_deadline'
 require_relative 'pricefier/requests/calculate_price_fac'
 require_relative 'pricefier/requests/calculate_price_with_date'
 
@@ -58,6 +59,10 @@ module Correios
 
     def self.calculate_price(data = {})
       CalculatePrice.new(data).request
+    end
+
+    def self.calculate_price_deadline(data = {})
+      CalculatePriceDeadline.new(data).request
     end
 
     def self.calculate_price_fac(data = {})
