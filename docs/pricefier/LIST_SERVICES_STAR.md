@@ -2,7 +2,7 @@
 
 Documentação dos Correios: `ListaServicosSTAR`
 
-Lista os serviços calculados pelo STAR disponíveis para cálculo de preços (frete) e prazos de entrega de encomendas.
+Lista os serviços disponíveis para cálculo de preços (frete) e prazos de entrega de encomendas através do STAR.
 
 ____
 
