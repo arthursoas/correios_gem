@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     'lib/pricefier/requests/calculate_price_fac.rb',
     'lib/pricefier/requests/calculate_price_with_date.rb',
     'lib/pricefier/requests/list_services.rb',
+    'lib/pricefier/requests/list_services_star.rb',
 
     # Reverse Logistics
     'lib/reverse_logistics/client.rb',
