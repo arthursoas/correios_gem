@@ -76,7 +76,7 @@ Correios::Pricefier.calculate_price_deadline_with_date({
   ]
 }
 ```
-* O campo `services[i].deadline.date` é calculado localmente usando a data do sistema, e não considera feriados.
+* O campo `services[i].deadline.date` é calculado localmente usando a data de referência, e não considera feriados.
 
 ### Anexos
 
