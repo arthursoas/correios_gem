@@ -52,7 +52,7 @@ Correios::SRO.track_shippings({
           :state => 'MG',
           :site => {
             :description => 'CDD NOVO PROGRESSO',
-            :code => '32110970'
+            :zip_code => '32110970'
           },
           :destination => nil
         },
@@ -67,7 +67,7 @@ Correios::SRO.track_shippings({
           :state => 'MG',
           :site => {
             :description => 'CTCE BELO HORIZONTE',
-            :code => '31255973'
+            :zip_code => '31255973'
           },
           :destination => {
             :city => 'Contagem',
