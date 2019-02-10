@@ -19,12 +19,14 @@ Correios::SRO.track_shippings({
     'PS746686536BR',
     'PS760237272BR'
   ],
+  language: :portuguese,
   query_type: :list,
   result_type: :all_events
 })
 ```
-* Os valores possíveis do campo `query_type` estão no Anexo 1.
-* Os valores possíveis do campo `result_type` estão no Anexo 2.
+* Os valores possíveis do campo `language` estão no Anexo 1.
+* Os valores possíveis do campo `query_type` estão no Anexo 2.
+* Os valores possíveis do campo `result_type` estão no Anexo 3.
 
 ### Saída
 
@@ -84,21 +86,26 @@ Correios::SRO.track_shippings({
   ]
 }
 ```
-* Os valores possíveis do campo `tracking[i].events[j].movement` estão no Anexo 3.
+* Os valores possíveis do campo `tracking[i].events[j].movement` estão no Anexo 4.
 
 ### Anexos
 
 __Anexo 1:__
+Opções de idioma:
+* `:portuguese` (Portugês)
+* `:english` (Inglês)
+
+__Anexo 2:__
 Opções de tipo de solicitação:
 * `:list` (Lista)
 * `:range` (Intervalo)
 
-__Anexo 2:__
+__Anexo 3:__
 Opções de tipo de resultado:
 * `:last_event` (Último Evento)
 * `:all_events` (Todos os Eventos)
 
-__Anexo 3:__
+__Anexo 4:__
 Opções de movimento de evento:
 * `:arrested` (Apreendido)
 * `:awaiting_pick_up` (Aguardando retirada)
