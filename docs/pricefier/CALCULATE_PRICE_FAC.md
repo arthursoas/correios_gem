@@ -4,6 +4,9 @@ Documentação dos Correios: `CalcPrecoFAC`
 
 Calcula o custo de entrega (frete) de uma encomenda do tipo FAC (franqueamento autorizado de cartas).
 
+⚠️ Este método não foi testado pois nenhuma requisição retornou um resultado válido. Caso tenha em mãos os parâmetros
+atualizados pelos correios, abra um _issue_ para que o método seja testado e validado.
+
 ____
 
 ### Autenticação
