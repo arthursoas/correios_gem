@@ -16,6 +16,17 @@ Esqueça requisições SOAP e códigos confusos criados pelos Correios. A correi
 
 ## Utilização
 
+### Instalação
+
+Manual:
+```
+gem install correios_gem
+```
+Gemfile:
+```
+gem 'correios_gem', '~> 1.4', '>= 1.4.1'
+```
+
 ### Autenticação
 
 Para se autenticar nas APIs dos Correios, o código abaixo deve ser inserido no(s) `environments` de sua aplicação com as credenciais de seu contrato com os Correios.
