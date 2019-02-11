@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.email         = 'arthurvsp97@gmail.com'
 
   s.name          = 'correios_gem'
-  s.version       = '1.4.0'
+  s.version       = '1.4.1'
   s.date          = '2019-02-10'
   s.homepage      = 'https://github.com/arthursoas/correios_gem'
   s.summary       = 'correios-gem integrates your app with Brazil post office APIs'
