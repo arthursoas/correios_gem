@@ -62,7 +62,7 @@ Gem::Specification.new do |s|
   ]
   s.license = 'GPL-3.0'
 
-  s.add_dependency 'activesupport', '~> 4.2',  '>= 4.2.6'
+  s.add_dependency 'activesupport', '~> 5.2',  '>= 5.2.2'
   s.add_dependency 'nokogiri',      '~> 1.9',  '>= 1.9.1'
   s.add_dependency 'savon',         '~> 2.12', '>= 2.12.0'
 
