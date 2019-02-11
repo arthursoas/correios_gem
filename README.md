@@ -1,4 +1,7 @@
 # correios_gem
+
+[![Gem Version](https://badge.fury.io/rb/correios_gem.svg)](https://badge.fury.io/rb/correios_gem)
+
 ### A correios_gem permite você integrar a sua aplicação Ruby on Rails com as todas APIs dos Correios de maneira simples e rápida.
 
 Através desta biblioteca, é realizada a integração com as quatro APIs dos Carreios, sendo elas:
