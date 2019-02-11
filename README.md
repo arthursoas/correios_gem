@@ -17,14 +17,8 @@ Esqueça requisições SOAP e códigos confusos criados pelos Correios. A correi
 ## Utilização
 
 ### Instalação
-
-Manual:
 ```
 gem install correios_gem
-```
-Gemfile:
-```
-gem 'correios_gem', '~> 1.4', '>= 1.4.1'
 ```
 
 ### Autenticação
