@@ -2,12 +2,24 @@ require 'date'
 
 module Correios
   module Sigep
-    class Helper
-      def namespaces
-        {
-          'xmlns:soap' => 'http://schemas.xmlsoap.org/soap/envelope/',
-          'xmlns:ns1' => 'http://cliente.bean.master.sigep.bsb.correios.com.br/'
-        }
+    class Helper < CorreiosException
+      def generate_http_exception(status)
+        case status
+        when 400
+          generate_exception("Bad request [#{status}].")
+        when 401
+          generate_exception("Access unauthorized [#{status}].")
+        when 404
+          generate_exception("Data or method not found [#{status}].")
+        when 500
+          generate_exception("Internal server error [#{status}].")
+        when 503
+          generate_exception("Service unavailable [#{status}].")
+        when 504
+          generate_exception("Gateway timeout [#{status}].")
+        else
+          generate_exception("Unknown HTTP error [#{status}].")
+        end
       end
 
       def shippings_xml(data)

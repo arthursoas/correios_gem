@@ -28,6 +28,11 @@ module Correios
                                              xml: xml).to_hash)
         rescue Savon::SOAPFault => error
           generate_exception(error)
+        rescue Savon::HTTPError => error
+          if error.http.code == 401
+            generate_exception("Unauthorized (#{error.http.code}).")
+          end
+          generate_exception("Unknown HTTP error (#{error.http.code}).")
         end
       end
 

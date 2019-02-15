@@ -1,7 +1,7 @@
 require 'savon'
 require 'nokogiri'
 
-require_relative '../client'
+require_relative '../../auxiliars/client'
 require_relative '../helper'
 require_relative '../../correios_exception.rb'
 
@@ -9,7 +9,7 @@ module Correios
   module Sigep
     class CalculateLabelNumberCheckDigit < CorreiosException
       HELPER = Helper.new
-      CLIENT = Client.new
+      CLIENT = SigepEnvironment.new
 
       def initialize(data = {})
         @credentials = Correios.credentials
@@ -27,6 +27,8 @@ module Correios
                                              xml: xml).to_hash)
         rescue Savon::SOAPFault => error
           generate_exception(error)
+        rescue Savon::HTTPError => error
+          HELPER.generate_http_exception(error.http.code)
         end
       end
 
@@ -34,7 +36,7 @@ module Correios
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(HELPER.namespaces) do
+          xml['soap'].Envelope(CLIENT.namespaces) do
             xml['soap'].Body do
               xml['ns1'].geraDigitoVerificadorEtiquetas do
                 parent_namespace = xml.parent.namespace

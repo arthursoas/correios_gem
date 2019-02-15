@@ -70,9 +70,10 @@ Gem::Specification.new do |s|
   s.add_dependency 'nokogiri',      '~> 1.9',  '>= 1.9.1'
   s.add_dependency 'savon',         '~> 2.12', '>= 2.12.0'
 
+  s.add_development_dependency 'rspec', '~> 3.0'
+
   # s.add_development_dependency 'bundler', '~> 1.11'
   # s.add_development_dependency 'rake', '~> 10.0'
-  # s.add_development_dependency 'rspec', '~> 3.0'
   # s.add_development_dependency 'simplecov', '~> 0.14.1'
   # s.add_development_dependency 'coveralls', '~> 0.8.21'
   # s.add_development_dependency 'rubocop', '~> 0.52.1'
