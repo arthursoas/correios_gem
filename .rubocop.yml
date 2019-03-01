@@ -25,3 +25,6 @@ Style/Documentation:
 Layout/EmptyLines:
   Exclude:
     - 'lib/**/*'
+
+Metrics/MethodLength: 
+  Max: 25

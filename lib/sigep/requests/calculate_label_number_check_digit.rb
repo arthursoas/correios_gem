@@ -1,15 +1,15 @@
 require 'savon'
 require 'nokogiri'
 
-require_relative '../../auxiliars/client'
-require_relative '../helper'
+require_relative '../../auxiliars/environments'
+require_relative '../../auxiliars/helper'
 require_relative '../../correios_exception.rb'
 
 module Correios
   module Sigep
     class CalculateLabelNumberCheckDigit < CorreiosException
       HELPER = Helper.new
-      CLIENT = SigepEnvironment.new
+      ENVIRONMENT = SigepEnvironment.new
 
       def initialize(data = {})
         @credentials = Correios.credentials
@@ -22,9 +22,9 @@ module Correios
       def request
         puts xml if @show_request == true
         begin
-          format_response(CLIENT.client.call(:gera_digito_verificador_etiquetas,
-                                             soap_action: '',
-                                             xml: xml).to_hash)
+          format_response(ENVIRONMENT.client.call(
+            :gera_digito_verificador_etiquetas, soap_action: '', xml: xml
+          ).to_hash)
         rescue Savon::SOAPFault => error
           generate_exception(error)
         rescue Savon::HTTPError => error
@@ -36,7 +36,7 @@ module Correios
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(CLIENT.namespaces) do
+          xml['soap'].Envelope(ENVIRONMENT.namespaces) do
             xml['soap'].Body do
               xml['ns1'].geraDigitoVerificadorEtiquetas do
                 parent_namespace = xml.parent.namespace
@@ -57,17 +57,9 @@ module Correios
 
       def format_response(response)
         response = response[:gera_digito_verificador_etiquetas_response][:return]
-        response = [response] if response.is_a?(Hash)
+        response = [response] if response.is_a?(String)
 
-        { digit_checkers: format_digit_checkers(response) }
-      end
-
-      def format_digit_checkers(digit_checkers)
-        formatted_digit_checkers = []
-        digit_checkers.each do |digit_check|
-          formatted_digit_checkers << digit_check.to_i
-        end
-        formatted_digit_checkers
+        { digit_checkers: response.map(&:to_i) }
       end
     end
   end

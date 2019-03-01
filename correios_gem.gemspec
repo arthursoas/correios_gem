@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
     'lib/correios_exception.rb',
     'lib/correios_gem.rb',
     'lib/credentials.rb',
+    'lib/auxiliars/environments.rb',
 
     # Pricefier
     'lib/pricefier/client.rb',
