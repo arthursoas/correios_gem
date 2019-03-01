@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
     'lib/correios_gem.rb',
     'lib/credentials.rb',
     'lib/auxiliars/environments.rb',
+    'lib/auxiliars/helper.rb',
 
     # Pricefier
     'lib/pricefier/client.rb',

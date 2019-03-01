@@ -7,8 +7,7 @@ require_relative '../../correios_exception.rb'
 
 module Correios
   module Sigep
-    class CalculateLabelNumberCheckDigit < CorreiosException
-      HELPER = Helper.new
+    class CalculateLabelNumberCheckDigit < Helper
       ENVIRONMENT = SigepEnvironment.new
 
       def initialize(data = {})
@@ -23,12 +22,14 @@ module Correios
         puts xml if @show_request == true
         begin
           format_response(ENVIRONMENT.client.call(
-            :gera_digito_verificador_etiquetas, soap_action: '', xml: xml
+            :gera_digito_verificador_etiquetas,
+            soap_action: '',
+            xml: xml
           ).to_hash)
         rescue Savon::SOAPFault => error
-          generate_exception(error)
+          generate_soap_fault_exception(error)
         rescue Savon::HTTPError => error
-          HELPER.generate_http_exception(error.http.code)
+          generate_http_exception(error.http.code)
         end
       end
 

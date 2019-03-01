@@ -1,23 +1,32 @@
+require_relative '../correios_exception'
+
 require 'date'
 require 'time'
 
 class Helper < CorreiosException
+  def generate_soap_fault_exception(message)
+    message = message.to_s.gsub('(soap:Server)', '')
+    message = message.strip
+    message.capitalize
+    generate_exception(mess)
+  end
+
   def generate_http_exception(status)
     case status
     when 400
-      generate_exception("Bad request [#{status}].")
+      generate_exception("Bad request. Status code #{status}")
     when 401
-      generate_exception("Access unauthorized [#{status}].")
+      generate_exception("Access unauthorized. Status code #{status}")
     when 404
-      generate_exception("Data or method not found [#{status}].")
+      generate_exception("Data or method not found. Status code #{status}")
     when 500
-      generate_exception("Internal server error [#{status}].")
+      generate_exception("Internal server error. Status code #{status}")
     when 503
-      generate_exception("Service unavailable [#{status}].")
+      generate_exception("Service unavailable. Status code #{status}")
     when 504
-      generate_exception("Gateway timeout [#{status}].")
+      generate_exception("Gateway timeout. Status code #{status}")
     else
-      generate_exception("Unknown HTTP error [#{status}].")
+      generate_exception("Unknown HTTP error. Status code #{status}")
     end
   end
 
