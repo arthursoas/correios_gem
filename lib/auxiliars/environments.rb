@@ -17,27 +17,29 @@ class PricefierEnvironment
   end
 end
 
-class ReverseLogisticsEnvironment
-  def client
-    base_client(wsdl: wsdl,
-                basic_auth: [
-                  Correios.credentials.reverse_logistics_user || 'user',
-                  Correios.credentials.reverse_logistics_password || 'pass'
-                ])
-  end
+module Correios
+  module ReverseLogistics
+    def self.client
+      base_client(wsdl: wsdl,
+                  basic_auth: [
+                    Correios.credentials.reverse_logistics_user || 'user',
+                    Correios.credentials.reverse_logistics_password || 'pass'
+                  ])
+    end
 
-  def namespaces
-    {
-      'xmlns:soap' => 'http://schemas.xmlsoap.org/soap/envelope/',
-      'xmlns:ns1' => 'http://service.logisticareversa.correios.com.br/'
-    }
-  end
+    def self.namespaces
+      {
+        'xmlns:soap' => 'http://schemas.xmlsoap.org/soap/envelope/',
+        'xmlns:ns1' => 'http://service.logisticareversa.correios.com.br/'
+      }
+    end
 
-  def wsdl
-    if production_env?
-      'https://cws.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl'
-    else
-      'https://apphom.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl'
+    def self.wsdl
+      if production_env?
+        'https://cws.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl'
+      else
+        'https://apphom.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl'
+      end
     end
   end
 end

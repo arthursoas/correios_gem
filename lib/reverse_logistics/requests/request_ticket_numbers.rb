@@ -1,8 +1,6 @@
 module Correios
   module ReverseLogistics
     class RequestTicketNumbers < Helper
-      ENVIRONMENT = ReverseLogisticsEnvironment.new
-
       def initialize(data = {})
         @credentials = Correios.credentials
         @show_request = data[:show_request]
@@ -16,7 +14,7 @@ module Correios
       def request
         puts xml if @show_request == true
         begin
-          format_response(ENVIRONMENT.client.call(
+          format_response(ReverseLogistics.client.call(
             :solicitar_range,
             soap_action: '',
             xml: xml
@@ -32,7 +30,7 @@ module Correios
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(ENVIRONMENT.namespaces) do
+          xml['soap'].Envelope(ReverseLogistics.namespaces) do
             xml['soap'].Body do
               xml['ns1'].solicitarRange do
                 parent_namespace = xml.parent.namespace
