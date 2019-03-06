@@ -1,3 +1,10 @@
+require 'nokogiri'
+require 'savon'
+
+require_relative 'auxiliars/environments'
+require_relative 'auxiliars/helper'
+require_relative 'credentials'
+
 # Pricefier
 require_relative 'pricefier/requests/calculate_deadline'
 require_relative 'pricefier/requests/calculate_deadline_with_date'
@@ -36,8 +43,6 @@ require_relative 'sigep/requests/track_shippings'
 # SRO
 require_relative 'SRO/requests/track_shippings'
 require_relative 'SRO/requests/track_shippings_list'
-
-require_relative 'credentials'
 
 module Correios
   def self.test

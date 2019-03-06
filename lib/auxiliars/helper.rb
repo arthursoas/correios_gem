@@ -7,8 +7,7 @@ class Helper < CorreiosException
   def generate_soap_fault_exception(message)
     message = message.to_s.gsub('(soap:Server)', '')
     message = message.strip
-    message.capitalize
-    generate_exception(mess)
+    generate_exception(message.capitalize)
   end
 
   def generate_http_exception(status)
@@ -27,6 +26,12 @@ class Helper < CorreiosException
       generate_exception("Gateway timeout. Status code #{status}")
     else
       generate_exception("Unknown HTTP error. Status code #{status}")
+    end
+  end
+
+  def generate_revese_logistics_exception(response)
+    unless response[:cod_erro].to_i.zero?
+      generate_exception(response[:msg_erro].capitalize) 
     end
   end
 
@@ -183,6 +188,19 @@ class Helper < CorreiosException
       'LR'
     else
       generate_exception('Tickect type not in list.')
+    end
+  end
+
+  def reverse_shipping_service(service)
+    case service
+    when :pac
+      'LR'
+    when :sedex
+      'LS'
+    when :e_sedex
+      'LV'
+    else
+      service
     end
   end
 

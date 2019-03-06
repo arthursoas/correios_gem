@@ -21,8 +21,8 @@ class ReverseLogisticsEnvironment
   def client
     base_client(wsdl: wsdl,
                 basic_auth: [
-                  Correios.credentials.reverse_logistics_user,
-                  Correios.credentials.reverse_logistics_password
+                  Correios.credentials.reverse_logistics_user || 'user',
+                  Correios.credentials.reverse_logistics_password || 'pass'
                 ])
   end
 

@@ -1,15 +1,7 @@
-require 'savon'
-require 'nokogiri'
-
-require_relative '../client'
-require_relative '../helper'
-require_relative '../../correios_exception.rb'
-
 module Correios
   module ReverseLogistics
-    class CalculateTicketNumberCheckDigit < CorreiosException
-      HELPER = Helper.new
-      CLIENT = Client.new
+    class CalculateTicketNumberCheckDigit < Helper
+      ENVIRONMENT = ReverseLogisticsEnvironment.new
 
       def initialize(data = {})
         @show_request = data[:show_request]
@@ -20,16 +12,15 @@ module Correios
       def request
         puts xml if @show_request == true
         begin
-          format_response(CLIENT.client.call(:calcular_digito_verificador,
-                                             soap_action: '',
-                                             xml: xml).to_hash)
+          format_response(ENVIRONMENT.client.call(
+            :calcular_digito_verificador,
+            soap_action: '',
+            xml: xml
+          ).to_hash)
         rescue Savon::SOAPFault => error
-          generate_exception(error)
+          generate_soap_fault_exception(error)
         rescue Savon::HTTPError => error
-          if error.http.code == 401
-            generate_exception("Unauthorized (#{error.http.code}).")
-          end
-          generate_exception("Unknown HTTP error (#{error.http.code}).")
+          generate_http_exception(error.http.code)
         end
       end
 
@@ -37,7 +28,7 @@ module Correios
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(HELPER.namespaces) do
+          xml['soap'].Envelope(ENVIRONMENT.namespaces) do
             xml['soap'].Body do
               xml['ns1'].calcularDigitoVerificador do
                 parent_namespace = xml.parent.namespace
@@ -54,7 +45,7 @@ module Correios
 
       def format_response(response)
         response = response[:calcular_digito_verificador_response][:calcular_digito_verificador]
-        generate_exception(response[:msg_erro]) if response[:cod_erro] != '0'
+        generate_revese_logistics_exception(response)
 
         {
           digit_checker: response[:digito],
