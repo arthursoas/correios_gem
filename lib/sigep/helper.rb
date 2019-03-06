@@ -2,7 +2,7 @@ require 'date'
 
 module Correios
   module Sigep
-    class Helper < CorreiosException
+    class HelperORC < CorreiosException
       def generate_http_exception(status)
         case status
         when 400

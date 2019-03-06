@@ -1,19 +1,8 @@
-require 'savon'
-require 'nokogiri'
-
-require_relative '../client'
-require_relative '../helper'
-require_relative '../../correios_exception.rb'
-
 module Correios
   module Sigep
-    class CheckCardStatus < CorreiosException
-      HELPER = Helper.new
-      CLIENT = Client.new
-
+    class CheckCardStatus < Helper
       def initialize(data = {})
         @credentials = Correios.credentials
-
         @show_request = data[:show_request]
         super()
       end
@@ -21,11 +10,15 @@ module Correios
       def request
         puts xml if @show_request == true
         begin
-          format_response(CLIENT.client.call(:get_status_cartao_postagem,
-                                             soap_action: '',
-                                             xml: xml).to_hash)
+          format_response(Sigep.client.call(
+            :get_status_cartao_postagem,
+            soap_action: '',
+            xml: xml
+          ).to_hash)
         rescue Savon::SOAPFault => error
-          generate_exception(error)
+          generate_soap_fault_exception(error)
+        rescue Savon::HTTPError => error
+          generate_http_exception(error.http.code)
         end
       end
 
@@ -33,7 +26,7 @@ module Correios
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(HELPER.namespaces) do
+          xml['soap'].Envelope(Sigep.namespaces) do
             xml['soap'].Body do
               xml['ns1'].getStatusCartaoPostagem do
                 parent_namespace = xml.parent.namespace
@@ -53,16 +46,7 @@ module Correios
       def format_response(response)
         response = response[:get_status_cartao_postagem_response][:return]
 
-        { status: convert_status_to_symbol(response) }
-      end
-
-      def convert_status_to_symbol(status)
-        case status
-        when 'Normal'
-          :ok
-        when 'Cancelado'
-          :canceled
-        end
+        { status: inverse_card_status(response) }
       end
     end
   end

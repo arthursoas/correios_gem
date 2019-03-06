@@ -1,19 +1,10 @@
-require 'savon'
-require 'nokogiri'
-
-require_relative '../../auxiliars/environments'
-require_relative '../../auxiliars/helper'
-require_relative '../../correios_exception.rb'
-
 module Correios
   module Sigep
     class CancelShipping < Helper
-      ENVIRONMENT = SigepEnvironment.new
-
       def initialize(data = {})
         @credentials = Correios.credentials
-
         @show_request = data[:show_request]
+
         @label_number = data[:label_number]
         @request_id = data[:request_id]
         super()
@@ -22,7 +13,7 @@ module Correios
       def request
         puts xml if @show_request == true
         begin
-          format_response(ENVIRONMENT.client.call(
+          format_response(Sigep.client.call(
             :bloquear_objeto,
             soap_action: '',
             xml: xml
@@ -38,7 +29,7 @@ module Correios
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(ENVIRONMENT.namespaces) do
+          xml['soap'].Envelope(Sigep.namespaces) do
             xml['soap'].Body do
               xml['ns1'].bloquearObjeto do
                 parent_namespace = xml.parent.namespace
@@ -61,14 +52,7 @@ module Correios
       def format_response(response)
         response = response[:bloquear_objeto_response][:return]
 
-        { status: convert_status_to_symbol(response) }
-      end
-
-      def convert_status_to_symbol(status)
-        case status
-        when 'Registro gravado'
-          :ok
-        end
+        { status: inverse_shipping_cancellation(response) }
       end
     end
   end

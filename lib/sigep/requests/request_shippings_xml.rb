@@ -1,16 +1,6 @@
-require 'savon'
-require 'nokogiri'
-
-require_relative '../client'
-require_relative '../helper'
-require_relative '../../correios_exception.rb'
-
 module Correios
   module Sigep
-    class RequestShippingsXML < CorreiosException
-      HELPER = Helper.new
-      CLIENT = Client.new
-
+    class RequestShippingsXML < Helper
       def initialize(data = {})
         @credentials = Correios.credentials
 
@@ -22,11 +12,15 @@ module Correios
       def request
         puts xml if @show_request == true
         begin
-          format_response(CLIENT.client.call(:solicita_xml_plp,
-                                             soap_action: '',
-                                             xml: xml).to_hash)
+          format_response(Sigep.client.call(
+            :solicita_xml_plp,
+            soap_action: '',
+            xml: xml
+          ).to_hash)
         rescue Savon::SOAPFault => error
-          generate_exception(error)
+          generate_soap_fault_exception(error)
+        rescue Savon::HTTPError => error
+          generate_http_exception(error.http.code)
         end
       end
 
@@ -34,7 +28,7 @@ module Correios
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(HELPER.namespaces) do
+          xml['soap'].Envelope(Sigep.namespaces) do
             xml['soap'].Body do
               xml['ns1'].solicitaXmlPlp do
                 parent_namespace = xml.parent.namespace
@@ -61,16 +55,11 @@ module Correios
         shippings = response['correioslog']['objeto_postal']
         shippings = [shippings] if shippings.is_a?(Hash)
 
-        formatted_shippings = []
-        shippings.each do |shipping|
-          formatted_shippings << format_shipping(shipping)
-        end
-
         {
           request_id: request['id_plp'],
           card: request['cartao_postagem'],
           global_value: request['valor_global'].to_f,
-          payment_method: payment_method(
+          payment_method: inverse_payment_method(
             response['correioslog']['forma_pagamento']
           ),
           shipping_site: {
@@ -78,7 +67,7 @@ module Correios
             code: request['mcu_unidade_postagem']
           },
           sender: format_sender(sender),
-          shippings: formatted_shippings
+          shippings: shippings.map {|s| format_shipping(s)}
         }
       end
 
@@ -116,7 +105,7 @@ module Correios
           value: shipping['valor_cobrado'].to_f,
           proof_number: shipping['numero_comprovante_postagem'],
           cubage: shipping['cubagem'].to_f,
-          additional_value: HELPER.convert_string_to_decimal(
+          additional_value: string_to_decimal(
             shipping['nacional']['valor_a_cobrar']
           ),
           additional_services: additional_services,
@@ -167,41 +156,13 @@ module Correios
 
       def format_object(object, weight)
         {
-          type: object_type(object['tipo_objeto']),
+          type: inverse_object_type(object['tipo_objeto']),
           height: object['dimensao_altura'].to_f,
           width: object['dimensao_largura'].to_f,
           length: object['dimensao_comprimento'].to_f,
           diameter: object['dimensao_diametro'].to_f,
           weight: weight.to_f
         }
-      end
-
-      def payment_method(method)
-        case method
-        when '1'
-          :postal_vouncher
-        when '2'
-          :postal_refound
-        when '3'
-          :exchange_contract
-        when '4'
-          :credit_card
-        when '5'
-          :other
-        when nil
-          :to_bill
-        end
-      end
-
-      def object_type(type)
-        case type
-        when '1'
-          :letter_envelope
-        when '2'
-          :box_prism
-        when '3'
-          :cylinder
-        end
       end
     end
   end

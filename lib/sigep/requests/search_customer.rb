@@ -1,19 +1,8 @@
-require 'savon'
-require 'nokogiri'
-
-require_relative '../client'
-require_relative '../helper'
-require_relative '../../correios_exception.rb'
-
 module Correios
   module Sigep
-    class SearchCustomer < CorreiosException
-      HELPER = Helper.new
-      CLIENT = Client.new
-
+    class SearchCustomer < Helper
       def initialize(data = {})
         @credentials = Correios.credentials
-
         @show_request = data[:show_request]
         super()
       end
@@ -21,11 +10,15 @@ module Correios
       def request
         puts xml if @show_request == true
         begin
-          format_response(CLIENT.client.call(:busca_cliente,
-                                             soap_action: '',
-                                             xml: xml).to_hash)
+          format_response(Sigep.client.call(
+            :busca_cliente,
+            soap_action: '',
+            xml: xml
+          ).to_hash)
         rescue Savon::SOAPFault => error
-          generate_exception(error)
+          generate_soap_fault_exception(error)
+        rescue Savon::HTTPError => error
+          generate_http_exception(error.http.code)
         end
       end
 
@@ -33,7 +26,7 @@ module Correios
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(HELPER.namespaces) do
+          xml['soap'].Envelope(Sigep.namespaces) do
             xml['soap'].Body do
               xml['ns1'].buscaCliente do
                 parent_namespace = xml.parent.namespace
@@ -57,15 +50,10 @@ module Correios
         contracts = response[:contratos]
         contracts = [contracts] if contracts.is_a?(Hash)
 
-        formatted_contracts = []
-        contracts.each do |contract|
-          formatted_contracts << format_contract(contract)
-        end
-
         {
           status_code: response[:status_codigo].strip,
           status_description: response[:descricao_status_cliente].strip,
-          contracts: formatted_contracts
+          contracts: contracts.map {|c| format_contract(c)}
         }
       end
 
@@ -73,17 +61,12 @@ module Correios
         cards = contract[:cartoes_postagem]
         cards = [cards] if cards.is_a?(Hash)
 
-        formatted_cards = []
-        cards.each do |card|
-          formatted_cards << format_card(card)
-        end
-
         {
           board_id: contract[:codigo_diretoria].strip,
           board_description: contract[:descricao_diretoria_regional].strip,
           validity_begin: contract[:data_vigencia_inicio],
           validity_end: contract[:data_vigencia_fim],
-          cards: formatted_cards
+          cards: cards.map {|c| format_card(c)}
         }
       end
 
@@ -91,15 +74,10 @@ module Correios
         services = card[:servicos]
         services = [services] if services.is_a?(Hash)
 
-        formatted_services = []
-        services.each do |service|
-          formatted_services << format_service(service)
-        end
-
         {
           validity_begin: card[:data_vigencia_inicio],
           validity_end: card[:data_vigencia_fim],
-          services: formatted_services
+          services: services.map {|s| format_service(s)}
         }
       end
 
@@ -115,10 +93,10 @@ module Correios
           conditions: {
             dimensions_required: sigep_service[:exige_dimensoes],
             addtional_price_required: sigep_service[:exige_valor_cobrar],
-            payment_on_delivery: HELPER.convert_string_to_bool(
+            payment_on_delivery: string_to_bool(
               sigep_service[:pagamento_entrega]
             ),
-            grouped_shipment: HELPER.convert_string_to_bool(
+            grouped_shipment: string_to_bool(
               sigep_service[:remessa_agrupada]
             )
           }

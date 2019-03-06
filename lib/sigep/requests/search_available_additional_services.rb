@@ -1,16 +1,6 @@
-require 'savon'
-require 'nokogiri'
-
-require_relative '../client'
-require_relative '../helper'
-require_relative '../../correios_exception.rb'
-
 module Correios
   module Sigep
-    class SearchAvailableAdditionalServices < CorreiosException
-      HELPER = Helper.new
-      CLIENT = Client.new
-
+    class SearchAvailableAdditionalServices < Helper
       def initialize(data = {})
         @show_request = data[:show_request]
         super()
@@ -19,11 +9,15 @@ module Correios
       def request
         puts xml if @show_request == true
         begin
-          format_response(CLIENT.client.call(:busca_servicos_adicionais_ativos,
-                                             soap_action: '',
-                                             xml: xml).to_hash)
+          format_response(Sigep.client.call(
+            :busca_servicos_adicionais_ativos,
+            soap_action: '',
+            xml: xml
+          ).to_hash)
         rescue Savon::SOAPFault => error
-          generate_exception(error)
+          generate_soap_fault_exception(error)
+        rescue Savon::HTTPError => error
+          generate_http_exception(error.http.code)
         end
       end
 
@@ -31,7 +25,7 @@ module Correios
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(HELPER.namespaces) do
+          xml['soap'].Envelope(Sigep.namespaces) do
             xml['soap'].Body do
               xml['ns1'].buscaServicosAdicionaisAtivos
             end
@@ -47,15 +41,13 @@ module Correios
       end
 
       def format_additional_services(additional_services)
-        formatted_additional_services = []
-        additional_services.each do |additional_service|
-          formatted_additional_services << {
+        additional_services.map do |additional_service|
+          {
             code: additional_service[:codigo],
             description: additional_service[:descricao].encode(Encoding::UTF_8),
             initials: additional_service[:sigla]
           }
         end
-        formatted_additional_services
       end
     end
   end

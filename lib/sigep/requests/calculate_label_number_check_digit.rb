@@ -1,19 +1,10 @@
-require 'savon'
-require 'nokogiri'
-
-require_relative '../../auxiliars/environments'
-require_relative '../../auxiliars/helper'
-require_relative '../../correios_exception.rb'
-
 module Correios
   module Sigep
     class CalculateLabelNumberCheckDigit < Helper
-      ENVIRONMENT = SigepEnvironment.new
-
       def initialize(data = {})
         @credentials = Correios.credentials
-
         @show_request = data[:show_request]
+
         @label_numbers = data[:label_numbers]
         super()
       end
@@ -21,7 +12,7 @@ module Correios
       def request
         puts xml if @show_request == true
         begin
-          format_response(ENVIRONMENT.client.call(
+          format_response(Sigep.client.call(
             :gera_digito_verificador_etiquetas,
             soap_action: '',
             xml: xml
@@ -37,7 +28,7 @@ module Correios
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(ENVIRONMENT.namespaces) do
+          xml['soap'].Envelope(Sigep.namespaces) do
             xml['soap'].Body do
               xml['ns1'].geraDigitoVerificadorEtiquetas do
                 parent_namespace = xml.parent.namespace

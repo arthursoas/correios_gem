@@ -1,20 +1,10 @@
-require 'savon'
-require 'nokogiri'
-
-require_relative '../client'
-require_relative '../helper'
-require_relative '../../correios_exception.rb'
-
 module Correios
   module Sigep
-    class CheckServiceAvailability < CorreiosException
-      HELPER = Helper.new
-      CLIENT = Client.new
-
+    class CheckServiceAvailability < Helper
       def initialize(data = {})
         @credentials = Correios.credentials
-
         @show_request = data[:show_request]
+
         @service_code = data[:service_code]
         @source_zip_code = data[:source_zip_code]
         @target_zip_code = data[:target_zip_code]
@@ -24,11 +14,15 @@ module Correios
       def request
         puts xml if @show_request == true
         begin
-          format_response(CLIENT.client.call(:verifica_disponibilidade_servico,
-                                             soap_action: '',
-                                             xml: xml).to_hash)
+          format_response(Sigep.client.call(
+            :verifica_disponibilidade_servico,
+            soap_action: '',
+            xml: xml
+          ).to_hash)
         rescue Savon::SOAPFault => error
-          generate_exception(error)
+          generate_soap_fault_exception(error)
+        rescue Savon::HTTPError => error
+          generate_http_exception(error.http.code)
         end
       end
 
@@ -36,7 +30,7 @@ module Correios
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(HELPER.namespaces) do
+          xml['soap'].Envelope(Sigep.namespaces) do
             xml['soap'].Body do
               xml['ns1'].verificaDisponibilidadeServico do
                 parent_namespace = xml.parent.namespace
@@ -61,30 +55,9 @@ module Correios
         response = response.split('#')
 
         { 
-          status: convert_availability_to_symbol(response[0]),
+          status: inverse_service_availability(response[0]),
           message: response[1]
         }
-      end
-
-      def convert_availability_to_symbol(availability)
-        case availability.to_i
-        when 0, 11
-          :available
-        when -2, -3
-          :invalid_zip_code
-        when -33
-          :system_down
-        when -34, -35, 1
-          :incorrect_data
-        when -36, -37, -38
-          :unauthorized
-        when -888, 6, 7, 8, 9, 12
-          :unavailable
-        when 10
-          :partially_available
-        when 99
-          :error
-        end
       end
     end
   end

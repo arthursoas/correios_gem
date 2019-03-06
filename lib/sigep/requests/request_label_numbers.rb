@@ -1,20 +1,10 @@
-require 'savon'
-require 'nokogiri'
-
-require_relative '../client'
-require_relative '../helper'
-require_relative '../../correios_exception.rb'
-
 module Correios
   module Sigep
-    class RequestLabelNumbers < CorreiosException
-      HELPER = Helper.new
-      CLIENT = Client.new
-
+    class RequestLabelNumbers < Helper
       def initialize(data = {})
         @credentials = Correios.credentials
-
         @show_request = data[:show_request]
+
         @amount = data[:amount]
         @service_id = data[:service_id]
         super()
@@ -23,11 +13,15 @@ module Correios
       def request
         puts xml if @show_request == true
         begin
-          format_response(CLIENT.client.call(:solicita_etiquetas,
-                                             soap_action: '',
-                                             xml: xml).to_hash)
+          format_response(Sigep.client.call(
+            :solicita_etiquetas,
+            soap_action: '',
+            xml: xml
+          ).to_hash)
         rescue Savon::SOAPFault => error
-          generate_exception(error)
+          generate_soap_fault_exception(error)
+        rescue Savon::HTTPError => error
+          generate_http_exception(error.http.code)
         end
       end
 
@@ -35,7 +29,7 @@ module Correios
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(HELPER.namespaces) do
+          xml['soap'].Envelope(Sigep.namespaces) do
             xml['soap'].Body do
               xml['ns1'].solicitaEtiquetas do
                 parent_namespace = xml.parent.namespace

@@ -250,6 +250,71 @@ class Helper < CorreiosException
 
   # Inverted enumerizers
 
+  def inverse_card_status(status)
+    case status
+    when 'Normal'
+      :ok
+    when 'Cancelado'
+      :canceled
+    end
+  end
+
+  def inverse_shipping_cancellation(status)
+    case status
+    when 'Registro gravado'
+      :ok
+    end
+  end
+
+  def inverse_payment_method(method)
+    case method
+    when '1'
+      :postal_vouncher
+    when '2'
+      :postal_refound
+    when '3'
+      :exchange_contract
+    when '4'
+      :credit_card
+    when '5'
+      :other
+    when nil
+      :to_bill
+    end
+  end
+
+  def inverse_object_type(type)
+    case type
+    when '1'
+      :letter_envelope
+    when '2'
+      :box_prism
+    when '3'
+      :cylinder
+    end
+  end
+
+  def inverse_service_availability(availability)
+    case availability.to_i
+    when 0, 11
+      :available
+    when -2, -3
+      :invalid_zip_code
+    when -33
+      :system_down
+    when -34, -35, 1
+      :incorrect_data
+    when -36, -37, -38
+      :unauthorized
+    when -888, 6, 7, 8, 9, 12
+      :unavailable
+    when 10
+      :partially_available
+    when 99
+      :error
+    end
+  end
+
   def inverse_reverse_shipping_type(type)
     case type
     when 'A'
