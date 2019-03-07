@@ -45,8 +45,7 @@ Gem::Specification.new do |s|
     'lib/reverse_logistics/requests/track_shippings_by_date.rb',
 
     # Sigep
-    'lib/sigep/client.rb',
-    'lib/sigep/helper.rb',
+    'lib/sigep/auxiliars/shipping_xml.rb',
     'lib/sigep/requests/cancel_shipping.rb',
     'lib/sigep/requests/calculate_label_number_check_digit.rb',
     'lib/sigep/requests/check_card_status.rb',

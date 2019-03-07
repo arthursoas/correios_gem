@@ -1,20 +1,12 @@
-require 'savon'
-require 'nokogiri'
-
-require_relative '../client'
-require_relative '../helper'
-require_relative '../../correios_exception.rb'
+require_relative '../auxiliars/shipping_xml'
 
 module Correios
   module Sigep
-    class CreateShippings < CorreiosException
-      HELPER = Helper.new
-      CLIENT = Client.new
-
+    class CreateShippings < Helper
       def initialize(data = {})
         @credentials = Correios.credentials
-
         @show_request = data[:show_request]
+
         @data = data
         @shippings = data[:shippings]
         @request_number = data[:request_number]
@@ -24,35 +16,33 @@ module Correios
       def request
         puts xml if @show_request == true
         begin
-          format_response(CLIENT.client.call(:fecha_plp_varios_servicos,
-                                             soap_action: '',
-                                             xml: xml).to_hash)
+          format_response(Sigep.client.call(
+            :fecha_plp_varios_servicos,
+            soap_action: '',
+            xml: xml
+          ).to_hash)
         rescue Savon::SOAPFault => error
-          generate_exception(error)
+          generate_soap_fault_exception(error)
+        rescue Savon::HTTPError => error
+          generate_http_exception(error.http.code)
         end
       end
 
       private
 
-      def format_response(response)
-        response = response[:fecha_plp_varios_servicos_response][:return]
-
-        { request_id: response }
-      end
-
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(HELPER.namespaces) do
+          xml['soap'].Envelope(Sigep.namespaces) do
             xml['soap'].Body do
               xml['ns1'].fechaPlpVariosServicos do
                 parent_namespace = xml.parent.namespace
                 xml.parent.namespace = nil
 
-                xml.xml HELPER.shippings_xml(@data)
+                xml.xml Sigep.shipping_xml(@data)
                 xml.idPlpCliente @request_number
                 xml.cartaoPostagem @credentials.card
                 @shippings.each do |shipping|
-                  xml.listaEtiquetas HELPER.label_without_digit_checker(
+                  xml.listaEtiquetas remove_label_digit_checker(
                     shipping[:label_number].dup
                   )
                 end
@@ -64,6 +54,12 @@ module Correios
             end
           end
         end.doc.root.to_xml
+      end
+
+      def format_response(response)
+        response = response[:fecha_plp_varios_servicos_response][:return]
+
+        { request_id: response }
       end
     end
   end
