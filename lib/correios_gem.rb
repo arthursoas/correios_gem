@@ -7,12 +7,8 @@ require_relative 'credentials'
 
 # Pricefier
 require_relative 'pricefier/requests/calculate_deadline'
-require_relative 'pricefier/requests/calculate_deadline_with_date'
-require_relative 'pricefier/requests/calculate_deadline_with_restrictions'
 require_relative 'pricefier/requests/calculate_price'
 require_relative 'pricefier/requests/calculate_price_deadline'
-require_relative 'pricefier/requests/calculate_price_deadline_with_date'
-require_relative 'pricefier/requests/calculate_price_deadline_with_restrictions'
 require_relative 'pricefier/requests/calculate_price_fac'
 require_relative 'pricefier/requests/calculate_price_with_date'
 require_relative 'pricefier/requests/list_services'
@@ -58,31 +54,31 @@ module Correios
 
   module Pricefier
     def self.calculate_deadline(data = {})
-      CalculateDeadline.new(data).request
+      CalculateDeadline.new(data).request('CalcPrazo')
     end
 
     def self.calculate_deadline_with_date(data = {})
-      CalculateDeadlineWithDate.new(data).request
+      CalculateDeadline.new(data).request('CalcPrazoData')
     end
 
     def self.calculate_deadline_with_restrictions(data = {})
-      CalculateDeadlineWithRestrictions.new(data).request
+      CalculateDeadline.new(data).request('CalcPrazoRestricao')
     end
 
     def self.calculate_price(data = {})
-      CalculatePrice.new(data).request
+      CalculateDeadline.new(data).request('CalcPreco')
     end
 
     def self.calculate_price_deadline(data = {})
-      CalculatePriceDeadline.new(data).request
+      CalculatePriceDeadline.new(data).request('CalcPrecoPrazo')
     end
 
     def self.calculate_price_deadline_with_date(data = {})
-      CalculatePriceDeadlineWithDate.new(data).request
+      CalculatePriceDeadline.new(data).request('CalcPrecoPrazoData')
     end
 
     def self.calculate_price_deadline_with_restrictions(data = {})
-      CalculatePriceDeadlineWithRestrictions.new(data).request
+      CalculatePriceDeadline.new(data).request('CalcPrecoPrazoRestricao')
     end
 
     def self.calculate_price_fac(data = {})
@@ -94,11 +90,11 @@ module Correios
     end
 
     def self.list_services(data = {})
-      ListServices.new(data).request
+      ListServices.new(data).request('ListaServicos')
     end
 
     def self.list_services_star(data = {})
-      ListServicesSTAR.new(data).request
+      ListServices.new(data).request('ListaServicosSTAR')
     end
   end
 

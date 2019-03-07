@@ -24,12 +24,8 @@ Gem::Specification.new do |s|
     'lib/pricefier/client.rb',
     'lib/pricefier/helper.rb',
     'lib/pricefier/requests/calculate_deadline.rb',
-    'lib/pricefier/requests/calculate_deadline_with_date.rb',
-    'lib/pricefier/requests/calculate_deadline_with_restrictions.rb',
     'lib/pricefier/requests/calculate_price.rb',
     'lib/pricefier/requests/calculate_price_deadline.rb',
-    'lib/pricefier/requests/calculate_price_deadline_with_date.rb',
-    'lib/pricefier/requests/calculate_price_deadline_with_restrictions.rb',
     'lib/pricefier/requests/calculate_price_fac.rb',
     'lib/pricefier/requests/calculate_price_with_date.rb',
     'lib/pricefier/requests/list_services.rb',
@@ -59,7 +55,7 @@ Gem::Specification.new do |s|
     'lib/sigep/requests/track_shippings.rb',
 
     # SRO
-    'lib/SRO/requests/track_shippings.rb',
+    'lib/SRO/requests/track_shippings.rb'
   ]
 
   s.add_dependency 'activesupport', '~> 5.2',  '>= 5.2.2'

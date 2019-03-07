@@ -1,16 +1,6 @@
-require 'savon'
-require 'nokogiri'
-
-require_relative '../client'
-require_relative '../helper'
-require_relative '../../correios_exception.rb'
-
 module Correios
   module Pricefier
-    class CalculatePrice < CorreiosException
-      HELPER = Helper.new
-      CLIENT = Client.new
-
+    class CalculatePrice < Helper
       def initialize(data = {})
         @credentials = Correios.credentials
 

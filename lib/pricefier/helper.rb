@@ -2,7 +2,7 @@ require 'date'
 
 module Correios
   module Pricefier
-    class Helper
+    class Helper333
       def namespaces
         {
           'xmlns:soap' => 'http://www.w3.org/2003/05/soap-envelope',
