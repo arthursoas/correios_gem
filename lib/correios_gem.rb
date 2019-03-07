@@ -42,7 +42,6 @@ require_relative 'sigep/requests/track_shippings'
 
 # SRO
 require_relative 'SRO/requests/track_shippings'
-require_relative 'SRO/requests/track_shippings_list'
 
 module Correios
   def self.test
@@ -181,11 +180,11 @@ module Correios
 
   module SRO
     def self.track_shippings(data = {})
-      TrackShippings.new(data).request
+      TrackShippings.new(data).request('buscaEventos')
     end
 
     def self.track_shippings_list(data = {})
-      TrackShippingsList.new(data).request
+      TrackShippings.new(data).request('buscaEventosLista')
     end
   end
 end

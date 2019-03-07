@@ -59,10 +59,7 @@ Gem::Specification.new do |s|
     'lib/sigep/requests/track_shippings.rb',
 
     # SRO
-    'lib/SRO/client.rb',
-    'lib/SRO/helper.rb',
     'lib/SRO/requests/track_shippings.rb',
-    'lib/SRO/requests/track_shippings_list.rb'
   ]
 
   s.add_dependency 'activesupport', '~> 5.2',  '>= 5.2.2'

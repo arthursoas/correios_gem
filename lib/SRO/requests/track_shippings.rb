@@ -1,20 +1,10 @@
-require 'savon'
-require 'nokogiri'
-
-require_relative '../client'
-require_relative '../helper'
-require_relative '../../correios_exception.rb'
-
 module Correios
   module SRO
-    class TrackShippings < CorreiosException
-      HELPER = Helper.new
-      CLIENT = Client.new
-
+    class TrackShippings < Helper
       def initialize(data = {})
         @credentials = Correios.credentials
-
         @show_request = data[:show_request]
+
         @label_numbers = data[:label_numbers]
         @query_type = data[:query_type]
         @result_type = data[:result_type]
@@ -22,19 +12,21 @@ module Correios
         super()
       end
 
-      def request
+      def request(method)
+        @method = method
+        @method_snake = method.underscore
+
         puts xml if @show_request == true
         begin
-          format_response(CLIENT.client.call(:busca_eventos,
-                                             soap_action: '',
-                                             xml: xml).to_hash)
+          format_response(SRO.client.call(
+            @method_snake.to_sym,
+            soap_action: '',
+            xml: xml
+          ).to_hash)
         rescue Savon::SOAPFault => error
-          generate_exception(error)
+          generate_soap_fault_exception(error)
         rescue Savon::HTTPError => error
-          if error.http.code == 401
-            generate_exception("Unauthorized (#{error.http.code}).")
-          end
-          generate_exception("Unknown HTTP error (#{error.http.code}).")
+          generate_http_exception(error.http.code)
         end
       end
 
@@ -42,16 +34,22 @@ module Correios
 
       def xml
         Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
-          xml['soap'].Envelope(HELPER.namespaces) do
+          xml['soap'].Envelope(SRO.namespaces) do
             xml['soap'].Body do
-              xml['ns1'].buscaEventos do
+              xml['ns1'].send(@method) do
                 parent_namespace = xml.parent.namespace
                 xml.parent.namespace = nil
 
-                xml.objetos HELPER.format_label_numbers(@label_numbers)
-                xml.tipo HELPER.query_type(@query_type)
-                xml.resultado HELPER.result_type(@result_type)
-                xml.lingua HELPER.language(@language)
+                if @method == 'buscaEventosLista'
+                  @label_numbers.each do |label_number|
+                    xml.objetos label_number
+                  end
+                elsif @method == 'buscaEventos'
+                  xml.objetos array_to_string(@label_numbers)
+                end
+                xml.tipo tracking_query_type(@query_type)
+                xml.resultado tracking_result_type(@result_type)
+                xml.lingua tracking_language(@language)
                 xml.usuario @credentials.sro_user
                 xml.senha @credentials.sro_password
 
@@ -63,19 +61,12 @@ module Correios
       end
 
       def format_response(response)
-        response = response[:busca_eventos_response][:return]
-        
+        response = response["#{@method_snake}_response".to_sym][:return]
         objects = response[:objeto]
         objects = [objects] if objects.is_a?(Hash)
-        
-        generate_exception(objects.first[:erro]) if objects.first[:numero] == 'Erro'
-      
-        formatted_objects = []
-        objects.each do |object|
-          formatted_objects << format_object(object)
-        end
+        generate_sro_exception(objects)
 
-        { tracking: formatted_objects }
+        { tracking: objects.map {|o| format_object(o)} }
       end
 
       def format_object(object)
@@ -91,11 +82,6 @@ module Correios
         events = object[:evento]
         events = [events] if events.is_a?(Hash)
 
-        formatted_events = []
-        events.each do |event|
-          formatted_events << format_event(event)
-        end
-
         {
           label: {
             number: object[:numero],
@@ -103,16 +89,16 @@ module Correios
             name: object[:nome],
             category: object[:categoria]
           },
-          events: formatted_events
+          events: events.map {|e| format_event(e)}
         }
       end
 
       def format_event(event)
         {
-          movement: HELPER.tracking_event_status(event),
+          movement: inverse_tracking_event_status(event),
           type: event[:tipo],
           status: event[:status],
-          time: HELPER.convert_string_to_date(event[:data], event[:hora]),
+          time: string_to_time_no_second(event[:data], event[:hora]),
           description: event[:descricao],
           detail: event[:detalhe],
           city: event[:cidade],

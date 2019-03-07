@@ -1,9 +1,6 @@
-## ~~Rastrear Entregas~~
+## Rastrear Entregas
 
-#### ⚠️ Este método foi desativado pelos correios. Utilize os métodos da seção SRO.
-
-~~Rastreia movimentações ponta a ponta das encomendas especificiadas.~~
-
+Rastreia movimentações ponta a ponta das encomendas especificiadas.
 ____
 
 ### Autenticação
@@ -47,7 +44,7 @@ Correios::Sigep.track_shippings({
         {
           :type => 'OEC',
           :status => '01',
-          :time => Mon, 03 Dec 2018 10:24:00 +0000,
+          :time => 2018-12-03 10:24:00 -0200,
           :description => 'Objeto saiu para entrega ao destinatário',
           :detail => nil,
           :city => 'Contagem',
@@ -61,7 +58,7 @@ Correios::Sigep.track_shippings({
         {
           :type => 'DO',
           :status => '01',
-          :time => Sat, 01 Dec 2018 21:59:00 +0000,
+          :time => 2018-12-01 21:59:00 -0200,
           :description => 'Objeto encaminhado',
           :detail => nil,
           :city => 'BELO HORIZONTE',

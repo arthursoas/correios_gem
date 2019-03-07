@@ -35,6 +35,10 @@ class Helper < CorreiosException
     end
   end
 
+  def generate_sro_exception(objects)
+    generate_exception(objects.first[:erro]) if objects.first[:numero] == 'Erro'
+  end
+
   def remove_label_digit_checker(label_number)
     label_number.slice!(10)
     label_number
@@ -111,7 +115,7 @@ class Helper < CorreiosException
     array.join(',')
   end
 
-  def arry_to_string(array)
+  def array_to_string(array)
     return nil if array.nil?
     array.join('')
   end
