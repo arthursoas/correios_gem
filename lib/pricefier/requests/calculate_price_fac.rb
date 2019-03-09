@@ -56,16 +56,16 @@ module Correios
             code: service[:codigo],
             prices: {
               additional_serivces: {
-                own_hands: string_to_float(service[:valor_mao_propria]),
-                receipt_notification: string_to_float(
+                own_hands: string_to_decimal(service[:valor_mao_propria]),
+                receipt_notification: string_to_decimal(
                   service[:valor_aviso_recebimento]
                 ),
-                declared_value: string_to_float(
+                declared_value: string_to_decimal(
                   service[:valor_valor_declarado]
                 )
               },
-              only_shipping: string_to_float(service[:valor_sem_adicionais]),
-              total: string_to_float(service[:valor])
+              only_shipping: string_to_decimal(service[:valor_sem_adicionais]),
+              total: string_to_decimal(service[:valor])
             }
           }
         else
