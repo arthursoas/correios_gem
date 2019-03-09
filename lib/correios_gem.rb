@@ -3,7 +3,7 @@ require 'savon'
 
 require_relative 'auxiliars/environments'
 require_relative 'auxiliars/helper'
-require_relative 'credentials'
+require_relative 'auxiliars/credentials'
 
 # Pricefier
 require_relative 'pricefier/requests/calculate_deadline'

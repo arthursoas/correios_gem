@@ -1,4 +1,4 @@
-require_relative '../correios_exception'
+require_relative './exception'
 
 require 'date'
 require 'time'
