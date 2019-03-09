@@ -54,7 +54,7 @@ module Correios
         services = response[:servicos][:c_servico]
         services = [services] if services.is_a?(Hash)
 
-        { services: services.map {|s| format_service(s)} }
+        { services: services.map { |s| format_service(s) } }
       end
 
       def format_service(service)
@@ -66,16 +66,14 @@ module Correios
             note: service[:obs_fim],
             deadline: {
               days: service[:prazo_entrega].to_i,
-              date: string_to_date(service[:data_max_entrega]),
+              date: string_to_date(service[:data_max_entrega])
             }
           }
         else
           {
             code: service[:codigo],
-            error: {
-              code: service[:erro],
-              description: service[:msg_erro]
-            }
+            error: { code: service[:erro],
+                     description: service[:msg_erro] }
           }
         end
       end

@@ -3,8 +3,8 @@ module Correios
     class CalculatePriceDeadline < Helper
       def initialize(data = {})
         @credentials = Correios.credentials
-
         @show_request = data[:show_request]
+
         @service_codes = data[:service_codes]
         @source_zip_code = data[:source_zip_code]
         @target_zip_code = data[:target_zip_code]
@@ -23,7 +23,7 @@ module Correios
         puts xml if @show_request == true
         begin
           format_response(Pricefier.client.call(
-            :calc_preco,
+            @method_snake.to_sym,
             soap_action: "http://tempuri.org/#{@method}",
             xml: xml
           ).to_hash)
@@ -47,7 +47,7 @@ module Correios
                 xml.sCepOrigem @source_zip_code
                 xml.sCepDestino @target_zip_code
                 xml.nCdFormato pricefier_object_type(@object[:type])
-                xml.nVlPeso @object[:weight].to_f/1000
+                xml.nVlPeso @object[:weight].to_f / 1000
                 xml.nVlComprimento @object[:length] || 0
                 xml.nVlAltura @object[:height] || 0
                 xml.nVlLargura @object[:width] || 0
@@ -70,7 +70,7 @@ module Correios
         services = response[:servicos][:c_servico]
         services = [services] if services.is_a?(Hash)
 
-        { services: services.map {|s| format_service(s)} }
+        { services: services.map { |s| format_service(s) } }
       end
 
       def format_service(service)
@@ -84,7 +84,9 @@ module Correios
                 receipt_notification: string_to_decimal(
                   service[:valor_aviso_recebimento]
                 ),
-                declared_value: string_to_decimal(service[:valor_valor_declarado])
+                declared_value: string_to_decimal(
+                  service[:valor_valor_declarado]
+                )
               },
               only_shipping: string_to_decimal(service[:valor_sem_adicionais]),
               total: string_to_decimal(service[:valor])
@@ -93,7 +95,7 @@ module Correios
             delivery_on_saturdays: delivery_on_saturdays,
             deadline: {
               days: service[:prazo_entrega].to_i,
-              date: 
+              date:
               if @method == 'CalcPrecoPrazo'
                 calculate_shipping_deadline(
                   service[:prazo_entrega].to_i,
@@ -112,10 +114,8 @@ module Correios
         else
           {
             code: service[:codigo],
-            error: {
-              code: service[:erro],
-              description: service[:msg_erro]
-            }
+            error: { code: service[:erro],
+                     description: service[:msg_erro] }
           }
         end
       end

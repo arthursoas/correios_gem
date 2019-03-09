@@ -37,26 +37,21 @@ module Correios
       end
 
       def format_response(response)
-        puts @method_snake
-        puts response
-
         response = response["#{@method_snake}_response".to_sym]["#{@method_snake}_result".to_sym]
 
         services = response[:servicos_calculo][:c_servicos_calculo]
         services = [services] if services.is_a?(Hash)
 
-        puts services
-
-        { services: services.map {|s| format_service(s)} }
+        { services: services.map { |s| format_service(s) } }
       end
 
       def format_service(service)
-        if service[:erro].to_i == 0
+        if service[:erro].to_i.zero?
           {
             code: service[:codigo],
             description: service[:descricao].strip,
             calculate_price: string_to_bool(service[:calcula_preco]),
-            calculate_deadline: 
+            calculate_deadline:
               if service[:calcula_prazo].present?
                 string_to_bool(service[:calcula_prazo])
               else
@@ -66,10 +61,8 @@ module Correios
         else
           {
             code: service[:codigo],
-            error: {
-              code: service[:erro],
-              description: service[:msg_erro]
-            }
+            error: { code: service[:erro],
+                     description: service[:msg_erro] }
           }
         end
       end

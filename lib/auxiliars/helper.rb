@@ -31,7 +31,7 @@ class Helper < CorreiosException
 
   def generate_revese_logistics_exception(response)
     unless response[:cod_erro].to_i.zero?
-      generate_exception(response[:msg_erro].capitalize) 
+      generate_exception(response[:msg_erro].capitalize)
     end
   end
 
@@ -47,9 +47,11 @@ class Helper < CorreiosException
   def calculate_reverse_shipping_deadline(value, type)
     if type == :authorization
       return value if value.is_a?(Numeric)
+
       Date.today - value
     else
       return (Date.today + value).strftime('%d/%m/%Y') if value.is_a?(Numeric)
+
       value.strftime('%d/%m/%Y')
     end
   end
@@ -102,21 +104,25 @@ class Helper < CorreiosException
 
   def string_to_decimal(string)
     return nil if string.nil?
+
     string.tr(',', '.').to_f
   end
 
   def decimal_to_string(decimal)
     return nil if decimal.nil?
+
     decimal.to_s.tr('.', ',')
   end
 
   def array_to_string_comma(array)
     return nil if array.nil?
+
     array.join(',')
   end
 
   def array_to_string(array)
     return nil if array.nil?
+
     array.join('')
   end
 
