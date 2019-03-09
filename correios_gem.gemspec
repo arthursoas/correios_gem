@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
                      requisicoes e respostas. Integrar com os Correios nunca foi
                      tao simples.'
   s.license       = 'MIT'
-  s.files         = Dir['lib/   *.rb']
+  s.files         = Dir['lib/**/*'] + %w[correios_gem.gemspec]
 
   s.add_dependency 'activesupport', '~> 5.2',  '>= 5.2.2'
   s.add_dependency 'nokogiri',      '~> 1.9',  '>= 1.9.1'
