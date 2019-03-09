@@ -3,8 +3,8 @@ Gem::Specification.new do |s|
   s.email         = 'arthurvsp97@gmail.com'
 
   s.name          = 'correios_gem'
-  s.version       = '1.4.2'
-  s.date          = '2019-02-14'
+  s.version       = '1.4.3'
+  s.date          = '2019-03-09'
   s.homepage      = 'https://github.com/arthursoas/correios_gem'
   s.summary       = 'A correios-gem integra sua aplicacao com as APIs dos
                      Correios'
