@@ -85,7 +85,7 @@ Opções de tipos de objetos:
 * `:letter_envelope` (Envelope)
 * `:box` (Caixa)
 * `:prism` (Prisma)
-* `:cilinder` (Cilindro)
+* `:cylinder` (Cilindro)
 ---
 
 [Consultar documentação dos Correios](http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx)

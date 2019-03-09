@@ -22,7 +22,7 @@ require 'correios_gem'
 ...
 Correios::Sigep.create_shippings({
   request_number: 000001,                                   #opcional
-  payment_method: :to_bill,                                 #opcional  
+  payment_method: :to_bill
   sender: {
     board_id: '10',
     name: 'Empresa XPTO',
@@ -123,7 +123,7 @@ Opções de tipos de objetos:
 * `:letter_envelope` (Envelope)
 * `:box` (Caixa)
 * `:prism` (Prisma)
-* `:cilinder` (Cilindro)
+* `:cylinder` (Cilindro)
 
 ⚠️ __Atenção__: Os Correios fazem poucas validações ao criar uma entrega, o que inclui erros de digitação nos CEPs, endereços e telefones. Verifique os dados antes de solicitar a criação de uma entrega.
 

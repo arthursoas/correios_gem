@@ -124,7 +124,7 @@ __Anexo 2:__
 Opções de tipos de objetos:
 * `:letter_envelope` (Envelope)
 * `:box_prism` (Caixa ou Prisma)
-* `:cilinder` (Cilindro)
+* `:cylinder` (Cilindro)
 
 ---
 
