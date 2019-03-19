@@ -12,8 +12,8 @@ ____
 Necessário informar:
 * `administrative_code`
 * `card`
-* `reverse_logistics_user`
-* `reverse_logistics_password`
+* `cws_user`
+* `cws_password`
 
 ### Exemplo de entrada
 

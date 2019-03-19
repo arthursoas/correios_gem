@@ -30,18 +30,18 @@ Para se autenticar nas APIs dos Correios, o código abaixo deve ser inserido no(
 # Substitua pelas suas credenciais para utilizar o ambiente de produção dos Correios.
 
 Correios.authenticate do |auth|
-  auth.sigep_user =                 'sigep'
-  auth.sigep_password =             'n5f9t8'
-  auth.administrative_code =        '17000190'
-  auth.contract =                   '9992157880'
-  auth.card =                       '0067599079'
-  auth.cnpj =                       '34028316000103'
+  auth.sigep_user =          'sigep'
+  auth.sigep_password =      'n5f9t8'
+  auth.administrative_code = '17000190'
+  auth.contract =            '9992157880'
+  auth.card =                '0067599079'
+  auth.cnpj =                '34028316000103'
 
-  auth.reverse_logistics_user =     'empresacws'
-  auth.reverse_logistics_password = '123456'
+  auth.cws_user =            'empresacws'
+  auth.cws_password =        '123456'
   
-  auth.sro_user =                   'ECT'
-  auth.sro_password =               'SRO'
+  auth.sro_user =            'ECT'
+  auth.sro_password =        'SRO'
 end
 ```
 ⚠️ __Atenção__: Não é obrigatório informar todas as credenciais para utilizar a correios_gem. Os métodos que você fará uso podem solicitar apenas parte das credenciais ou nenhuma delas. Verifique na documentação abaixo.

@@ -20,14 +20,14 @@ module Correios
     def self.client
       base_client(wsdl: wsdl,
                   basic_auth: [
-                    Correios.credentials.reverse_logistics_user || 'user',
-                    Correios.credentials.reverse_logistics_password || 'pass'
+                    Correios.credentials.cws_user || 'user',
+                    Correios.credentials.cws_password || 'pass'
                   ])
     end
 
     def self.namespaces
       {
-        'xmlns:soap' => 'http://schemas.xmlsoap.org/soap/envelope/',
+        'xmlns:soap' => DEFAULT_SOAP_NAMESPACE,
         'xmlns:ns1' => 'http://service.logisticareversa.correios.com.br/'
       }
     end
@@ -48,7 +48,7 @@ module Correios
 
     def self.namespaces
       {
-        'xmlns:soap' => 'http://schemas.xmlsoap.org/soap/envelope/',
+        'xmlns:soap' => DEFAULT_SOAP_NAMESPACE,
         'xmlns:ns1' => 'http://cliente.bean.master.sigep.bsb.correios.com.br/'
       }
     end
@@ -69,7 +69,7 @@ module Correios
 
     def self.namespaces
       {
-        'xmlns:soap' => 'http://schemas.xmlsoap.org/soap/envelope/',
+        'xmlns:soap' => DEFAULT_SOAP_NAMESPACE,
         'xmlns:ns1' => 'http://resource.webservice.correios.com.br/'
       }
     end
@@ -78,7 +78,34 @@ module Correios
       'https://webservice.correios.com.br/service/rastro/Rastro.wsdl'
     end
   end
+
+  module PostOffice
+    def self.client
+      base_client(wsdl: wsdl,
+                  basic_auth: [
+                    Correios.credentials.cws_user || 'user',
+                    Correios.credentials.cws_password || 'pass'
+                  ])
+    end
+
+    def self.namespaces
+      {
+        'xmlns:soap' => DEFAULT_SOAP_NAMESPACE,
+        'xmlns:ns1' => 'http://service.agencia.cws.correios.com.br/'
+      }
+    end
+
+    def self.wsdl
+      if production_env?
+        'https://cws.correios.com.br/cws/agenciaService/agenciaWS?wsdl'
+      else
+        'https://apphom.correios.com.br/cws/agenciaService/agenciaWS?wsdl'
+      end
+    end
+  end
 end
+
+DEFAULT_SOAP_NAMESPACE = 'http://schemas.xmlsoap.org/soap/envelope/'
 
 def base_client(wsdl:, ssl_verify_mode: :none, basic_auth: [])
   Savon.client(wsdl: wsdl,
