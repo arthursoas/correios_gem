@@ -44,9 +44,7 @@ end
 ```
 ⚠️ __Atenção__: Não é obrigatório informar todas as credenciais para utilizar a correios_gem. Os métodos que você fará uso podem solicitar apenas parte das credenciais ou nenhuma delas. Verifique na documentação abaixo.
 
-⚠️ __Atenção__: Até a realese 1.4.3 utilizava-se as credenciais `reverse_logistics_user` e `reverse_logistics_password`.
-Essas credenciais foram substituidas por `cws_user` e `cws_password`, respectivamente.
-A retro-compatibilidade foi mantida para os usuários que já utilizam as credenciais no modelo descontinuado.
+⚠️ __Atenção__: As credenciais `reverse_logistics_user` e `reverse_logistics_password` foram descontinuadas. Tais credenciais foram substituidas por `cws_user` e `cws_password`, respectivamente. A retro-compatibilidade foi mantida para os usuários que já as utilizam.
 
 
 ### Ambiente de Desenvolvimento
