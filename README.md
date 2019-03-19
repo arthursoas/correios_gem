@@ -53,8 +53,6 @@ A correios_gem define automaticamente o ambiente utilizado nas APIs dos Correios
 
 Serão utilizados os WebServices de produção quando o `Rails.env` for igual a `production`, caso contrário serão utilizados os WebServices de homologação (exceto para SRO e Precificador).
 
-Para utilizar o ambiente de homologação, utilize as credenciais apresentadas na seção Autenticação.
-
 
 ### Métodos
 
