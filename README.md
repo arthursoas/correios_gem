@@ -12,8 +12,6 @@ Através desta biblioteca, é realizada a integração com as quatro APIs dos Ca
 
 Esqueça requisições SOAP e códigos confusos criados pelos Correios. A correios_gem simplifica toda a comunicação com as APIs dos Correios através de ojetos Ruby e nomenclatura legível para seres humanos.
 
-⚠️ __Atenção__: A correios_gem é uma biblioteca independente que não possui vínculo com os Correios. Para problemas com os Correios, consulte o gerente de seu contrato.
-
 ## Utilização
 
 ### Instalação
@@ -26,7 +24,7 @@ gem install correios_gem
 Para se autenticar nas APIs dos Correios, o código abaixo deve ser inserido no(s) `environments` de sua aplicação com as credenciais de seu contrato com os Correios.
 
 ```ruby
-# Credenciais de ambiente de testes dos Correios.
+# Credenciais de ambiente de homologação dos Correios.
 # Substitua pelas suas credenciais para utilizar o ambiente de produção dos Correios.
 
 Correios.authenticate do |auth|
@@ -49,6 +47,16 @@ end
 ⚠️ __Atenção__: Até a realese 1.4.3 utilizava-se as credenciais `reverse_logistics_user` e `reverse_logistics_password`.
 Essas credenciais foram substituidas por `cws_user` e `cws_password`, respectivamente.
 A retro-compatibilidade foi mantida para os usuários que já utilizam as credenciais no modelo descontinuado.
+
+
+### Ambiente de Desenvolvimento
+
+A correios_gem define automaticamente o ambiente utilizado nas APIs dos Correios (Homologação / Produção).
+
+Serão utilizados os WebServices de produção quando o `Rails.env` for igual a `production`, caso contrário serão utilizados os WebServices de homologação (exceto para SRO e Precificador).
+
+Para utilizar o ambiente de homologação, utilize as credenciais apresentadas na seção Autenticação.
+
 
 ### Métodos
 
