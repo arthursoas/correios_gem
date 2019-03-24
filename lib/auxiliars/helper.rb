@@ -35,6 +35,12 @@ class Helper < CorreiosException
     end
   end
 
+  def generate_post_office_exception(response)
+    if response[:codigo_retorno] != 'AG-0000'
+      generate_exception(response[:descricao_retorno])
+    end
+  end
+
   def generate_sro_exception(objects)
     generate_exception(objects.first[:erro]) if objects.first[:numero] == 'Erro'
   end

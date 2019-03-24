@@ -105,7 +105,7 @@ module Correios
   end
 end
 
-DEFAULT_SOAP_NAMESPACE = 'http://schemas.xmlsoap.org/soap/envelope/'
+DEFAULT_SOAP_NAMESPACE = 'http://schemas.xmlsoap.org/soap/envelope/'.freeze
 
 def base_client(wsdl:, ssl_verify_mode: :none, basic_auth: [])
   Savon.client(wsdl: wsdl,

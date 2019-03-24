@@ -5,6 +5,9 @@ require_relative 'auxiliars/environments'
 require_relative 'auxiliars/helper'
 require_relative 'auxiliars/credentials'
 
+# Post Office
+require_relative 'post_office/requests/search_post_office'
+
 # Pricefier
 require_relative 'pricefier/requests/calculate_deadline'
 require_relative 'pricefier/requests/calculate_price'
@@ -48,6 +51,12 @@ module Correios
 
   def self.credentials
     @credentials ||= Credentials.new
+  end
+
+  module PostOffice
+    def self.search_post_office(data = {})
+      SearchPostOffice.new(data).request
+    end
   end
 
   module Pricefier
