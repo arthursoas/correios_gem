@@ -101,7 +101,7 @@ Correios::Sigep.cancel_shipping({
 
 Console:
 
-```
+```XML
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://cliente.bean.master.sigep.bsb.correios.com.br/">
   <soap:Body>
     <ns1:bloquearObjeto>
