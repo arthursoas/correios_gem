@@ -159,8 +159,8 @@ module Correios
       SearchAvailableAdditionalServices.new(data).request
     end
 
-    def self.search_customer(data = {})
-      SearchCustomer.new(data).request
+    def self.search_customer(credentials, data = {})
+      SearchCustomer.new(credentials, data).request
     end
 
     def self.search_zip_code(data = {})
