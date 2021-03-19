@@ -75,8 +75,8 @@ module Correios
       CalculatePriceDeadline.new(data).request('CalcPrecoPrazoRestricao')
     end
 
-    def self.calculate_price(data = {})
-      CalculatePrice.new(data).request('CalcPreco')
+    def self.calculate_price(credentials, data = {})
+      CalculatePrice.new(credentials, data).request('CalcPreco')
     end
 
     def self.calculate_price_fac(data = {})
