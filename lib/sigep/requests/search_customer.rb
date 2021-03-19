@@ -53,8 +53,8 @@ module Correios
         @services = []
 
         client = {
-                  cnpj: response[:cnpj],
-                  administrative_code: response[:contratos][:cartoes_postagem][:codigo_administrativo]
+                  cnpj: response[:cnpj].strip,
+                  administrative_code: response[:contratos][:cartoes_postagem][:codigo_administrativo].strip
                 }
 
         contracts.map {|c| format_contract(c)}

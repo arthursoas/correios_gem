@@ -1,8 +1,8 @@
 module Correios
   module Pricefier
     class CalculatePrice < Helper
-      def initialize(data = {})
-        @credentials = Correios.credentials
+      def initialize(credentials, data = {})
+        @credentials = credentials
         @show_request = data[:show_request]
 
         @service_codes = data[:service_codes]
@@ -41,8 +41,8 @@ module Correios
           xml['soap'].Envelope(Pricefier.namespaces) do
             xml['soap'].Body do
               xml['ns1'].send(@method) do
-                xml.nCdEmpresa @credentials.administrative_code
-                xml.sDsSenha @credentials.sigep_password
+                xml.nCdEmpresa @credentials[:administrative_code]
+                xml.sDsSenha @credentials[:sigep_password]
                 xml.nCdServico array_to_string_comma(@service_codes)
                 xml.sCepOrigem @source_zip_code
                 xml.sCepDestino @target_zip_code
