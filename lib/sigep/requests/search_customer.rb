@@ -89,7 +89,7 @@ module Correios
           code: service[:codigo].strip,
           description: service[:descricao].strip,
           id: service[:id].strip,
-          seal: sigep_service[:chancela][:chancela],
+          seal: sigep_service.dig(:chancela, :chancela),
           conditions: {
             dimensions_required: sigep_service[:exige_dimensoes],
             addtional_price_required: sigep_service[:exige_valor_cobrar],
