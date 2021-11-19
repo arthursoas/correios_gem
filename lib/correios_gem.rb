@@ -50,6 +50,14 @@ module Correios
     @credentials ||= Credentials.new
   end
 
+  def self.env
+    @env
+  end
+
+  def self.env=(env)
+    @env = env
+  end
+
   module Pricefier
     def self.calculate_deadline(data = {})
       CalculateDeadline.new(data).request('CalcPrazo')

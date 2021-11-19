@@ -1,4 +1,11 @@
 module Correios
+  class Environment
+    attr_accessor :env
+
+    def initialize
+      self.sigep_user = :development
+    end
+  end
   module Pricefier
     def self.client
       base_client(wsdl: wsdl)
@@ -87,8 +94,5 @@ def base_client(wsdl:, ssl_verify_mode: :none, basic_auth: [])
 end
 
 def production_env?
-  return false unless defined?(Rails)
-  return true if Rails.env.production?
-
-  false
+  Correios.env == :production
 end
