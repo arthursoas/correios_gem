@@ -59,7 +59,7 @@ module Correios
         label_numbers = []
         while initial_number <= final_number do
           letters = response[0].dup.delete('0-9')
-          label_numbers << letters.insert(2, "#{initial_number}")
+          label_numbers << letters.insert(2, "#{initial_number.to_s.rjust(8, '0')}")
           initial_number += 1
         end
 
